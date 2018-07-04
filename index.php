@@ -66,7 +66,7 @@ require_once 'main/config.inc.php';
 </head>
 
 <body>
-<form action = "<?php echo $login;?>"	method = "post">
+<form action = "<?php echo $home;?>"	method = "post">
 	<div class="container">
 		<div class="top">
 			<h1 id="title" class="hidden"><span id="logo"> <span>Student and Examination Department</span></span></h1>
