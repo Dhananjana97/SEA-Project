@@ -1,0 +1,48 @@
+ol.a {
+    background: #ff9999;
+    padding: 20px;
+}
+
+ul.a{
+    background:transparent;
+      
+
+    padding: 20px;
+    margin-bottom:80px;
+    width:100%
+
+    
+}
+
+ol li.a {
+    background: #ffe5e5;
+    padding: 20px;
+    margin-left: 35px;
+    
+}
+
+ul li.a {
+    background: #9d9d9d;
+    
+      
+    margin: 5px;
+     
+}
+
+ul.b{
+    background:transparent;
+    width:35%;
+      
+
+    padding: 20px;
+    
+
+    
+}
+
+ul li.b {
+    background:transparent;
+      
+    margin: 5px;
+     
+}

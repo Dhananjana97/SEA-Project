@@ -1,0 +1,47 @@
+<Doctype! html>
+<html>
+<head>
+<title>Student Registration For Exams</title>
+</head>
+
+<body>
+
+
+<form action="reg.php" >
+	<fieldset>
+	<legend>Enter Student Details</legend>
+	</br></br>
+	<label>Index No. &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</lable>
+	<input type="text" name="indexno"></br></br>
+	
+	<label>Full Name&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</label>
+	<input type="text" name="fname"></br></br>
+	
+	<label>Department&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</label>
+	<select name="dept">
+		<option value="cse">Computer Science and Engineering</option>
+		<option value="ee">Electrical Engineering</option>
+		<option value="ce">Civil Engineering</option>
+	</select></br></br>
+	
+	<input type="radio" name="sem" value="1">
+	<label>1st Semester</label><br>
+	<input type="radio" name="sem" value="2">
+	<label>2nd Semester</label>
+	<input type="radio" name="sem" value="3">
+	<label>3rd Semester</label>
+	<input type="radio" name="sem" value="4">
+	<label>4th Semester</label></br></br>
+
+	<label>Other notes	:</label>
+	<input type="text" name="onotes" ></br></br>
+	
+	
+	<input type="button" name="cancel" value="Cancel">
+	<input type="submit" name="Submit">
+	</fieldset>
+</form>
+
+
+</body>
+</html>
