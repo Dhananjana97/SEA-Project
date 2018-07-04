@@ -5,7 +5,7 @@ if(isset($_SESSION['user'])){$user = $_SESSION['user']; $links = $user->links;}e
 if(isset($_GET['logout'])&&$_GET['logout']=='true'){logout();}
 
 function logout(){
-	global $login;
+	global $home;
 	unset($_SESSION['user']);
 	header('Location: '.$home);
 }
@@ -111,16 +111,12 @@ function logout(){
           <div class="sidebar_top">
 		  </div>
           <div class="sidebar_item">
-		  <h3>Latest News</h3>
-            <h4>New Website Launched</h4>
-            <h5>February 1st, 2014</h5>
-            <p>2014 sees the redesign of our website. Take a look around and let us know what you think.<br /><a href="#">Read more</a></p>
             <h3>Useful Links</h3>
             <ul>
-              <li><a href="#">link 1</a></li>
-              <li><a href="#">link 2</a></li>
-              <li><a href="#">link 3</a></li>
-              <li><a href="#">link 4</a></li>
+              <li><a href="https://mrt.ac.lk">UOM Site</a></li>
+              <li><a href="https://online.mrt.ac.lk">Moodle</a></li>
+              <li><a href="https://lms.mrt.ac.lk">LMS</a></li>
+              <li><a href="https://webmail.mrt.ac.lk">UOM Mail</a></li>
             </ul>
           </div>
           <div class="sidebar_base"></div>

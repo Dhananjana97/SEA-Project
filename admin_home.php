@@ -1,5 +1,5 @@
 <?php include 'header.php';
-if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="admin"){header('Location: login.php'); exit();}
+if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="admin"){header('Location: $home'); exit();}
 ?>
 <html>
 <main>
