@@ -1,5 +1,6 @@
-      </div>
-    </div
+
+		      </div>
+    </div>
 	
     <div id="content_footer"></div>
     <div id="footer">
@@ -9,3 +10,4 @@
   </div>
 </body>
 </html>
+
