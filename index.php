@@ -1,144 +1,113 @@
-<?php require '/main/config.inc.php';?>
+<?php
+require_once 'main/config.inc.php';
+	$privilege;
+	session_start();
+	if(isset($_SESSION['user'])&&!empty($_SESSION['user'])){
+		$user_name = strtolower($_SESSION['user']->id);
+		echo '<center><br><br>You are logged in as '.$user_name.
+			'<br>You will be redirected to your home in 5s.</center>';
+			header('Refresh: 5;url='.$_SESSION["user"]->type.'_home.php');
+		exit();
+	}
+	if(isset($_POST['user_name'])&&!empty($_POST['user_name'])&&isset($_POST['password'])&&!empty($_POST['password'])){
+		$user_name = strtolower($_POST['user_name']);
+		$password = $_POST['password'];
+		login($user_name, $password);
+	}
+	
+	function login($user, $pass){
+		global $privilege;
+		$mydb = openDB();
+		$user_name = $user;
+		$password = $pass;
+		$privilege = mysqli_fetch_array(mysqli_query($mydb, "SELECT privilege FROM user_list WHERE user_name = '$user_name' and password = '$password'"));
+		
+		if (!empty($privilege[0])){
+			switch(strtolower($privilege[0])){
+				case 'student':
+					$_SESSION['user'] = new Student($user_name);
+				break;
+				case 'instructor':
+					$_SESSION['user'] = new Instructor($user_name);
+				break;
+				case 'lecturer':	
+					$_SESSION['user'] = new Lecturer($user_name);
+				break;
+				case 'admin':
+					$_SESSION['user'] = new Admin($user_name);
+				break;
+			}
+			gotouserhome();
+		}
+		mysqli_close($mydb);
+	}
+	
+	function gotouserhome(){
+		global $privilege;
+		header("Location:	".$_SESSION['user']->type."_home.php");
+		exit;
+	}
+?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
-  <head>
+<head>
+	<meta charset="utf-8">
+	<title>Student and Examination Department: Log in to the site</title>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+	<!-- Google Fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
 
-    <title>Half Slider - Start Bootstrap Template<?php echo 'Hello';?></title>
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Custom Stylesheet -->
+	<link rel="stylesheet" href="css/style.css">
 
-    <!-- Bootstrap core CSS -->
-    <link href="includes/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
 
-    <!-- Custom styles for this template -->
-    <link href="includes/css/half-slider.css" rel="stylesheet">
+<body>
+<form action = "<?php echo $login;?>"	method = "post">
+	<div class="container">
+		<div class="top">
+			<h1 id="title" class="hidden"><span id="logo"> <span>Student and Examination Department</span></span></h1>
+		</div>
+		<div class="login-box animated fadeInUp">
+			<div class="box-header">
+				<h2>Log In</h2>
+			</div>
+			<label for="username">Username</label>
+			<br/>
+			<input type="text" id="username" name="user_name">
+			<br/>
+			<label for="password">Password</label>
+			<br/>
+			<input type="password" id="password" name="password">
+			<br/>
+			<button class="login100-form-btn" type = "submit">Sign In</button>
+			<br/>
+			<a href="#"><p class="small">Forgot your password?</p></a>
+		</div>
+	</div>
+</form>
+</body>
 
-    <!-- navigate menu-->
-    <link rel="stylesheet" type="text/css" href="includes/css/navi.css">
-
-  </head>
-
-  <body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#">Start Bootstrap</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="<?php echo $home;?>">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="<?php echo $aboutus;?>">About</a>
-            </li>
-            <li class="nav-item">
-              <div class="dropdown">
-                <a class="nav-link">Dropdown</button>
-                <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
-</div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="<?php echo $contactus;?>">Contact</a>
-            </li>
-             <li class="nav-item">
-              <a class="nav-link" href="<?php echo $downloads;?>">Downloads</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="<?php echo $profile;?>">Profile</a>
-            </li>
-			<li class="nav-item">
-             
-			  <?php	session_start(); if(isset($_SESSION['user'])){
-						$logname = strtoupper($_SESSION['user']->id);
-					}
-					else{
-						$logname = 'Login';
-					}
-					echo '<a class="nav-link" href="'.$login.'"><strong>'.$logname.'</strong></a>';
-				?>"
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <header>
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner" role="listbox">
-          <!-- Slide One - Set the background image for this slide in the line below -->
-          <div class="carousel-item active" style="background-image: url('<?php echo $images;?>blog03.jpg')">
-            <div class="carousel-caption d-none d-md-block">
-              <h3>First Slide</h3>
-              <p>This is a description for the first slide.</p>
-            </div>
-          </div>
-          <!-- Slide Two - Set the background image for this slide in the line below -->
-          <div class="carousel-item" style="background-image: url('<?php echo $images;?>2nd slide.jpg')">
-            <div class="carousel-caption d-none d-md-block">
-              <h3>Second Slide</h3>
-              <p>This is a description for the second slide.</p>
-            </div>
-          </div>
-          <!-- Slide Three - Set the background image for this slide in the line below -->
-          <div class="carousel-item" style="background-image: url('<?php echo $images;?>3rd.jpg')">
-            <div class="carousel-caption d-none d-md-block">
-              <h3>Third Slide</h3>
-              <p>This is a description for the third slide.</p>
-            </div>
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-    </header>
-
-    <!-- Page Content -->
-    <section class="py-5">
-      <div class="container">
-        <h1>Half Slider by Start Bootstrap</h1>
-        <p>The background images for the slider are set directly in the HTML using inline CSS. The rest of the styles for this template are contained within the
-          <code>half-slider.css</code>
-          file.</p>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <?php include 'includes/footer.php';?>
-      </div>
-      <!-- /.container -->
-    </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="includes/vendor/jquery/jquery.min.js"></script>
-    <script src="includes/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  </body>
+<script>
+	$(document).ready(function () {
+    	$('#logo').addClass('animated fadeInDown');
+    	$("input:text:visible:first").focus();
+	});
+	$('#username').focus(function() {
+		$('label[for="username"]').addClass('selected');
+	});
+	$('#username').blur(function() {
+		$('label[for="username"]').removeClass('selected');
+	});
+	$('#password').focus(function() {
+		$('label[for="password"]').addClass('selected');
+	});
+	$('#password').blur(function() {
+		$('label[for="password"]').removeClass('selected');
+	});
+</script>
 
 </html>

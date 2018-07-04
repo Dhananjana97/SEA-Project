@@ -1,13 +1,13 @@
 <?php 
 require_once 'main/config.inc.php';
 session_start();
-if(isset($_SESSION['user'])){$user = $_SESSION['user']; $links = $user->links;}
+if(isset($_SESSION['user'])){$user = $_SESSION['user']; $links = $user->links;}else header('Location: '.$home);
 if(isset($_GET['logout'])&&$_GET['logout']=='true'){logout();}
 
 function logout(){
 	global $login;
 	unset($_SESSION['user']);
-	header('Location: '.$login);
+	header('Location: '.$home);
 }
 ?>
 
@@ -45,7 +45,7 @@ function logout(){
         <ul id="menu" >
           <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
 			<li class="selected">
-			<a href="<?php echo $home;?>">Home</a></li>
+			<a href="<?php if(!isset($_SESSION['user']))echo $_SESSION['user']->type."_home.php";else echo $home;?>">Home</a></li>
 			<li><a href="<?php echo $services;?>">Services</a></li>
 			<li><a href="<?php echo $gallery;?>">Gallery</a></li>
 			<li><a href="<?php echo $aboutus;?>">About</a></li>
