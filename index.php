@@ -4,9 +4,7 @@ require_once 'main/config.inc.php';
 	session_start();
 	if(isset($_SESSION['user'])&&!empty($_SESSION['user'])){
 		$user_name = strtolower($_SESSION['user']->id);
-		echo '<center><br><br>You are logged in as '.$user_name.
-			'<br>You will be redirected to your home in 5s.</center>';
-			header('Refresh: 5;url='.$_SESSION["user"]->type.'_home.php');
+		header('url='.$_SESSION["user"]->type.'_home.php');
 		exit();
 	}
 	if(isset($_POST['user_name'])&&!empty($_POST['user_name'])&&isset($_POST['password'])&&!empty($_POST['password'])){

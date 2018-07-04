@@ -5,12 +5,13 @@ if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="student"){header('Locat
 <html>
 <style>
 table, th, td {
-    border: 1px solid black;
+    border: 5px solid black;
     border-collapse: collapse;
+	    padding: 5px;
+    text-align: left;
 }
 th, td {
-    padding: 8px 20px;
-    text-align: left;
+
 }
 .inlink a{
 	text-decoration: none;
