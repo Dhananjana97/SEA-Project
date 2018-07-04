@@ -51,4 +51,4 @@ function listFolderFiles($dir, $path=null){
 <!--pass paper directory path goes here-->
 <?php listFolderFiles('/wamp64/www/SeaFinal/Passpapers');?>
 </div></>
-<?php require_once 'footer.php';?>
+<?php require_once 'footer.php';?></br>

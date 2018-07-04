@@ -1,5 +1,5 @@
 <?php include 'header.php';
-if(!isset($_SESSION['user'])){header('Location: login.php'); exit();}
+if(!isset($_SESSION['user'])){header('Location:'.$home); exit();}
 if(isset($_GET['title'])&&isset($_GET['dir'])){$title = $_GET['title']; $dir = $_GET['dir'];}
 else{die('Please give correct path...');}
 ?>
