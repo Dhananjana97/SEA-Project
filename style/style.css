@@ -200,7 +200,7 @@ ul#menu li a:hover
 #site_content
 { width: 100%;
 height:auto;
-position:absolute;
+
   overflow: hidden;
   margin: 10px auto 0 auto;
   margin-top:15px;
@@ -245,9 +245,9 @@ position:absolute;
   padding: 0 5px 40px 0;
   height:auto;
   left:0;
-  margin:9px 10px auto -30px;
+  top:200px;
+  margin:9px 10px 0 -30px;
 	position:absolute;
-	top:0;
 	background-color: #cccccc;
 	margin-right:7.5px;
 	left: 300px;

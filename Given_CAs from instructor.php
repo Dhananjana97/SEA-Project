@@ -6,10 +6,8 @@
 	if(isset($_GET['task']))$task=$_GET['task']; else die("you can only go with selected task");
 
 ?>
-
-<div class="DirList">
 	<h1>Given Assignments For <?php echo "$CA_module";  ?></h1>
-	<link rel="stylesheet" type="text/css" href="style/list_style.css">
+	<link rel="stylesheet" type="text/css" href="includes/list_style.css">
 
 	<?php 
 		
@@ -24,14 +22,26 @@
 			$a = array();
 
 			while ($result_set=mysqli_fetch_assoc($execute_object)) {
-				array_push($a,$result_set);	
+
+
+				
+				array_push($a,$result_set);
+				
+				
+				
+			
 			}
+
+			
+
+			
 
 		}else{
 			echo "Query not executed";
 		}
 
 		
+
 		/*$query2="select * from ".$CA_module." where student_name='".$user."'";
 		$execute_object2=mysqli_query($conn,$query2);
 
@@ -57,11 +67,20 @@
 
 			}
 
+		
+
+
+
+
+			
+
 		}else{
 
 			echo "Query not executed Successfully!!!!!!!";
 			
+	
 		}
+
 
 	function f($a,$count){
 		if(!empty($a[$count])) {
@@ -75,12 +94,21 @@
 			return "Not Submitted";
 		}
 
+
 	}*/ 
 
 	?>
 
 	<h2 style="color:#ffffff;font-style:all;font-family:'Times New Roman',Times,sans-serif;margin-left:30px;margin-right:20px;">Given CA</h2>
 	<input type='button' style="margin-left:75%;" onclick="location.href='add new CA.php?module=<?php echo "$CA_module"?>'" value='Add New CA'>
+
+	
+
+		
+	
+
+
+
 
 <ul class="a">
 	<?php 
@@ -93,15 +121,23 @@
 			$number=$ca['CA_number'];
 			$task=$ca['assignment'];
 			$validity=date_create($ca['valid_duration']); 
-		
+
+			
 		
 			echo "<li class='a'>
 
 			<a href='edit CA.php?module=$CA_module&ca_number=$number'><h2 style='color:#ffffff;opacity:1;'>".$number."                                </h2></a>
 		
+
 			<br>Assignment:-".$task."<br>Valid Duration:".date_format($validity,"Y-m-d H:i:s")."
 
 			
+
+
+
+
+
+
 			</li>";  
 			
 		}
@@ -113,6 +149,10 @@
 			$task=$ca['assignment'];
 			$validity=date_create($ca['valid_duration']);
 			
+
+
+			
+		
 			echo "<li class='a'>
 
 			<a href='Grade CAs.php?module=$CA_module&ca_number=$number'><h2 style='color:#ffffff;opacity:1;'>".$number."                                </h2></a>
@@ -121,13 +161,24 @@
 			<br>Assignment:-".$task."<br>Valid Duration:".date_format($validity,"Y-m-d H:i:s")."
 
 			
+
+
+
+
+
+
 			</li>";  
 			
 		}
 		
+	}{
+
 	}
+
+		
+
 	 ?>
 	
 	</ul>
-</div>
-<?php require_once 'footer.php';?>
+
+	<?php require_once 'footer.php';?>
