@@ -1,5 +1,5 @@
 <?php require_once 'header.php'; require_once './main/config.inc.php';
-if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="student"){header('Location: login.php'); exit();}
+if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="student"){header('Location: '.$home); exit();}
 ?>
 
 <html>

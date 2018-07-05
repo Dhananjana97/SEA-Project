@@ -1,6 +1,6 @@
 <?php 
 	require_once 'header.php';
-	if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="instructor"){header('Location: login.php'); exit();}
+	if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="instructor"){header('Location: '.$home); exit();}
 
 	
 	if(!isset($_GET['task']))

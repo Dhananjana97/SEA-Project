@@ -1,6 +1,6 @@
 <?php
 	require_once 'header.php';
-	if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="student"){header('Location: login.php'); exit();}
+	if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="student"){header('Location: 'login.php); exit();}
 
     $batch=$_SESSION['user']->batch;
 	if(isset($_GET['module']))$CA_module=$_GET['module']; else die("you can only go with selected module");

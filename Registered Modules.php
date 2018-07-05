@@ -1,7 +1,7 @@
 <?php 
 
 	require_once 'header.php';
-	if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="student"){header('Location: login.php'); exit();}
+	if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="student"){header('Location: '.$home); exit();}
      
  ?>
 
