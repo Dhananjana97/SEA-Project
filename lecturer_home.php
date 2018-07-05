@@ -4,6 +4,7 @@ if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="lecturer"){header('Loca
 
 <html>
 <main>
+<h1>Welcome to the Student and Examination Department Official WebSite.</h1>
 <h1>Welcome to Lecturer home</h1>
 Lecturer wants to provide QUIZ
 Lecturer wants to set homework submission link

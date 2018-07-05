@@ -27,7 +27,7 @@ th, td {
 	if(isset($_SESSION['user'])){$user = $_SESSION['user'];}else{die('You must login to see this page!');}
 	if($user->type !='student')die('only student can access this page!');
 	echo	'<div class="inlink">
-				<center><a href="?results=show">View Results</a>&nbsp;<a href="?overallGPA=show">View Overall GPA</a></center><br>
+				<center><a href="?results=show">View Results</a>&nbsp;<a href="?overallGPA=show">View Overall GPA</a></center>
 			</div>';
 	$id = $user->id;
 	$mydb = openDB();
@@ -40,7 +40,7 @@ th, td {
 	$approved = array_pop($result_row);
 	if(!$approved){die('<center>Results not released yet, Try again later!</center>');}
 	if(isset($_GET['results'])&&$_GET['results']=="show"){
-		echo '<center><table>';
+		echo '<center><table style="margin-top:-20px;">';
 		foreach ($result_row as $key => $field){
 			if($field != NULL){
 				echo '<tr><td style="width:300px">'.strtoupper($result_column[$key]->name).'</td>'.'<td><center>'.$field.'</center></td></tr>';
@@ -69,7 +69,7 @@ th, td {
 			$GPA += $gpalist[$result_row[$i]]*$cur_credit;
 			$credit += $cur_credit;
 		}
-		echo '<br><br><center><text style="font-size:20px; font-weight: bold">You Current Overall GPA:  '.$GPA/$credit.'</text></center>';
+		echo '<br><br><br><center><table><tr><td><center><text style="font-size:20px; font-weight: bold">You Current Overall GPA:  '.$GPA/$credit.'</text></td></tr></table></center>';
 	}
 ?>
 

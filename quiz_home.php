@@ -14,6 +14,15 @@ th, td {
     padding: 8px 20px;
     text-align: left;
 }
+
+.internal table, th, td {
+    border-collapse: collapse;
+}
+.internal th, td{
+	height:30px;
+    text-align: center;
+	text-indent:8px;
+}
 .inlink a{
 	text-decoration: none;
     font-size: 22px;
@@ -24,9 +33,13 @@ th, td {
 }
 .questions{}
 .answers ul{list-style-type:decimal;}
-
+#container{
+	padding-left: 20px;
+}
 </style>
 <main>
+
+<div id="container">
 <h3>Have a nice day <?php echo strtoupper($id); ?></h3>
 <?php
 	$students = array(); //need to be from db or main page.
@@ -109,12 +122,13 @@ if($user->type == 'student'&&!isset($_GET['quiz'])){
 	$query = "SELECT * FROM `quizs`";
 	$quiz_query = mysqli_query($mydb, $query);
 	$quizs = array();
+	echo "</br>";
 	while($quiz_row = mysqli_fetch_row($quiz_query)){
 		$participants = explode(',', $quiz_row[4]);
 		$quiz = new Quiz($quiz_row[0], $quiz_row[1], $quiz_row[2], $quiz_row[3], $participants);
 		if(in_array($id, $quiz -> participants) or in_array('*', $quiz -> participants)){
 			$quizs[$quiz->name] = $quiz;
-			echo '<form method="post" action="quiz_home.php?quiz='.$quiz->name.'">'.$quiz->name.'&nbsp;&nbsp;<input type="submit" value="Attempt Now" /></form>';
+			echo '<form method="post" action="quiz_home.php?quiz='.$quiz->name.'"><table class="internal"><tr><td width="800px">'.$quiz->name.'</td><td width="130px"><input style="height:27px;width:120px" type="submit" value="Attempt Now" /></td></tr></table></form>';
 		}
 		$_SESSION['quizs'] = $quizs;
 	}
@@ -186,5 +200,6 @@ elseif($user->type == 'lecturer'){
 	}
 }
 ?>
+</div>
 </main>
 <?php require_once 'footer.php';?>

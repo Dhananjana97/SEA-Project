@@ -110,5 +110,4 @@ function logout(){
       </div>
       <div id="content">
         <!-- insert the page content here -->
-        <h1>Welcome to the Student and Examination Department Official WebSite.</h1>
 		
