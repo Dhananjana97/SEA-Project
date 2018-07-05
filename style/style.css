@@ -198,7 +198,8 @@ ul#menu li a:hover
 { color: #B48A7C;}
 
 #site_content
-{ width: auto;
+{ width: 100%;
+position:absolute;
   overflow: hidden;
   margin: 10px auto 0 auto;
   margin-top:15px;
@@ -239,12 +240,12 @@ ul#menu li a:hover
 
 #content
 { text-align: left;
-  width: auto;
+  width: 980px;
   padding: 0 5px 0 0px;
-  float: left;
+  left:0;
   margin:9px 10px auto -30px;
 	position:absolute;
-	top:188px;
+	top:0;
 	background-color: #cccccc;
 	margin-right:7.5px;
 	left: 300px;
@@ -306,8 +307,8 @@ position:fixed;
   width: 100%;
   font-family: 'trebuchet ms', sans-serif;
   font-size: 100%;
-  height: 60px;
-  padding: 7px 0 5px 0;
+  height: 20px;
+  padding: 4px 0 5px 0;
   text-align: center; 
   background: #000;
   border-top: 2px solid #2D2D2D;

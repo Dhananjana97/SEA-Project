@@ -1,7 +1,7 @@
-<h1>Welcome to the Student and Examination Department Official WebSite.</h1>
 <?php include 'header.php';
 if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="student"){header('Location: $home'); exit();}
 ?>
+<h1>Welcome to the Student and Examination Department Official WebSite.</h1>
 <style type = "text/css">
 .formSub{
 	position:relative;
@@ -15,7 +15,6 @@ if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="student"){header('Locat
 }
 
 </style>
-	<br>
 		<h3 style="color:#ff0000;">Announcement:</h3>
 		<div class ="formSub">
 		  No anouncement there for you now

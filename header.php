@@ -7,7 +7,7 @@ if(isset($_GET['logout'])&&$_GET['logout']=='true'){logout();}
 function logout(){
 	global $home;
 	unset($_SESSION['user']);
-	header('Location: '.$home);
+	header("Location: $home");
 }
 ?>
 
@@ -23,6 +23,7 @@ function logout(){
 </head>
 
 <body>
+<script type="text/javascript" src="main/scripts/jquery-3.3.1.min.js"></script>
   <div id="main">
     <div id="header">
 		

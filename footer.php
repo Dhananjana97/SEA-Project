@@ -3,8 +3,7 @@
 	</div>
 	</div>
     <div id="footer">
-      <p><a href="index.html">Home</a> | <a href="<?php echo $contactus;?>">Contact Us</a></p>
-      <p>| Copyright &copy; Students and Exams Administration |</p>
+      <p>Copyright &copy; Students and Exams Administration 2018</p>
     </div>
 
   </div>

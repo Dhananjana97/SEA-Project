@@ -1,8 +1,9 @@
 <?php
 include 'header.php';
 if(!isset($_SESSION['user'])){header('Location: $home'); exit();}
+if(isset($_GET['uploadedto'])&&!empty($_GET['uploadedto'])){$uploadedto = $_GET['uploadedto'];}  else $uploadedto="/";
 $upload_success = false;
-   if(isset($_FILES['fileToUpload'])){
+   if(isset($_FILES['fileToUpload'])&&!empty(isset($_FILES['fileToUpload']))){
       $errors= array();
       $file_name = $_FILES['fileToUpload']['name'];
       $file_size =$_FILES['fileToUpload']['size'];
@@ -15,7 +16,7 @@ $upload_success = false;
       }
       
       if(empty($errors)==true){
-         move_uploaded_file($file_tmp,"/".$file_name);
+         move_uploaded_file($file_tmp,$uploadedto.$file_name);
          $upload_success = true;
       }else{
          print_r($errors);
@@ -27,7 +28,7 @@ $upload_success = false;
 .formSub{
 	position:relative;
 	width: 600px;
-	height: 300px;
+	min-height: 250px;
 	left:50%;
     padding: 12px 10px;
     margin: 8px 12px;
@@ -45,6 +46,7 @@ p[name="note"]{
 }
 
 </style>
+<script type="text/javascript" src="../main/"></script>
 	<body>
 	<main>
 	<br><br>
@@ -54,8 +56,9 @@ p[name="note"]{
 		  <h3 style="margin-left:7.5ex; color:#333;">Select file to upload:</h3>
 		  <br><br><br><br>
 		  <form align="center" action="submission.php" class = "submission" method="POST" enctype="multipart/form-data">
-			 <center><input font-size="20px" type="file" name="fileToUpload" />&nbsp;&nbsp;&nbsp;
-			 <input type="submit"/>
+			 <center><input style="height:30px;" font-size="20px" type="file" name="fileToUpload" />&nbsp;&nbsp;&nbsp;
+			 <input value="Upload File" style="height:30px; padding:0 5px;" type="submit"/>&nbsp;&nbsp;&nbsp;
+			 <button style="width:30px; height:30px; font-size:20px; font-weight:bold;">+</button>
 			 <br><br><br>
 			 <p name="note" align="right" style="margin-right:8ex;">Maximum size for new files: 20MB, maximum attachments: 1</p>
 		  </form>
