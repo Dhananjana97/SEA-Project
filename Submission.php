@@ -1,6 +1,6 @@
 <?php
-if(!isset($_SESSION['user'])){header('Location: login.php'); exit();}
 include 'header.php';
+if(!isset($_SESSION['user'])){header('Location: $home'); exit();}
 $upload_success = false;
    if(isset($_FILES['fileToUpload'])){
       $errors= array();
@@ -11,7 +11,7 @@ $upload_success = false;
       
       
       if($file_size > 2097152){
-         $errors[]='File size must be exactly 20 MB';
+         $errors[]='File size must be less than 20 MB';
       }
       
       if(empty($errors)==true){
@@ -35,6 +35,7 @@ $upload_success = false;
 	border: 2px solid #007799;
     border-radius: 15px;
 	transform: translate(-50%, 0%);
+	margin-left:100px;
 }
 input{
 	font-size:17px;
@@ -53,9 +54,9 @@ p[name="note"]{
 		  <h3 style="margin-left:7.5ex; color:#333;">Select file to upload:</h3>
 		  <br><br><br><br>
 		  <form align="center" action="submission.php" class = "submission" method="POST" enctype="multipart/form-data">
-			 <input font-size="20px" type="file" name="fileToUpload" />
+			 <center><input font-size="20px" type="file" name="fileToUpload" />&nbsp;&nbsp;&nbsp;
 			 <input type="submit"/>
-			 <br><br>
+			 <br><br><br>
 			 <p name="note" align="right" style="margin-right:8ex;">Maximum size for new files: 20MB, maximum attachments: 1</p>
 		  </form>
 		</div>

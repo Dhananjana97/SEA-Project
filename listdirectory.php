@@ -1,17 +1,18 @@
 <?php include 'header.php';
-if(!isset($_SESSION['user'])){header('Location: login.php'); exit();}
+if(!isset($_SESSION['user'])){header('Location:'.$home); exit();}
 if(isset($_GET['title'])&&isset($_GET['dir'])){$title = $_GET['title']; $dir = $_GET['dir'];}
 else{die('Please give correct path...');}
 ?>
 <html>
 <style>
 .DirList{
-	padding: 12px 120px;
+	margin:0 10px 0 0;
+	
+	padding: 12px 40px;
 	border: 1px solid #090909;
 	width: auto;
 }
 a[class="listing"]{
-	
 	font-weight:regular;
 	text-decoration:none;
 	color:Black;
@@ -21,7 +22,6 @@ a[class="listing"]{
 }
 </style>
 <main>
-<br>
 <?php
 echo '<h2>'.$title.'</h2>';
 function listFolderFiles($dir){

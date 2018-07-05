@@ -7,7 +7,7 @@ html
 
 body
 { font: normal .80em 'trebuchet ms', arial, sans-serif;
-  background: #FFF;
+  background: #cccccc;
   color: #555;}
 
 p
@@ -96,9 +96,15 @@ ol li
 
 
   
-#main, #logo, #menubar, #site_content, #footer
+#main{
+	  min-height:100%;
+   position:relative;	
+}
+
+#logo, #menubar, #site_content
 { margin-left: ; 
-  margin-right: ;}
+  margin-right: ;
+}
 
 #header
 { background: #000;
@@ -236,11 +242,10 @@ ul#menu li a:hover
   width: auto;
   padding: 0 5px 0 0px;
   float: left;
-  margin:0px 10px auto -30px;
+  margin:9px 10px auto -30px;
 	position:absolute;
 	top:188px;
-	background-color: #fff;
-	opacity:0.8;
+	background-color: #cccccc;
 	margin-right:7.5px;
 	left: 300px;
 	font-size: 18px; /* Increased text to enable scrolling */
@@ -295,11 +300,14 @@ ul#menu li a:hover
 }  
 
 #footer
-{ width: 100%;
+{
+position:fixed;
+   bottom:0;
+  width: 100%;
   font-family: 'trebuchet ms', sans-serif;
   font-size: 100%;
-  height: 80px;
-  padding: 28px 0 5px 0;
+  height: 60px;
+  padding: 7px 0 5px 0;
   text-align: center; 
   background: #000;
   border-top: 2px solid #2D2D2D;

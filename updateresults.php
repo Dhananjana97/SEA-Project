@@ -4,7 +4,20 @@ if(!isset($_SESSION['user'])){header('Location: login.php'); exit();}
 
 <html>
 <main>
-
+<style>
+.internal table, th, td {
+    border-collapse: collapse;
+}
+.internal th, td{
+	height:30px;
+    text-align: center;
+	text-indent:8px;
+	min-width:170px;
+}
+#container{
+	padding-left: 20px;
+}
+</style>
 <?php
 	if(isset($_GET['module_name'])){
 		$module_name = $_GET['module_name'];
@@ -36,8 +49,8 @@ if(!isset($_SESSION['user'])){header('Location: login.php'); exit();}
 <br>
 <div style="position:relative; width:900px; margin: 40px 40px;">
 	<form method="POST" action="#" id="result">
-		<textarea style = "color:#999; font-size:32px; width:900px; height:650px;" name="result" form="result">
-			Enter Results separated by commas...&#13;Eg:&#13;&nbsp;&nbsp;160xxxX A+,&#13;&nbsp;&nbsp;160xxxX A,&#13;&nbsp;&nbsp;160xxxX A+&#13;
+		<textarea style = "padding:10px; color:#999; font-size:32px; width:900px; height:650px;" name="result" form="result">Enter Results separated by commas...
+Eg:&#13;&nbsp;&nbsp;160xxxX A+,&#13;&nbsp;&nbsp;160xxxX A,&#13;&nbsp;&nbsp;160xxxX A+&#13;
 		</textarea>
 		<br><br>
 		<input type="submit" value="submit result" style="font-size:25px; float:right; "name="submit_result" disabled/>
@@ -54,7 +67,7 @@ if(!isset($_SESSION['user'])){header('Location: login.php'); exit();}
 		mysqli_close($mydb);
 		echo '<div style="width:900px; margin:40px 40px;">';
 		while($module = mysqli_fetch_row($result)[0]){
-			echo $module.'<a href="?module_name='.$module.'" style="float:right">Update results</a><br>';
+			echo '<table class="internal"><tr><td width="800px">'.$module.'</td><td><center><a href="?module_name='.$module.'">Update results</a></center></td></tr></table>';
 		}
 		echo '</div>';
 	}

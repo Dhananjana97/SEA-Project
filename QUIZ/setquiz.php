@@ -1,4 +1,15 @@
-<div style="line-height:2;">
+<style>
+#setquiz table{
+	border-collapse: collapse;
+	
+}
+#setquiz table,td,th{
+	border-collapse: collapse;
+	background-color:red;
+}
+
+</style>
+<div style="line-height:2; margin-left:20px;">
 <?php 
 	if(isset($_GET['printmessage'])){echo $_GET['printmessage'];}
 	if(isset($_POST['quizname'])&&!empty($_POST['quizname'])&&isset($_POST['starttime'])&&!empty($_POST['starttime'])&&isset($_POST['endtime'])&&!empty($_POST['endtime'])&&isset($_POST['duration'])&&!empty($_POST['duration'])&&isset($_POST['participants'])&&!empty($_POST['participants'])){
@@ -62,12 +73,12 @@
 	}
 	else{
 		echo '<br><br>
-<form action = "quiz_home.php?content=Quizs" method="POST">
-Quiz Title:&nbsp;&nbsp;&nbsp;<input style="width:820px; padding:4px 3px; border:1px solid #999999;" type="text" name = "quizname"><br>
-Start Time:&nbsp;&nbsp;<input style="padding:3px 3px; border:1px solid #999999;" type="datetime-local" name="starttime"><br>
-End Time:&nbsp;&nbsp;&nbsp;<input style="padding:3px 3px; border:1px solid #999999;" type="datetime-local" name="endtime"><br>
-Duration:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input style="padding:4px 3px; border:1px solid #999999;" type="text" name = "duration"> (in seconds)<br>
-Particpants:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input style="padding:4px 3px; border:1px solid #999999;" type="text" name = "participants"> (Enter group of participants. i.e: *, 2016, 2015 etc.)<br>
+<form action = "quiz_home.php?content=Quizs" method="POST"><table id="setquiz"><tr><td>
+Quiz Title:&nbsp;&nbsp;&nbsp;</td><td><input style="width:820px; padding:4px 3px; border:1px solid #999999;" type="text" name = "quizname"></td></tr><tr><td>
+Start Time:&nbsp;&nbsp;</td><td><input style="padding:3px 3px; border:1px solid #999999;" type="datetime-local" name="starttime"></td></tr><tr><td>
+End Time:&nbsp;&nbsp;&nbsp;</td><td><input style="padding:3px 3px; border:1px solid #999999;" type="datetime-local" name="endtime"></td></tr><tr><td>
+Duration:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td><input style="padding:4px 3px; border:1px solid #999999;" type="text" name = "duration"> (in seconds)</td></tr><tr><td>
+Particpants:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td><input style="padding:4px 3px; border:1px solid #999999;" type="text" name = "participants"> (Enter group of participants. i.e: *, 2016, 2015 etc.)</td></tr></table>
 <input style="padding:4.5px 3px; font-weight:bold; float:right; margin-right:240px;" type = "submit" value = "Create QUIZ">
 </form>';
 		$Quizs = mysqli_query($mydb, "SELECT * FROM `quizs`");
