@@ -26,7 +26,6 @@ function logout(){
 <script type="text/javascript" src="main/scripts/jquery-3.3.1.min.js"></script>
   <div id="main">
     <div id="header">
-		
       <div id="logo">
         <div id="logo_text">
           <!-- class="logo_colour", allows you to change the colour of the text -->
@@ -54,13 +53,15 @@ function logout(){
 			<li><a href="<?php echo $contactus;?>">Contact</a></li>
 			
           <li ><a href='pass_papers.html'><span>Pass Papers</span></a></li>
-		   <li><a href='RegisterForExam.html'><span>Reg. For Exams</span></a></li>
+
+		   <li><a href='RegisterForExamStudent.php'><span>Reg. For Exams</span></a></li>
+
 		   <li><a href='ConSub.html'><span>Con. Ass. Submition</span></a></li>
 		   <li><a href=><span>Con. Ass. Marks</span></a></li>
-		  <!--temporarily hidden <li><a href='time_table.html'><span>Time table</span></a></li>
-		   <li><a href='#'><span>Quizes</span></a></li>
-		   <li><a href='HWSub.html'><span>Home Works</span></a></li>
-		   <li><a href='#'><span>Results</span></a></li>  -->
+		  <li><a href='time_tableStudent.php'><span>Time table</span></a></li>
+            <!--temporarily hidden <li><a href='#'><span>Quizes</span></a></li>
+            <li><a href='HWSub.html'><span>Home Works</span></a></li>
+            <li><a href='#'><span>Results</span></a></li>  -->
         </ul>
       </div>
     </div>
