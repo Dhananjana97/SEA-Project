@@ -205,7 +205,7 @@
                                             
 
                                             if($filet=="pdf") {
-                                                echo "<a href='$file'>"."<img style='padding-top:5px;padding-left:5px;'src='img/pdf_logo.jpg'>"."</a>";
+                                                echo "<a href='$file'>"."<img style='padding-top:5px;padding-left:5px;'src='images/pdf.jpg'>"."</a>";
                                                 
                                                 echo "<br>";
                                                 echo "<a style='padding-left:10px;' href='$file'>".$filen."</a>";
@@ -216,7 +216,7 @@
                                                 echo "<a href='$file'>".$filen."</a>";
 
                                             }elseif($filet=="zip"){
-                                                echo "<a href='$file'>"."<img style='padding-top:5px;padding-left:5px;'src='img/zip.jpg'>"."</a>";
+                                                echo "<a href='$file'>"."<img style='padding-top:5px;padding-left:5px;'src='images/zip.png'>"."</a>";
                                                  echo "<br>";
                                                echo "<a href='$file'>".$filen."</a>";
                                             }elseif($filet=="jpg"){

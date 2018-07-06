@@ -1,4 +1,5 @@
 <?php
+ob_start();
 	require_once 'header.php';
 	if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="instructor"){header('Location: '.$home); exit();}
 

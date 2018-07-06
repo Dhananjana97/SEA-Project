@@ -1,4 +1,5 @@
 <?php
+ob_start();
 
 	require_once 'header.php';
 	if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="instructor"){header('Location: '.$home); exit();}
@@ -19,6 +20,7 @@
         $closing_time=$_POST['closing_time'];
 
         if(isset($_GET['module']))$CA_module=$_GET['module']; else die("you should select module");
+        $module1=$_GET['module'];
         $submitted_file=$_GET['submitted_file'];
         $ar=explode("-",$module1);
         print_r($ar);
@@ -139,9 +141,10 @@
 
       
 
-        
+        $conn=openDB();
 
         $ex=mysqli_query($conn,$query2);
+        mysqli_close($conn);
 
         if ($ex) {
             echo "kkkkkkkkkkkkk";
@@ -154,7 +157,7 @@
 
     }
 
-     header("Location:edit CA.php?module={$module1}&ca_number={$assignment_name}&errors={$errors}");
+     header("Location:edit CA.php?module={$module1}&ca_number={$assignment_name}&errors=");
 
 	require_once 'footer.php';
  ?>
