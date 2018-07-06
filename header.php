@@ -1,7 +1,10 @@
 <?php 
 require_once 'main/config.inc.php';
 session_start();
-if(isset($_SESSION['user'])){$user = $_SESSION['user']; $links = $user->links;}else header('Location: '.$home);
+if(isset($_SESSION['user'])){
+	$user = $_SESSION['user']; 
+	$links = $user->links;
+}else header('Location: '.$home);
 if(isset($_GET['logout'])&&$_GET['logout']=='true'){logout();}
 
 function logout(){
@@ -94,6 +97,90 @@ function logout(){
           </div>
 		  <div class="sidebar_base"></div>
         </div>
+
+        <style>
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+</style>
+
+
+          <div class="sidebar">
+		<div class="sidebar_top"></div>
+          <div class="sidebar_item">
+		  
+            <!-- insert your sidebar items here -->
+         
+			
+			<div id="dashboard">
+			<!-- registered modules-->
+			
+			<?php 
+				if ($user->type == "instructor") {
+					echo "<div><h2>Registered Modules</h2></div>";
+				$registeredModules=$user->getRegisteredModules($user);
+
+
+				
+					foreach ($registeredModules as $m) {
+					      echo '<li><div class="dropdown">
+                          <a>'.$m.'</a>
+                          <div class="dropdown-content">
+                          <a href="Given_CAs from instructor.php?module='.$m.'&task=1">Edit CA</a>
+                          <a href="Given_CAs from instructor.php?module='.$m.'&task=2">Evaluate CA</a>
+    
+                         </div>
+                         </div></li>';
+				    }
+				}
+				
+
+				
+
+
+
+
+
+
+
+
+			 ?>
+			</div>
+			
+          </div>
+		  <div class="sidebar_base"></div>
+        </div>
 		
         <div class="sidebar">
           <div class="sidebar_top"></div>
@@ -106,8 +193,12 @@ function logout(){
               <li><a href="https://webmail.mrt.ac.lk">UOM Mail</a></li>
             </ul>
           </div>
-          <div class="sidebar_base"></div>
+           <div class="sidebar_base"></div>
         </div>
+
+
+
+
       </div>
       <div id="content">
         <!-- insert the page content here -->

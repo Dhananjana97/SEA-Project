@@ -241,14 +241,16 @@ height:auto;
 
 #content
 { text-align: left;
-  width: 980px;
+  width: 900px;
+  border:2px solid black;
   padding: 0 5px 40px 0;
   height:auto;
+  margin-bottom:100px;
   left:0;
   top:200px;
   margin:9px 10px 0 -30px;
 	position:absolute;
-	background-color: #cccccc;
+	background-color: white;
 	margin-right:7.5px;
 	left: 300px;
 	font-size: 18px; /* Increased text to enable scrolling */
