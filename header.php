@@ -52,14 +52,12 @@ function logout(){
 			<li><a href="<?php echo $contactus;?>">Contact</a></li>
 			
           <li ><a href='pass_papers.html'><span>Pass Papers</span></a></li>
-<<<<<<< HEAD
-		   <li><a href='RegisterForExam.php'><span>Reg. For Exams</span></a></li>
-=======
-		   <li><a href='RegisterForExam.html'><span>Reg. For Exams</span></a></li>
->>>>>>> f76ffa6082d13254653a66b476b05699da629f9e
+
+		   <li><a href='RegisterForExamStudent.php'><span>Reg. For Exams</span></a></li>
+
 		   <li><a href='ConSub.html'><span>Con. Ass. Submition</span></a></li>
 		   <li><a href=><span>Con. Ass. Marks</span></a></li>
-		  <li><a href='time_table.php'><span>Time table</span></a></li>
+		  <li><a href='time_tableStudent.php'><span>Time table</span></a></li>
             <!--temporarily hidden <li><a href='#'><span>Quizes</span></a></li>
             <li><a href='HWSub.html'><span>Home Works</span></a></li>
             <li><a href='#'><span>Results</span></a></li>  -->
