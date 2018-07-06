@@ -26,10 +26,10 @@
 		if (mysqli_connect_errno()){
 			die("Connection failed(".mysqli_connect_error().")");
 		}
-		$login = 'login.php';
+
 		$images = 'images/';
 		
-		
+		$login = 'index.php';
 		$home = 'index.php';
 		$services = 'services.php';
 		$gallery = 'gallery.php';
@@ -37,7 +37,9 @@
 		$contactus = 'contactus.php';
 		$downloads = 'listdirectory.php?title=Downloads&&dir=.\Downloads';
 		$profile = 'profile.php';
-
 		
+		$mainpath = explode("\\",realpath(dirname(__FILE__)));
+		array_pop($mainpath);
+		$SitePath = implode("/",$mainpath);
 		$quiz_home = 'quiz_home.php';
 ?>

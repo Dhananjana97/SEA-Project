@@ -5,7 +5,7 @@ if(!isset($_SESSION['user'])){header('Location:'.$home); exit();}
 <style>
 .DirList{
 	margin:0 10px 0 0;
-	
+	min-height:80vh;
 	padding: 12px 40px;
 	border: 1px solid #090909;
 	width: auto;
@@ -23,6 +23,7 @@ a[class="listing"]{
 <?php
 echo '<h2>'.$title.'</h2>';
 function listFolders($dir){
+	global $SitePath;
 	$path = parse_url($dir, PHP_URL_PATH);
 	$segments = explode('/', rtrim($path, '/'));
 	$path = '/'.join("/",array_slice($segments,3)).'/';
@@ -37,8 +38,11 @@ function listFolders($dir){
     echo '<ol style="font-size:x-large">';
     foreach($ffs as $ff){
 		$path1 = $path.$ff.'/';
-        echo '<li><a class = "listing">'.$ff.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="text-decoration:none; color:blue;" href="submission?uploadedto='.$dir.'/'.$ff.'">Upload Files</a>';
-        echo '</li></a>';
+		if(is_dir($dir.'/'.$ff))
+        echo '<li><a class = "listing">'.$ff.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="text-decoration:none; color:blue;" href="submission?uploadedto='.$SitePath."/".$dir.'/'.$ff.'">Upload Files</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="text-decoration:none; color:blue;" href="uploadpasspaper?dir='.$dir."/".$ff.'">Go</a>';
+        else
+			echo '<li><a class = "listing">'.$ff;
+		echo '</li></a>';
     }
     echo '</ol>';
 }
@@ -46,6 +50,6 @@ function listFolders($dir){
 ?>
 <div class = "DirList">
 <!--Downloads directory path goes here-->
-<?php listFolders("Passpapers");?>
+<?php if(isset($_GET['dir']))listFolders($_GET['dir']); else listFolders("Passpapers");?>
 </div>
 <?php require_once 'footer.php';?>

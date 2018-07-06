@@ -1,6 +1,6 @@
 <?php 
 	require_once 'header.php';
-	if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="instructor"){header('Location: login.php'); exit();}
+	if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="instructor"){header('Location: '.login.php); exit();}
 
 	if(isset($_GET['module']))$CA_module=$_GET['module']; else die("you can only go with selected module");
 	if(isset($_GET['task']))$task=$_GET['task']; else die("you can only go with selected task");
