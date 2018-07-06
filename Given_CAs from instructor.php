@@ -6,7 +6,7 @@
 	if(isset($_GET['task']))$task=$_GET['task']; else die("you can only go with selected task");
 
 ?>
-	<h1>Given Assignments For <?php echo "$CA_module";  ?></h1>
+	<h1 style="margin-left:20px;font-weight:bold;font-size:50px;">Given Assignments For <?php echo "$CA_module";  ?></h1>
 	<link rel="stylesheet" type="text/css" href="includes/list_style.css">
 
 	<?php 
@@ -99,8 +99,8 @@
 
 	?>
 
-	<h2 style="color:#ffffff;font-style:all;font-family:'Times New Roman',Times,sans-serif;margin-left:30px;margin-right:20px;">Given CA</h2>
-	<input type='button' style="margin-left:75%;" onclick="location.href='add new CA.php?module=<?php echo "$CA_module"?>'" value='Add New CA'>
+	
+	<input type='button' style="margin-left:75%;border:none;color:white;background-color:black;padding:15px 32px;" onclick="location.href='add new CA.php?module=<?php echo "$CA_module"?>'" value='Add New CA'>
 
 	
 
@@ -124,12 +124,12 @@
 
 			
 		
-			echo "<li class='a'>
+			echo "<li>
 
-			<a href='edit CA.php?module=$CA_module&ca_number=$number'><h2 style='color:#ffffff;opacity:1;'>".$number."                                </h2></a>
+			<a href='edit CA.php?module=$CA_module&ca_number=$number'><h2 style='color:black;opacity:1;'>".$number."                                </h2></a>
 		
 
-			<br>Assignment:-".$task."<br>Valid Duration:".date_format($validity,"Y-m-d H:i:s")."
+			<br>Assignment:-".$task."<br>Valid Duration:".date_format($validity,"Y-m-d H:i:s")."<hr style='width:97%'>
 
 			
 
