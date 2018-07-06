@@ -1,6 +1,5 @@
 <?php
 	require_once 'header.php';
-  
 	if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="instructor"){header('Location: '.$home); exit();}
 
     echo "<h1 style='margin-top:40px;'></h1>";
@@ -98,8 +97,6 @@
     }
 
     
-        
-    
 ?>
 
 <?php 
@@ -107,11 +104,6 @@
    // $CA_module=$_GET['module'];
    // $CA_number=$_GET['ca_number'];
    // $submitted_file=$_GET['submitted_file'];
-
-    
-
-
-
 
     if ($file_uploaded) {
 
@@ -131,22 +123,16 @@
 
       }
 
-        
-
-      
-        $conn=openDB();
-        
-
+		$conn = openDB();
         $ex=mysqli_query($conn,$query2);
-        mysqli_close($conn);
-
+		mysqli_close($conn);
         if ($ex) {
             echo "kkkkkkkkkkkkk";
             $query3= "ALTER TABLE `{$batch}{$module}`  ADD `{$assignment_name}` VARCHAR(500) NOT NULL";
             echo "ALTER TABLE `{$module1}`  ADD `{$assignment_name}` VARCHAR(500) NOT NULL  AFTER `mid`";
-
-            $conn=openDB();
+			$conn = openDB();
             $ex2=mysqli_query($conn,$query3);
+<<<<<<< HEAD
             mysqli_close($conn);
 
             if ($ex2) {
@@ -155,6 +141,13 @@
               
             }
             else{
+=======
+			mysqli_close($conn);
+            if ($ex2) {
+              $CA_submitted=true;
+              header("Location:edit CA.php?module=$module1&ca_number=$assignment_name&errors=$errors");
+            }else{
+>>>>>>> 6b63b662deae17a37f1676573b1f8079e54fc18f
               echo "coloumn not added";
             }
 
@@ -164,14 +157,7 @@
             $errors['database_added']="Not Uploaded Successfully";
             echo "Query not executed Successfully";
         }
-
-    
-
     require_once 'footer.php';
-
-    
-
-
  ?>
 
  <?php 
@@ -188,11 +174,6 @@
         $errors['select_CA']="CA not selected Successfully";
         //echo "Query not excecuted Successfully";
     }
-
-    
-
-  
-
 
     header("Location:CA Upload.php?module={$CA_module}&ca_number={$CA_number}&submitted_file={$submitted_file}&file_uploaded");
 

@@ -7,7 +7,7 @@ html
 
 body
 { font: normal .80em 'trebuchet ms', arial, sans-serif;
-  background: #cccccc;
+  background: #eee;
   color: #555;}
 
 p
@@ -153,6 +153,7 @@ ol li
 	margin:5px;
 	padding:5px;
 }
+
 #menubar
 { width: ;
   height: 45px;
@@ -200,7 +201,6 @@ ul#menu li a:hover
 #site_content
 { width: 100%;
 height:auto;
-
   overflow: hidden;
   margin: 10px auto 0 auto;
   margin-top:15px;
@@ -210,28 +210,25 @@ height:auto;
 {
 	margin-top:0px; 
 	float: left;
-  width: 310px;}
-
-.sidebar_top
-{ width: 288px;
-  height: 14px;
-  background: transparent url(side_top.png) no-repeat;}
-
-.sidebar_base
-{ width: 288px;
-  height: 14px;
-  background: url(side_base.png) no-repeat;}
+  width: 290px;}
 
 .sidebar
-{ float: right;
-  width: 288px;
+{ float: left;
+
+  width: 240px;
   padding: 0;
-  margin: 0 0 16px 0;}
+  margin: 0 0 16px 10px;
+  box-sizing: border-box;
+  border: 2px solid #000;
+  border-radius: 10px;
+  background-color:#fff;
+  
+  }
 
 .sidebar_item
-{ background: url(side_back.png) repeat-y;
+{ 
   padding: 0 15px;
-  width: 208px;}
+  width: 260px;}
 
 .sidebar li a.selected
 { color: #444;} 
@@ -241,18 +238,16 @@ height:auto;
 
 #content
 { text-align: left;
-  width: 900px;
-  border:2px solid black;
+  width: 980px;
   padding: 0 5px 40px 0;
   height:auto;
-  margin-bottom:100px;
   left:0;
   top:200px;
-  margin:9px 10px 0 -30px;
-	position:absolute;
-	background-color: white;
+  margin: -5px 10px 0 -50px;
+  position:absolute;
+  background-color: #eee;
 	margin-right:7.5px;
-	left: 300px;
+	left: 320px;
 	font-size: 18px; /* Increased text to enable scrolling */
 	min-height:100%;
 	line-height:1.5;
@@ -268,7 +263,7 @@ height:auto;
   line-height: 1.5em;}
   
 #dashboard{
-	width:200px;
+	width:220px;
 }
 
 #dashboard ul li .sidebar ul li{
@@ -394,7 +389,7 @@ table
 table tr th, table tr td
 { background: #3B3B3B;
   color: #FFF;
-  padding: 7px 4px;
+  padding: 7px 5px;
   text-align: left;}
   
 table tr td

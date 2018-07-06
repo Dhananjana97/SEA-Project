@@ -75,7 +75,7 @@ require_once 'main/config.inc.php';
 			</div>
 			<label for="username">Username</label>
 			<br/>
-			<input type="text" id="username" name="user_name">
+			<input type="text" id="username" name="user_name" value="<?php if(isset($_POST['user_name']))echo $_POST['user_name'];?>">
 			<br/>
 			<label for="password">Password</label>
 			<br/>
