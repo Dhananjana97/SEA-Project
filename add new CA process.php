@@ -149,7 +149,11 @@
             $ex2=mysqli_query($conn,$query3);
             mysqli_close($conn);
 
-            if ($ex2) {header("Location:edit CA.php?module={$module1}&ca_number={$assignment_name}");}
+            if ($ex2) {
+               header("Location:edit CA.php?module={$module1}&ca_number={$assignment_name}");
+               exit();
+              
+            }
             else{
               echo "coloumn not added";
             }

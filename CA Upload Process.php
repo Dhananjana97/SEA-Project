@@ -149,23 +149,32 @@
 
         if (empty($File_name)) {
 
-             $query2="update {$batch}{$CA_module} set {$CA_number}='{$message}|".$_GET['submitted_file']."||{$submitted_time}|{$diff_of_submission_str}-{$submit_t}'where student_name='{$_SESSION['user']}' ";
-             print("update {$batch}{$CA_module} set {$CA_number}='{$message}|".$_GET['submitted_file']."||{$submitted_time}|{$diff_of_submission_str}-{$submit_t}'where student_name='{$_SESSION['user']}' ");
+             $query2="update {$batch}{$CA_module} set {$CA_number}='{$message}|".$_GET['submitted_file']."||{$submitted_time}|{$diff_of_submission_str}-{$submit_t}'where student_name='{$_SESSION['user']->id}' ";
+             print("update {$batch}{$CA_module} set {$CA_number}='{$message}|".$_GET['submitted_file']."||{$submitted_time}|{$diff_of_submission_str}-{$submit_t}'where student_name='{$_SESSION['user']->id}' ");
             
         
         }else{
 
-            $query2="update {$batch}{$CA_module} set {$CA_number}='{$message}|{$upload_to}{$File_name}||{$submitted_time}|{$diff_of_submission_str}-{$submit_t}|'where student_name='{$_SESSION['user']}' ";
+            $query2="update `{$batch}{$CA_module}` set `{$CA_number}`='{$message}|{$upload_to}{$File_name}||{$submitted_time}|{$diff_of_submission_str}-{$submit_t}|'where `{$batch}{$CA_module}`.`student_name`='{$_SESSION['user']->id}' ";
+
+             
+
+
+            
+
+
+
             echo "11111111111111111111";
-            print("update {$batch}{$CA_module} set {$CA_number}='{$message}|{$upload_to}{$File_name}||{$submitted_time}|{$diff_of_submission_str}-{$submit_t}|'where student_name='{$_SESSION['user']}' ");
+            print("update '{$batch}{$CA_module}' set {$CA_number}='{$message}|{$upload_to}{$File_name}||{$submitted_time}|{$diff_of_submission_str}-{$submit_t}|'where student_name='{$_SESSION['user']->id}' ");
         }
 
         
-
+        $conn=openDB();
         $ex=mysqli_query($conn,$query2);
+        mysqli_close($conn);
 
         if ($ex) {
-            echo "uuuuuuuuuuuu";
+            header("Location:CA Upload.php?module={$CA_module}&ca_number={$CA_number}&submitted_file={$submitted_file}&errors={$errors}&task=$task&task_file=$task_file&closing_time=$closing_time");
                                             
         }else{
             $errors['database_added']="Not Uploaded Successfully";
@@ -174,7 +183,8 @@
 
     }
 	require_once 'footer.php';
-   //header("Location:CA Upload.php?module={$CA_module}&ca_number={$CA_number}&submitted_file={$submitted_file}&errors={$errors}&task=$task&task_file=$task_file&closing_time=$closing_time");
+    echo "111111111111111111111111111111";
+  
 
 
  ?>
