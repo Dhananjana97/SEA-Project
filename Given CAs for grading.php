@@ -127,7 +127,7 @@
 
 			
 		
-			echo "<li class='a'>
+			echo "<li>
 
 			<a href='edit CA.php?module=$CA_module&ca_number=$number'><h2 style='color:#ffffff;opacity:1;'>".$number."                                </h2></a>
 		
@@ -156,7 +156,7 @@
 
 			
 		
-			echo "<li class='a'>
+			echo "<li>
 
 			<a href='Grade CAs.php?module=$CA_module&ca_number=$number'><h2 style='color:#ffffff;opacity:1;'>".$number."                                </h2></a>
 		
