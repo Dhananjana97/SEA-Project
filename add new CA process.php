@@ -135,15 +135,16 @@
       
 
         
-
+		$conn = openDB();
         $ex=mysqli_query($conn,$query2);
-
+		mysqli_close($conn);
         if ($ex) {
             echo "kkkkkkkkkkkkk";
             $query3= "ALTER TABLE `{$batch}{$module}`  ADD `{$assignment_name}` VARCHAR(500) NOT NULL";
             echo "ALTER TABLE `{$module1}`  ADD `{$assignment_name}` VARCHAR(500) NOT NULL  AFTER `mid`";
-
+			$conn = openDB();
             $ex2=mysqli_query($conn,$query3);
+			mysqli_close($conn);
             if ($ex2) {
               $CA_submitted=true;
               header("Location:edit CA.php?module={$module1}&ca_number={$assignment_name}&errors={$errors}");
