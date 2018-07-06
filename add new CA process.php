@@ -1,5 +1,6 @@
 <?php
 	require_once 'header.php';
+  
 	if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="instructor"){header('Location: '.$home); exit();}
 
     echo "<h1 style='margin-top:40px;'></h1>";
@@ -133,21 +134,23 @@
         
 
       
-
+        $conn=openDB();
         
 
         $ex=mysqli_query($conn,$query2);
+        mysqli_close($conn);
 
         if ($ex) {
             echo "kkkkkkkkkkkkk";
             $query3= "ALTER TABLE `{$batch}{$module}`  ADD `{$assignment_name}` VARCHAR(500) NOT NULL";
             echo "ALTER TABLE `{$module1}`  ADD `{$assignment_name}` VARCHAR(500) NOT NULL  AFTER `mid`";
 
+            $conn=openDB();
             $ex2=mysqli_query($conn,$query3);
-            if ($ex2) {
-              $CA_submitted=true;
-              header("Location:edit CA.php?module={$module1}&ca_number={$assignment_name}&errors={$errors}");
-            }else{
+            mysqli_close($conn);
+
+            if ($ex2) {header("Location:edit CA.php?module={$module1}&ca_number={$assignment_name}");}
+            else{
               echo "coloumn not added";
             }
 
@@ -161,6 +164,8 @@
     
 
     require_once 'footer.php';
+
+    
 
 
  ?>

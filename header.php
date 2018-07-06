@@ -143,10 +143,9 @@ function logout(){
             <!-- insert your sidebar items here -->
          
 			
-			<div id="dashboard">
-			<!-- registered modules-->
-			
-			<?php 
+			<div id="dashboard"><?php
+
+
 				if ($user->type == "instructor") {
 					echo "<div><h2>Registered Modules</h2></div>";
 				$registeredModules=$user->getRegisteredModules($user);
@@ -163,19 +162,7 @@ function logout(){
                          </div>
                          </div></li>';
 				    }
-				}
-				
-
-				
-
-
-
-
-
-
-
-
-			 ?>
+				}?>
 			</div>
 			
           </div>
