@@ -56,7 +56,7 @@ function logout(){
 			<li><a href="<?php echo $contactus;?>">Contact</a></li>
 			
           <li ><a href='pass_papers.html'><span>Pass Papers</span></a></li>
-		   <li><a href='RegisterForExam.html'><span>Reg. For Exams</span></a></li>
+		   <li><a href='Student\RegisterForExam.php'><span>Reg. For Exams</span></a></li>
 		   <li><a href='ConSub.html'><span>Con. Ass. Submition</span></a></li>
 		   <li><a href=><span>Con. Ass. Marks</span></a></li>
 		  <!--temporarily hidden <li><a href='time_table.html'><span>Time table</span></a></li>
