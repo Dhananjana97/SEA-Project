@@ -1,4 +1,5 @@
 <?php
+ob_start();
 	require_once 'header.php';
 	if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="student"){header('Location: '.$home); exit();}
 ?>
@@ -94,7 +95,7 @@
         }
 
 
-        elseif (!empty($message)) {
+        elseif (!empty($message) or !empty($_GET['submitted_file']) ) {
             $file_uploaded = true;
         }
         else{
@@ -149,7 +150,7 @@
 
         if (empty($File_name)) {
 
-             $query2="update {$batch}{$CA_module} set {$CA_number}='{$message}|".$_GET['submitted_file']."||{$submitted_time}|{$diff_of_submission_str}-{$submit_t}'where student_name='{$_SESSION['user']->id}' ";
+             $query2="update `{$batch}{$CA_module}` set `{$CA_number}`='{$message}|".$_GET['submitted_file']."||{$submitted_time}|{$diff_of_submission_str}-{$submit_t}'where `{$batch}{$CA_module}`.`student_name`='{$_SESSION['user']->id}' ";
              print("update {$batch}{$CA_module} set {$CA_number}='{$message}|".$_GET['submitted_file']."||{$submitted_time}|{$diff_of_submission_str}-{$submit_t}'where student_name='{$_SESSION['user']->id}' ");
             
         

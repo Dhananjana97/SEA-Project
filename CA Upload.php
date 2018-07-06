@@ -129,6 +129,8 @@
 
          $g=explode("|",$submission[$CA_number]);
          
+         print_r($g);
+         print(count($g));
          
 
          
