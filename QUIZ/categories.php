@@ -5,9 +5,9 @@
 	mysqli_close($mydb);
 	echo '<br><br><table>';
 	while($category = mysqli_fetch_row($categories)[0]){
-		echo '<tr><td>'.$category.'</td>
-		<td><a href="?addQuestions='.$category.'"><text style="color:red;list-style-type: none;">Add Questions</text></a></td>
-		<td><a href="?viewQuestions='.$category.'"><text style="color:red;list-style-type: none;">View Questions</text></a></td>
+		echo '<tr><td width = "620px">'.$category.'</td>
+		<td style="padding:0 15px;"><a href="?addQuestions='.$category.'"><text style="color:red;list-style-type: none;">Add Questions</text></a></td>
+		<td style="padding:0 15px;"><a href="?viewQuestions='.$category.'"><text style="color:red;list-style-type: none;">View Questions</text></a></td>
 		</tr>';
 	}
 	echo '</table>';

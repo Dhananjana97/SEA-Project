@@ -74,7 +74,11 @@
 
 <?php 
 
-    if(isset($_GET['module']))$module=$_GET['module']; else die("you should select module");
+    if(isset($_GET['module'])){
+        $module=$_GET['module'];
+    }else{ 
+        die("you should select module");
+    }
     $CA_number=$_GET['ca_number'];
     
     
@@ -177,7 +181,7 @@
                                    
                                    
                                     <div class="form-group">
-                                        <label><i class="fa fa-comment" aria-hidden="true"></i>Assignment</label>
+                                        <label><i class="fa fa-comment" aria-hidden="true" style="font-size:30px;"></i>Assignment</label>
                                         <textarea rows="3" name="message" class="form-control" placeholder="Type Your Message"><?php echo "$Assignment"; ?></textarea>
                                     </div>
                                      <div class="form-group">

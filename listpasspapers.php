@@ -5,7 +5,7 @@ if(!isset($_SESSION['user'])){header('Location:'.$home); exit();}
 <style>
 .DirList{
 	margin:0 10px 0 0;
-	
+	min-height:80vh;
 	padding: 12px 40px;
 	border: 1px solid #090909;
 	width: auto;

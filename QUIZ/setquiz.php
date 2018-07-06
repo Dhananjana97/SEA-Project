@@ -74,14 +74,16 @@
 	else{
 		echo '<br><br>
 <form action = "quiz_home.php?content=Quizs" method="POST"><table id="setquiz"><tr><td>
-Quiz Title:&nbsp;&nbsp;&nbsp;</td><td><input style="width:820px; padding:4px 3px; border:1px solid #999999;" type="text" name = "quizname"></td></tr><tr><td>
+Quiz Title:&nbsp;&nbsp;&nbsp;</td><td><input style="width:740px;margin-right:5px; padding:4px 3px; border:1px solid #999999;" type="text" name = "quizname"></td></tr><tr><td>
 Start Time:&nbsp;&nbsp;</td><td><input style="padding:3px 3px; border:1px solid #999999;" type="datetime-local" name="starttime"></td></tr><tr><td>
 End Time:&nbsp;&nbsp;&nbsp;</td><td><input style="padding:3px 3px; border:1px solid #999999;" type="datetime-local" name="endtime"></td></tr><tr><td>
 Duration:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td><input style="padding:4px 3px; border:1px solid #999999;" type="text" name = "duration"> (in seconds)</td></tr><tr><td>
 Particpants:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td><input style="padding:4px 3px; border:1px solid #999999;" type="text" name = "participants"> (Enter group of participants. i.e: *, 2016, 2015 etc.)</td></tr></table>
 <input style="padding:4.5px 3px; font-weight:bold; float:right; margin-right:240px;" type = "submit" value = "Create QUIZ">
 </form>';
+		$mydb = openDB();
 		$Quizs = mysqli_query($mydb, "SELECT * FROM `quizs`");
+		mysqli_close($mydb);
 		echo '<div ><table><th>Quiz Name</th><th>Start Time</th><th>End Time</th><th>Duration</th><th>Particpants</th><th></th><th></th></tr>';
 		while($quiz = mysqli_fetch_row($Quizs)){
 			echo '<tr>

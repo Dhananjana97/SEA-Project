@@ -10,7 +10,7 @@
 	mysqli_close($mydb);
 	echo '<br><table>';
 	while($category = mysqli_fetch_row($categories)[0]){
-		echo '<tr><td>'.$category.'</td><td><a href="?deletecategory='.$category.'"><text style="color:red;list-style-type: none;">Delete</text></a></td></tr>';
+		echo '<tr><td width="840px">'.$category.'</td><td style="padding:0 15px;"><a href="?deletecategory='.$category.'"><text style="color:red;list-style-type: none;">Delete</text></a></td></tr>';
 	}
 	echo '</table></div>';
 ?>
