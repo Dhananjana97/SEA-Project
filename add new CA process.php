@@ -147,7 +147,7 @@
 			mysqli_close($conn);
             if ($ex2) {
               $CA_submitted=true;
-              header("Location:edit CA.php?module={$module1}&ca_number={$assignment_name}&errors={$errors}");
+              header("Location:edit CA.php?module=$module1&ca_number=$assignment_name&errors=$errors");
             }else{
               echo "coloumn not added";
             }
