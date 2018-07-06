@@ -1,9 +1,11 @@
 <?php 
 require_once 'main/config.inc.php';
 session_start();
-if(isset($_SESSION['user'])){$user = $_SESSION['user']; $links = $user->links;}else header('Location: '.$home);
+if(isset($_SESSION['user'])){
+	$user = $_SESSION['user']; 
+	$links = $user->links;
+}else header('Location: '.$home);
 if(isset($_GET['logout'])&&$_GET['logout']=='true'){logout();}
-
 function logout(){
 	global $home;
 	unset($_SESSION['user']);
@@ -26,11 +28,12 @@ function logout(){
 <script type="text/javascript" src="main/scripts/jquery-3.3.1.min.js"></script>
   <div id="main">
     <div id="header">
+		
       <div id="logo">
         <div id="logo_text">
           <!-- class="logo_colour", allows you to change the colour of the text -->
           <h1><a href="index.php">STUDENT AND EXAMINATION DEPARTMENT<span class="logo_colour"></span></a></h1>
-          <h2 style="text-indent:10px;">Have a nice day, <?php echo strtoupper($_SESSION['user']->id);?>...</h2>
+          <h2>Do All the works online easily...</h2>
         </div>
 		<div id="accdet">
 			<h4><?php
@@ -39,7 +42,6 @@ function logout(){
 				}
 			?></h4>
 		</div>
-
       </div>
 	  
       <div id="menubar">
@@ -53,15 +55,13 @@ function logout(){
 			<li><a href="<?php echo $contactus;?>">Contact</a></li>
 			
           <li ><a href='pass_papers.html'><span>Pass Papers</span></a></li>
-
-		   <li><a href='RegisterForExamStudent.php'><span>Reg. For Exams</span></a></li>
-
+		   <li><a href='RegisterForExam.html'><span>Reg. For Exams</span></a></li>
 		   <li><a href='ConSub.html'><span>Con. Ass. Submition</span></a></li>
 		   <li><a href=><span>Con. Ass. Marks</span></a></li>
-		  <li><a href='time_tableStudent.php'><span>Time table</span></a></li>
-            <!--temporarily hidden <li><a href='#'><span>Quizes</span></a></li>
-            <li><a href='HWSub.html'><span>Home Works</span></a></li>
-            <li><a href='#'><span>Results</span></a></li>  -->
+		  <!--temporarily hidden <li><a href='time_table.html'><span>Time table</span></a></li>
+		   <li><a href='#'><span>Quizes</span></a></li>
+		   <li><a href='HWSub.html'><span>Home Works</span></a></li>
+		   <li><a href='#'><span>Results</span></a></li>  -->
         </ul>
       </div>
     </div>
@@ -96,6 +96,73 @@ function logout(){
           </div>
 		  <div class="sidebar_base"></div>
         </div>
+
+        <style>
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content a:hover {background-color: #ddd;}
+.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+</style>
+
+
+          <div class="sidebar">
+		<div class="sidebar_top"></div>
+          <div class="sidebar_item">
+		  
+            <!-- insert your sidebar items here -->
+         
+			
+			<div id="dashboard">
+			<!-- registered modules-->
+			
+			<?php 
+				if ($user->type == "instructor") {
+					echo "<div><h2>Registered Modules</h2></div>";
+				$registeredModules=$user->getRegisteredModules($user);
+				
+					foreach ($registeredModules as $m) {
+					      echo '<li><div class="dropdown">
+                          <a>'.$m.'</a>
+                          <div class="dropdown-content">
+                          <a href="Given_CAs from instructor.php?module='.$m.'&task=1">Edit CA</a>
+                          <a href="Given_CAs from instructor.php?module='.$m.'&task=2">Evaluate CA</a>
+    
+                         </div>
+                         </div></li>';
+				    }
+				}
+				
+				
+			 ?>
+			</div>
+			
+          </div>
+		  <div class="sidebar_base"></div>
+        </div>
 		
         <div class="sidebar">
           <div class="sidebar_top"></div>
@@ -108,8 +175,12 @@ function logout(){
               <li><a href="https://webmail.mrt.ac.lk">UOM Mail</a></li>
             </ul>
           </div>
-          <div class="sidebar_base"></div>
+           <div class="sidebar_base"></div>
         </div>
+
+
+
+
       </div>
       <div id="content">
         <!-- insert the page content here -->
