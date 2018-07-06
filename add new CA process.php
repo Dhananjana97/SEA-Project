@@ -97,8 +97,6 @@
     }
 
     
-        
-    
 ?>
 
 <?php 
@@ -106,11 +104,6 @@
    // $CA_module=$_GET['module'];
    // $CA_number=$_GET['ca_number'];
    // $submitted_file=$_GET['submitted_file'];
-
-    
-
-
-
 
     if ($file_uploaded) {
 
@@ -130,11 +123,6 @@
 
       }
 
-        
-
-      
-
-        
 		$conn = openDB();
         $ex=mysqli_query($conn,$query2);
 		mysqli_close($conn);
@@ -158,12 +146,7 @@
             $errors['database_added']="Not Uploaded Successfully";
             echo "Query not executed Successfully";
         }
-
-    
-
     require_once 'footer.php';
-
-
  ?>
 
  <?php 
@@ -180,11 +163,6 @@
         $errors['select_CA']="CA not selected Successfully";
         //echo "Query not excecuted Successfully";
     }
-
-    
-
-  
-
 
     header("Location:CA Upload.php?module={$CA_module}&ca_number={$CA_number}&submitted_file={$submitted_file}&file_uploaded");
 

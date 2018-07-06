@@ -10,11 +10,11 @@
 		echo '
 		<div style="line-height:2;"><br><center><h3>'.$category.'</h3></center>
 		<form action = "quiz_home.php?addQuestions='.$category.'" method="POST">
-		Question:&nbsp;&nbsp;&nbsp;<input style="width:900px; padding:4px 3px; border:0.5px solid #999999;" type="text" name = "question"><br>
-		Answer 1:&nbsp;&nbsp;&nbsp;<input style="width:900px; padding:4px 3px; border:0.5px solid #999999;" type="text" name = "ans1"><br>
-		Answer 2:&nbsp;&nbsp;&nbsp;<input style="width:900px; padding:4px 3px; border:0.5px solid #999999;" type="text" name = "ans2"><br>
-		Answer 3:&nbsp;&nbsp;&nbsp;<input style="width:900px; padding:4px 3px; border:0.5px solid #999999;" type="text" name = "ans3"><br>
-		Answer 4:&nbsp;&nbsp;&nbsp;<input style="width:900px; padding:4px 3px; border:0.5px solid #999999;" type="text" name = "ans4"><br>
+		Question:&nbsp;&nbsp;&nbsp;<input style="width:800px; padding:4px 3px; border:0.5px solid #999999;" type="text" name = "question"><br>
+		Answer 1:&nbsp;&nbsp;&nbsp;<input style="width:800px; padding:4px 3px; border:0.5px solid #999999;" type="text" name = "ans1"><br>
+		Answer 2:&nbsp;&nbsp;&nbsp;<input style="width:800px; padding:4px 3px; border:0.5px solid #999999;" type="text" name = "ans2"><br>
+		Answer 3:&nbsp;&nbsp;&nbsp;<input style="width:800px; padding:4px 3px; border:0.5px solid #999999;" type="text" name = "ans3"><br>
+		Answer 4:&nbsp;&nbsp;&nbsp;<input style="width:800px; padding:4px 3px; border:0.5px solid #999999;" type="text" name = "ans4"><br>
 		Correct answer no:&nbsp;&nbsp;&nbsp;<input style="width:200px; padding:4px 3px; border:0.5px solid #999999;" type="text" name = "answer"><br>
 		<input style="padding:4.5px 3px; font-weight:bold; float:right; margin-right:130px;" type = "submit" value = "Add Question" >
 		</form>

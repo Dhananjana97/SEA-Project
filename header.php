@@ -31,7 +31,7 @@ function logout(){
         <div id="logo_text">
           <!-- class="logo_colour", allows you to change the colour of the text -->
           <h1><a href="index.php">STUDENT AND EXAMINATION DEPARTMENT<span class="logo_colour"></span></a></h1>
-          <h2>Do All the works online easily...</h2>
+          <h2 style="text-indent:10px;">Have a nice day, <?php echo strtoupper($_SESSION['user']->id);?>...</h2>
         </div>
 		<div id="accdet">
 			<h4><?php
@@ -40,6 +40,7 @@ function logout(){
 				}
 			?></h4>
 		</div>
+
       </div>
 	  
       <div id="menubar">

@@ -22,17 +22,21 @@
 		
 		$query = "INSERT INTO `quizs` (`quizname`, `starttime`, `endtime`, `duration`, `participants`) VALUES('$quizname','$starttime', '$endtime', '$duration','$participants')";
 		$query1 = "CREATE TABLE IF NOT EXISTS `".$quizname."` (question VARCHAR(1000) , ans1 VARCHAR(500) , ans2 VARCHAR(500) , ans3 VARCHAR(500) , ans4 VARCHAR(500) , answer VARCHAR(500), UNIQUE(`question`))";
+		$mydb = openDB();
 		$result = mysqli_query($mydb, $query);
 		$result1 = mysqli_query($mydb, $query1);
+		mysqli_close($mydb);
 		if($result&&$result1){echo '<br><br><center>Quiz '.$quizname.' successfully created!</center>';}
 		else{echo '<br><br><center>Something went wrong. Try again.</center>';}
 	}
 	else if(isset($_GET['deletequiz'])&&!empty($_GET['deletequiz'])){
 		$quizname = $_GET['deletequiz'];
 		$query = "DELETE FROM `quizs` WHERE quizname = '$quizname'";
+		$mydb = openDB();
 		$result = mysqli_query($mydb, $query);
 		$query1 = "DROP TABLE `$quizname`";
 		$result1 = mysqli_query($mydb, $query);
+		mysqli_close($mydb);
 		if($result&&$result1){echo '<br><br><center>Quiz '.$quizname.' successfully deleted!</center>';}
 		else{echo '<br><br><center>Something went wrong. Try again.</center>';}
 	}
@@ -42,7 +46,9 @@
 				$quiz = $quizs[$quizname];
 			}
 			else{
+				$mydb = openDB();
 				$Quizs = mysqli_fetch_row(mysqli_query($mydb, "SELECT * FROM `quizs` WHERE `quizname`='$quizname'"));
+				mysqli_close($mydb);
 				$quiz = new Quiz($Quizs[0], $Quizs[1], $Quizs[2], $Quizs[3], $Quizs[4]);
 				$quizs[$quizname] = $quiz;
 		}
@@ -59,8 +65,9 @@
 			include 'questionstoquiz.php';
 		}
 		else{
+			$mydb = openDB();
 			$categories = mysqli_query($mydb, "SELECT category_names FROM `question_categories`");
-				
+			mysqli_close($mydb);	
 				echo '<h3>Select Questions from </h3><table>';
 				while($category = mysqli_fetch_row($categories)[0]){
 					echo '<tr><td>'.$category.'</td>
@@ -90,10 +97,10 @@ Particpants:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td><input style="padding:4px 3px
 			<td>'.$quiz[0].'</td>
 			<td>'.$quiz[1].'</td>
 			<td>'.$quiz[2].'</td>
-			<td>'.$quiz[3].'</td>
+			<td style="padding:0 10px;">'.$quiz[3].'</td>
 			<td>'.$quiz[4].'</td>
 			<td><a href="?content=Quizs&&deletequiz='.$quiz[0].'"><text style="color:red;list-style-type: none;">Delete</text></a></td>
-			<td><a href="?content=Quizs&&addquestion='.$quiz[0].'"><text style="color:red;list-style-type: none;">Add Questions</text></a></td>
+			<td style="padding:0 10px;"><a href="?content=Quizs&&addquestion='.$quiz[0].'"><text style="color:red;list-style-type: none;">Add Questions</text></a></td>
 			</tr>';
 			echo '<br>';
 		}
