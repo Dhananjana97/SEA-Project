@@ -1,17 +1,12 @@
 <?php 
-
 	require_once 'header.php';
 	if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="instructor"){header('Location: login.php'); exit();}
-
  	if(isset($_GET['module']))$module1=$_GET['module']; else die("you can only go with selected module");
  	$module_arr=explode("-", $module1);
  	$batch=$module_arr[0];
  	$module=$module_arr[1];
  	if(isset($_GET['ca_number']))$CA_number=$_GET['ca_number']; else die("you can only go with selected ca number");
-
-
  	$query2="SELECT * FROM `instructor_".$module1."_ca` where CA_number='{$CA_number}'";
-
 	$mydb = openDB();
  	$ex2=mysqli_query($mydb,$query2);
 	mysqli_close($mydb);
@@ -21,17 +16,10 @@
  		$ass_file=$result['file'];
  		$closing_time=$result['valid_duration'];
  		
-
  		
-
  	}else{
  		
  	}
-
-
-
-
-
  	$query="SELECT `student_name`,`".$CA_number."` FROM ".$batch.$module;
  	
 	$mydb = openDB();
@@ -43,19 +31,13 @@
  				
  				array_push($a,$G_arr);
 				
-
  		}
  		
  		
  		
-
  	}else{
  		echo "not executed";
  	}
-
-
-
-
   ?>
 
 
@@ -82,36 +64,25 @@
                                       
                                         var closing="<?php echo "$closing_time"; ?>";
                                        
-
                                          
                                         var date=new Date(closing);
                                         var now=new Date();
                                         
-
                                         if (date>now) {
                                         	timeRemain();
-
                                         }else{
                                         	overDue();
                                         }
                                        
-
                                          
-
                                         function overDue() {
                                             var my=setInterval(overDue_time_diff, 1000);
                                             
                                           }
-
                                         function timeRemain() {
                                           var my2=setInterval(timeRemain_time_diff,1000);
                                         }
-
                                         
-
-
-
-
                                         function timeRemain_time_diff() {
                                               
                                          
@@ -123,16 +94,11 @@
                                           var diff_m=Math.floor((diff%(1000*60*60))/(1000*60));
                                           var diff_s=Math.floor((diff%(1000*60))/(1000));
                                           var time_remain=diff_d+'days '+diff_h+'hours '+diff_m+'minutes '+diff_s+'seconds ';
-
                                          
-
-
-
                                           document.getElementById('remain').innerHTML=time_remain;
                                         
                                       }
                                           
-
                                           function overDue_time_diff() {
                                               
                                          
@@ -144,16 +110,10 @@
                                           var diff_m=Math.floor((diff%(1000*60*60))/(1000*60));
                                           var diff_s=Math.floor((diff%(1000*60))/(1000));
                                           var time_over=diff_d+'days '+diff_h+'hours '+diff_m+'minutes '+diff_s+'seconds ';
-
                                          
-
-
-
                                           document.getElementById('overdue').innerHTML="Assignment is over due by: "+time_over;
                                         
                                       }
-
-
                                     </script>
 
  	<table dir="ltr" width=75% border="3" style="margin-left:20px;margin-right:20px;">
@@ -165,7 +125,6 @@
 			span="5" style="background:#e4c99e;" />
 	<style type="text/css">
 		tr:hover {background-color: #d5ac68;}
-
 	</style>
 	<thead>
 		<tr>
@@ -184,21 +143,16 @@
 
 		<?php 
 				
-
 				echo"<form id='grading' action='Grade CAs process.php?module=$module1&ca_number=$CA_number' method='Post' enctype='multipart/form-date'>";
-
 			foreach ($a as $value) {
 				$student_name=$value['student_name'];
  				$CA=$value[$CA_number];
  				if (empty($CA)) {
-
  					$submitted=false;
  					date_default_timezone_set('Asia/Colombo');
  					$now7=date('Y-m-d H:i:s');
  					$cl_t=date_create($closing_time);
-
  					if ($now7<$cl_t) {
-
  						$back_color='red';
  					}else{
  						$back_color='green';
@@ -212,10 +166,8 @@
  					$marks="";
  					$feedback="";
  					
-
  				}else{
  					$submitted=true;
-
  					$CA_a=explode("|", $CA);
 	 				//echo "------------------------------------------------------------";
 	 				//print_r($CA_a);
@@ -242,18 +194,13 @@
 	 				
 	 			//	print($submission_t);
 	 			//	print($uploaded_file);
-
 	 			}
-
  				echo "
-
 	 				
 	 				<tr>
 						<td style='font-weight:bold;color:black'>$student_name</td>
-
 						<td style='display:none;'><textarea name='$student_name-message' style='display:none'>$message</textarea></td>
 						<td style='display:none;'><textarea name='$student_name-up_file' style='display:none'>$uploaded_file</textarea></td>
-
 						<td name='f'><a href='$uploaded_file'>$file_n</a></td>
 						<td name='message'>$message</td>
 						<td><textarea rows='1' name='$student_name-marks' style='background-color:#e4c99e;background-size:100%;border:hidden;width:100%;text-align:center;' placeholder='_________________' value='$marks'>$marks</textarea>
@@ -263,26 +210,15 @@
 						<td><textarea rows='1' name='$student_name-feedback' style='background-color:#e4c99e;background-size:100%;border:hidden;width:100%;text-align:center;' placeholder='Give Feedback' value='$feedback'>$feedback</textarea>
 						</td>
 						<td style='background-color:$back_color;'>$submission_status</td>
-
 					</tr>";
  				
 				
 				
 			}
-
 			echo "</table>";
-
 			//echo "<input type='submit' name='submit'>";
 			echo "<button type='submit' name='submit' class='btn btn-success' style='margin-bottom:50px;margin-top: 30px;margin-left:75%;height:60px;width:100px'>Submit</button>";
-
 			echo "</form>";
-
-
-
-
-
-
-
 		 ?>
 
 		 

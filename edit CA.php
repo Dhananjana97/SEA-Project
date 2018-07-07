@@ -162,7 +162,7 @@
  
 
 
-
+        
 
         <div class="container">
             <!-- Form Started -->
@@ -186,7 +186,22 @@
                                     </div>
                                      <div class="form-group">
                                         <label><i class="fa fa-calendar" aria-hidden="true"></i>Due Date And Time</label>
-                                        <input type="datetime-local" name="closing_time" value="<?php echo "$duration"; ?>">
+                                        <input id="due date" type="datetime-local" name="closing_time" value="<?php echo "$duration"; ?>">
+                                        
+
+                                         <?php 
+
+
+                                        if (!empty($_GET['errors'])) {
+                                            echo "<span style='font-size:xxx-large;color:red;position:center;font-weight:bold;'>".$_GET['errors']."</span>";
+                                        }
+
+
+
+
+
+
+                                         ?>
                                     </div> 
                                     <div>
                                         <label><i class="fa fa-upload" aria-hidden="true"></i>Upload Your Files</label>
@@ -196,6 +211,9 @@
                                         <div id="logo" style="width:100%;height:230px;background-color:white;">
 
                                         <a href=""></a>
+
+
+                                      
 
 
                                         <?php 
@@ -226,8 +244,12 @@
                                             }
 
                                         }else{
+
                                             
-                                            echo "<div style='ont-size:xxx-large;color:red;position:center;padding-left:35%;padding-top:100px;font-weight:bold;'>Not File Submitted</div>";
+                                                echo "<div style='ont-size:xxx-large;color:red;position:center;padding-left:35%;padding-top:100px;font-weight:bold;'>Not File Submitted</div>";
+                                            
+                                            
+                                            
                                         }
 
 

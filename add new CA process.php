@@ -39,6 +39,7 @@ ob_start();
 
         if($now>$date){
             echo "passed";
+            
         }else{
             echo "not";
         }
