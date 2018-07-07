@@ -8,7 +8,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user']->type != "student") {
 <p>Fill the following form to register. Do not make mistakes. look up again before click register button.</p>
 <div class="form_settings">
     <form action="DashboardPage\RegisterForExam\reg.php">
-
+        
         </br></br>
         <p><span>Index No.</span><input type="text" name="indexno" value=""/></p>
         <p><span>Full Name</span><input type="text" name="fname" value=""/></p>

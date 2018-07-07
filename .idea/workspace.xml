@@ -3,11 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e5d839f0-c8ca-4c5e-98a3-57abddd67ce9" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CA Upload Process.php" beforeDir="false" afterPath="$PROJECT_DIR$/CA Upload Process.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CA Upload.php" beforeDir="false" afterPath="$PROJECT_DIR$/CA Upload.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Registered Modules For Instructors.php" beforeDir="false" afterPath="$PROJECT_DIR$/Registered Modules For Instructors.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quiz_home.php" beforeDir="false" afterPath="$PROJECT_DIR$/quiz_home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegisterForExamStudent.php" beforeDir="false" afterPath="$PROJECT_DIR$/RegisterForExamStudent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Student/DashboardPage/RegisterForExam/reg.php" beforeDir="false" afterPath="$PROJECT_DIR$/Student/DashboardPage/RegisterForExam/reg.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/student.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/student.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/header.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,7 +20,7 @@
       <file leaf-file-name="time_tableStudent.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/time_tableStudent.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
+            <state relative-caret-position="528">
               <caret line="24" column="10" selection-end-line="33" />
             </state>
           </provider>
@@ -30,13 +29,8 @@
       <file leaf-file-name="updateresults.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/updateresults.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="748">
+              <caret line="34" selection-start-line="34" selection-end-line="34" />
             </state>
           </provider>
         </entry>
@@ -44,12 +38,8 @@
       <file leaf-file-name="quiz_home.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/quiz_home.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
+            <state relative-caret-position="2200">
               <caret line="100" column="33" selection-start-line="100" selection-start-column="33" selection-end-line="100" selection-end-column="33" />
-              <folding>
-                <element signature="e#71#77#1" expanded="true" />
-                <element signature="e#118#124#1" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -57,7 +47,7 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/style/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
+            <state relative-caret-position="247">
               <caret line="400" column="10" selection-start-line="400" selection-start-column="10" selection-end-line="400" selection-end-column="17" />
             </state>
           </provider>
@@ -75,7 +65,7 @@
       <file leaf-file-name="quizsession.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/quizsession.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
+            <state relative-caret-position="484">
               <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
             </state>
           </provider>
@@ -93,7 +83,7 @@
       <file leaf-file-name="questionsview.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/QUIZ/questionsview.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
+            <state relative-caret-position="286">
               <caret line="13" column="19" lean-forward="true" selection-start-line="7" selection-start-column="8" selection-end-line="16" selection-end-column="30" />
             </state>
           </provider>
@@ -241,14 +231,16 @@
       <updated>1530942421812</updated>
       <workItem from="1530942424499" duration="5231000" />
       <workItem from="1530949272941" duration="8836000" />
+      <workItem from="1530978508643" duration="596000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14067000" />
+    <option name="totallyTimeSpent" value="14663000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1294" height="694" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.24296875" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -266,29 +258,29 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24296875" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
   </component>
@@ -359,11 +351,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
           <caret line="21" column="44" lean-forward="true" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -582,7 +569,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/time_tableStudent.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
+        <state relative-caret-position="528">
           <caret line="24" column="10" selection-end-line="33" />
         </state>
       </provider>
@@ -610,13 +597,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/updateresults.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="748">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
         </state>
       </provider>
     </entry>
@@ -636,32 +618,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/quizsession.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
+        <state relative-caret-position="484">
           <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/QUIZ/questionsview.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
+        <state relative-caret-position="286">
           <caret line="13" column="19" lean-forward="true" selection-start-line="7" selection-start-column="8" selection-end-line="16" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/quiz_home.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
+        <state relative-caret-position="2200">
           <caret line="100" column="33" selection-start-line="100" selection-start-column="33" selection-end-line="100" selection-end-column="33" />
-          <folding>
-            <element signature="e#71#77#1" expanded="true" />
-            <element signature="e#118#124#1" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/style/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
+        <state relative-caret-position="247">
           <caret line="400" column="10" selection-start-line="400" selection-start-column="10" selection-end-line="400" selection-end-column="17" />
         </state>
       </provider>
