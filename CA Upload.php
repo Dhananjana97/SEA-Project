@@ -115,12 +115,6 @@
 
  <?php 
 
-  if (!empty($_GET['errors'])) {
-    $error=$_GET['errors'];
-  }
-  
-  
-
   $query="SELECT `".$CA_number."` FROM `".$batch.$CA_module."` WHERE student_name='".$_SESSION['user']->id."' ";
 	$mydb = openDB();
     $ex_ob=mysqli_query($mydb,$query);
@@ -135,8 +129,6 @@
 
          $g=explode("|",$submission[$CA_number]);
          
-         print_r($g);
-         print(count($g));
          
 
          
@@ -400,9 +392,6 @@
 
                                       <?php 
 
-                                      if (empty($_GET['errors'])) {
-
-                                        
                                         if ($submit_stat) {
                                            echo "
                                            
@@ -454,10 +443,6 @@
 
 
                                         }
-                                      }else{
-                                        echo "<span style='font-size:xxx-large;color:red;font-weight:bold;'>".$error."</span>";
-                                      }
-
 
 
 
@@ -480,7 +465,7 @@
                                         <input type="file" name="file" class="form-control" class="form-submit-button" style="width:350px;">
                                         <br> 
 
-                                        <div id="logo" style="width:400px;height:290px;background-color:white;">
+                                        <div id="logo" style="width:400px;height:230px;background-color:white;">
 
                                         <a href=""></a>
 
@@ -499,7 +484,7 @@
 
 
                                             if($ft=="pdf") {
-                                                echo "<a href='$g[1]'>"."<img style='padding-top:5px;padding-left:5px;'src='images/pdf.jpg'>"."</a>";
+                                                echo "<a href='$g[1]'>"."<img style='padding-top:5px;padding-left:5px;'src='img/pdf_logo.jpg'>"."</a>";
                                                 
                                                 echo "<br>";
                                                 echo "<a style='padding-left:10px;' href='$g[1]'>". $f_n."</a>";
@@ -522,25 +507,16 @@
                                                 echo "<a href='$g[1]'>"."<img style='padding-top:5px;padding-left:5px;'src='img/zip.jpg'>"."</a>";
                                                  echo "<br>";
                                                echo "<a href='$g[1]'>".$f_n."</a>";
-                                            }elseif($ft=="jpg" or $ft=="png"){
+                                            }elseif($ft=="jpg"){
                                                 echo "<a href='$g[1]'>"."<img style='padding-top:5px;padding-left:5px;max-width:50%;max-height:50%;'src='$g[1]'>"."</a>";
                                                  echo "<br>";
                                                 echo "<a href='$g[1]'>".$f_n."</a>";
-                                            
+                                            }
 
                                         }else{
-                                          
-
-                                          if (!empty($error)) {
                                             
-                                            echo "<div style='ont-size:xxx-large;color:red;position:center;padding-left:35%;padding-top:100px;font-weight:bold;'>".$error."</div>";
-                                          }else{
                                             echo "<div style='ont-size:xxx-large;color:red;position:center;padding-left:35%;padding-top:100px;font-weight:bold;'>Not File Submitted</div>";
-                                          }
-                                            
-                                            
                                         }
-                                      }
 
 
                                          ?>

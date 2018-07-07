@@ -14,11 +14,6 @@ $id = strtolower($user->id);
         border-collapse: collapse;
     }
 
-    th, td {
-        padding: 8px 20px;
-        text-align: left;
-    }
-
     .internal table, th, td {
         border-collapse: collapse;
     }
@@ -98,10 +93,20 @@ $id = strtolower($user->id);
 
         function viewQuizs()
         {
-            foreach ($quizs as $quiz) {
-                //sql querry to store marks goes here.
-                echo 'Your Score is:' . $quiz->name . "<br>";
+            global $id;
+            $query = "SELECT `quiz_name`, `marks` FROM `".$id."_quiz_marks`;";
+            $mydb = openDB();
+            $result = mysqli_query($mydb, $query);
+            if(!$result){die("Some thing went wrong on retrieving of marks.");}
+            echo '<table width="400px"><tr><th>Quiz Name</th><th>Marks</th></tr>';
+            while($quiz_mark= mysqli_fetch_row($result)){
+                echo '<tr>'
+			.'<td>'.$quiz_mark[0].'</td>'.
+			'<td>'.$quiz_mark[1].'</td>'
+			.'</tr>';
+                echo '<br>';
             }
+            echo '</table>';
         }
 
         function attemptQuiz($quiz_name)
@@ -117,7 +122,7 @@ $id = strtolower($user->id);
                 echo '<form method="POST" action="quiz_home.php?submit=\"TRUE\"">';
                 $printed_quiz = $quiz->printQs();
                 if ($printed_quiz == '')
-                    die('This quiz is not available now. Try again later!&nbsp;&nbsp;&nbsp;<a href="' . $quiz_home . '">back</a>');
+                    die('This quiz is not available now. Try again later!&nbsp;;&nbsp;&nbsp;<a href="' . $quiz_home . '">back</a>');
                 echo $printed_quiz;
                 echo '<button type="submit" name="submit" value="TRUE">Submit all and finish</button></form>';
             }
@@ -125,6 +130,7 @@ $id = strtolower($user->id);
 
         function submitQuiz()
         {
+            global $id;
             $session = $_SESSION['session'];
             $quiz = $session->quiz;
             $no_of_q = count($quiz->questions);
@@ -134,7 +140,17 @@ $id = strtolower($user->id);
             }
             $session = $_SESSION['session'];
             $session->terminateSession();
-            echo 'Your marks is ' . $session->marks . '<br>';
+            $query = "CREATE TABLE IF NOT EXISTS `".$id."_quiz_marks`(
+              `quiz_name` varchar(250)  NOT NULL default '',
+              `marks`  int(11) NULL);";
+            $quiz_name=$quiz->name;
+            $marks = $session->marks;
+            $query1 = "INSERT INTO `".$id."_quiz_marks` (`quiz_name`, `marks`) VALUES('$quiz_name',$marks);";
+            $mydb = openDB();
+            mysqli_query($mydb, $query);
+            $result = mysqli_query($mydb, $query1);
+            mysqli_close($mydb);
+            echo '<p>Your marks is ' . $marks . '</p><br>';
             //unset($sessions[$id]);
         }
 
@@ -161,6 +177,7 @@ $id = strtolower($user->id);
                 }
                 $_SESSION['quizs'] = $quizs;
             }
+            viewQuizs();
             mysqli_close($mydb);
         } elseif ($user->type == 'lecturer') {
             echo '<div class="inlink"><center><a href="?content=QC">Question Category</a>&nbsp;<a href="?content=Questions">Question</a>&nbsp;<a href="?content=Quizs">Quiz</a></center></div>';

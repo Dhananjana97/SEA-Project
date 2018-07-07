@@ -1,5 +1,4 @@
 <?php
-ob_start();
 	require_once 'header.php';
 	if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="student"){header('Location: '.$home); exit();}
 ?>
@@ -14,9 +13,7 @@ ob_start();
 
     
     $ft="";
-    if (isset($_POST['submit'])){
-
-        echo "@@@@@@@@@@@@@##########$$$$$$$$$$$";
+    if (isset($_POST['submit'])) {
 
         
         print_r($_POST);
@@ -64,13 +61,9 @@ ob_start();
         print_r($_FILES);
         echo "<pre>";
         echo "$File_name";
-        if ($File_size > "12582912") {
+        if ($File_size > "5048576") {
 
-            echo "@@@@@@@@@@@@";
-
-            $errors="File Size is too large";
-
-           
+            $errors['file_size']="File Size is too large";
 
           //  echo "File Size is too large";
             
@@ -101,25 +94,12 @@ ob_start();
         }
 
 
-        
-        else{
-
-            if (!empty($File_type)) {
-                $errors="File type is incorrect"; 
-            //header("Location:CA Upload.php?module={$CA_module}&ca_number={$CA_number}&submitted_file={$_GET['submitted_file']}&errors={$errors}&task=$task&task_file=$task_file&closing_time=$closing_time");
-            //echo "ttttttttttttt";
-            //die();
-            }
-
-            
-            
-            
-           // echo "<h3 style='color:red;'>File type is incorrect</h3> ";
-        }
-    
-
-        if (!empty($message) or !empty($_GET['submitted_file']) ) {
+        elseif (!empty($message)) {
             $file_uploaded = true;
+        }
+        else{
+            $errors['file_type']="<h3 style='color:red;'>File type is incorrect</h3>"; 
+           // echo "<h3 style='color:red;'>File type is incorrect</h3> ";
         }
 
 
@@ -167,54 +147,34 @@ ob_start();
 
     if ($file_uploaded) {
 
-        if (empty($errors)) {
-            if (empty($File_name)) {
+        if (empty($File_name)) {
 
-                $query2="update `{$batch}{$CA_module}` set `{$CA_number}`='{$message}|".$_GET['submitted_file']."||{$submitted_time}|{$diff_of_submission_str}-{$submit_t}'where `{$batch}{$CA_module}`.`student_name`='{$_SESSION['user']->id}' ";
-                print("update {$batch}{$CA_module} set {$CA_number}='{$message}|".$_GET['submitted_file']."||{$submitted_time}|{$diff_of_submission_str}-{$submit_t}'where student_name='{$_SESSION['user']->id}' ");
+             $query2="update {$batch}{$CA_module} set {$CA_number}='{$message}|".$_GET['submitted_file']."||{$submitted_time}|{$diff_of_submission_str}-{$submit_t}'where student_name='{$_SESSION['user']}' ";
+             print("update {$batch}{$CA_module} set {$CA_number}='{$message}|".$_GET['submitted_file']."||{$submitted_time}|{$diff_of_submission_str}-{$submit_t}'where student_name='{$_SESSION['user']}' ");
             
         
-            }else{
+        }else{
 
-                $query2="update `{$batch}{$CA_module}` set `{$CA_number}`='{$message}|{$upload_to}{$File_name}||{$submitted_time}|{$diff_of_submission_str}-{$submit_t}|'where `{$batch}{$CA_module}`.`student_name`='{$_SESSION['user']->id}' ";
-
-             
-
-
-            
-
-
-
+            $query2="update {$batch}{$CA_module} set {$CA_number}='{$message}|{$upload_to}{$File_name}||{$submitted_time}|{$diff_of_submission_str}-{$submit_t}|'where student_name='{$_SESSION['user']}' ";
             echo "11111111111111111111";
-            print("update '{$batch}{$CA_module}' set {$CA_number}='{$message}|{$upload_to}{$File_name}||{$submitted_time}|{$diff_of_submission_str}-{$submit_t}|'where student_name='{$_SESSION['user']->id}' ");
+            print("update {$batch}{$CA_module} set {$CA_number}='{$message}|{$upload_to}{$File_name}||{$submitted_time}|{$diff_of_submission_str}-{$submit_t}|'where student_name='{$_SESSION['user']}' ");
         }
 
         
-        $conn=openDB();
+
         $ex=mysqli_query($conn,$query2);
-        mysqli_close($conn);
 
         if ($ex) {
-            header("Location:CA Upload.php?module={$CA_module}&ca_number={$CA_number}&submitted_file={$submitted_file}&errors={$errors}&task=$task&task_file=$task_file&closing_time=$closing_time");
+            echo "uuuuuuuuuuuu";
                                             
         }else{
             $errors['database_added']="Not Uploaded Successfully";
             echo "Query not executed Successfully";
         }
 
-        }else{
-            header("Location:CA Upload.php?module={$CA_module}&ca_number={$CA_number}&submitted_file={$submitted_file}&errors={$errors}&task=$task&task_file=$task_file&closing_time=$closing_time");
-        }
-
-        
     }
-
-     header("Location:CA Upload.php?module={$CA_module}&ca_number={$CA_number}&submitted_file={$submitted_file}&errors={$errors}&task=$task&task_file=$task_file&closing_time=$closing_time");
-
-
 	require_once 'footer.php';
-    echo "111111111111111111111111111111";
-  
+   //header("Location:CA Upload.php?module={$CA_module}&ca_number={$CA_number}&submitted_file={$submitted_file}&errors={$errors}&task=$task&task_file=$task_file&closing_time=$closing_time");
 
 
  ?>
