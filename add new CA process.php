@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 require_once 'header.php';
 if (!isset($_SESSION['user']) || $_SESSION['user']->type != "instructor") {
     header('Location: ' . $home);
@@ -44,6 +45,51 @@ if (isset($_POST['submit'])) {
     } else {
         echo "not";
     }
+=======
+ob_start();
+	require_once 'header.php';
+	if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="instructor"){header('Location: '.$home); exit();}
+
+    echo "<h1 style='margin-top:40px;'></h1>";
+    
+    $errors;
+    $file_uploaded=false;
+    $ft;
+    if (isset($_POST['submit'])) {
+
+        
+        print_r($_POST);
+        
+        $message=$_POST['message'];
+        $assignment_name=$_POST['Assignment_Name'];
+        $closing_time=$_POST['closing_time'];
+
+        $module1=$_GET['module'];
+        $ar=explode("-",$module1);
+        print_r($ar);
+        $batch=$ar[0];
+        $module=$ar[1];
+       
+
+        date_default_timezone_set('Asia/Colombo');
+        // echo "<br>";
+        $now=new DateTime();
+        $date=new DateTime($closing_time);
+
+       // echo "<br>";
+      //  print($d);
+        //print(new DateTime());
+      //  echo $d->format('Y-m-d h:i:sa');
+       // echo "<br>";
+       // print(time());
+       // print($d-$date_a);
+
+        if($now>$date){
+            echo "passed";
+        }else{
+            echo "not";
+        }
+>>>>>>> 7814b26e7dffcba5374e35f843cbf4a08af1c53e
 
 
     $File_name = $_FILES['file']['name'];
@@ -114,7 +160,42 @@ if ($file_uploaded) {
 
     } else {
 
+<<<<<<< HEAD
         echo "wwwwwwwwwwww";
+=======
+      }
+
+		    $conn = openDB();
+        $ex=mysqli_query($conn,$query2);
+		    mysqli_close($conn);
+        if ($ex) {
+            echo "kkkkkkkkkkkkk";
+            $query3= "ALTER TABLE `{$batch}{$module}`  ADD `{$assignment_name}` VARCHAR(500) NOT NULL";
+            echo "ALTER TABLE `{$module1}`  ADD `{$assignment_name}` VARCHAR(500) NOT NULL  AFTER `mid`";
+			       $conn = openDB();
+            $ex2=mysqli_query($conn,$query3);
+
+            mysqli_close($conn);
+
+           
+			
+            if ($ex2) {
+              $CA_submitted=true;
+              header("Location:edit CA.php?module=$module1&ca_number=$assignment_name");
+            }else{
+
+              echo "coloumn not added";
+            }
+
+            
+                                            
+        }else{
+            $errors['database_added']="Not Uploaded Successfully";
+            echo "Query not executed Successfully";
+        }
+    require_once 'footer.php';
+ ?>
+>>>>>>> 7814b26e7dffcba5374e35f843cbf4a08af1c53e
 
         $query2 = "INSERT INTO `instructor_{$module1}_ca`(`CA_number`, `assignment`, `file`, `valid_duration`) VALUES ('{$assignment_name}','{$message}','{$upload_to}{$File_name}','{$closing_time}')";
     }

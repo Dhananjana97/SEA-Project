@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 <?php
+=======
+<?php 
+ob_start();
+>>>>>>> 7814b26e7dffcba5374e35f843cbf4a08af1c53e
 require_once 'header.php';
 // require_once 'includes/Header_Selecter.php';
 require_once 'includes/Connection.php';

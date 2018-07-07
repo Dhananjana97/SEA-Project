@@ -9,5 +9,8 @@ class Student{
 		$this->batch = "20".substr($id,0,-5);
 		$this->type ="student";
 	}
+
+
+	
 }
 ?>

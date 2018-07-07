@@ -1,9 +1,15 @@
 <?php
+<<<<<<< HEAD
 require_once 'header.php';
 if (!isset($_SESSION['user']) || $_SESSION['user']->type != "student") {
     header('Location: ' . $home);
     exit();
 }
+=======
+ob_start();
+	require_once 'header.php';
+	if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="student"){header('Location: '.$home); exit();}
+>>>>>>> 7814b26e7dffcba5374e35f843cbf4a08af1c53e
 ?>
 
 
@@ -88,7 +94,11 @@ if (isset($_POST['submit'])) {
             $ft = "txt";
             $file_uploaded = move_uploaded_file($File_tmp_name, $upload_to . $File_name);
 
+<<<<<<< HEAD
         } elseif (!empty($message)) {
+=======
+        elseif (!empty($message) or !empty($_GET['submitted_file']) ) {
+>>>>>>> 7814b26e7dffcba5374e35f843cbf4a08af1c53e
             $file_uploaded = true;
         } else {
             $errors['file_type'] = "<h3 style='color:red;'>File type is incorrect</h3>";
@@ -138,6 +148,7 @@ if ($file_uploaded) {
         $query2 = "update {$batch}{$CA_module} set {$CA_number}='{$message}|" . $_GET['submitted_file'] . "||{$submitted_time}|{$diff_of_submission_str}-{$submit_t}'where student_name='{$_SESSION['user']}' ";
         print("update {$batch}{$CA_module} set {$CA_number}='{$message}|" . $_GET['submitted_file'] . "||{$submitted_time}|{$diff_of_submission_str}-{$submit_t}'where student_name='{$_SESSION['user']}' ");
 
+<<<<<<< HEAD
 
     } else {
 
@@ -151,11 +162,50 @@ if ($file_uploaded) {
 
     if ($ex) {
         echo "uuuuuuuuuuuu";
+=======
+             $query2="update `{$batch}{$CA_module}` set `{$CA_number}`='{$message}|".$_GET['submitted_file']."||{$submitted_time}|{$diff_of_submission_str}-{$submit_t}'where `{$batch}{$CA_module}`.`student_name`='{$_SESSION['user']->id}' ";
+             print("update {$batch}{$CA_module} set {$CA_number}='{$message}|".$_GET['submitted_file']."||{$submitted_time}|{$diff_of_submission_str}-{$submit_t}'where student_name='{$_SESSION['user']->id}' ");
+            
+        
+        }else{
+
+            $query2="update `{$batch}{$CA_module}` set `{$CA_number}`='{$message}|{$upload_to}{$File_name}||{$submitted_time}|{$diff_of_submission_str}-{$submit_t}|'where `{$batch}{$CA_module}`.`student_name`='{$_SESSION['user']->id}' ";
+
+             
+
+
+            
+
+
+
+            echo "11111111111111111111";
+            print("update '{$batch}{$CA_module}' set {$CA_number}='{$message}|{$upload_to}{$File_name}||{$submitted_time}|{$diff_of_submission_str}-{$submit_t}|'where student_name='{$_SESSION['user']->id}' ");
+        }
+
+        
+        $conn=openDB();
+        $ex=mysqli_query($conn,$query2);
+        mysqli_close($conn);
+
+        if ($ex) {
+            header("Location:CA Upload.php?module={$CA_module}&ca_number={$CA_number}&submitted_file={$submitted_file}&errors={$errors}&task=$task&task_file=$task_file&closing_time=$closing_time");
+                                            
+        }else{
+            $errors['database_added']="Not Uploaded Successfully";
+            echo "Query not executed Successfully";
+        }
+>>>>>>> 7814b26e7dffcba5374e35f843cbf4a08af1c53e
 
     } else {
         $errors['database_added'] = "Not Uploaded Successfully";
         echo "Query not executed Successfully";
     }
+<<<<<<< HEAD
+=======
+	require_once 'footer.php';
+    echo "111111111111111111111111111111";
+  
+>>>>>>> 7814b26e7dffcba5374e35f843cbf4a08af1c53e
 
 }
 require_once 'footer.php';

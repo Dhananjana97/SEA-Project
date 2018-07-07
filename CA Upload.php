@@ -48,6 +48,7 @@ if (isset($_POST['submit'])) {
         $file_uploaded = move_uploaded_file($File_tmp_name,$upload_to.$File_name);
         // $submit_st="Submiited";
 
+<<<<<<< HEAD
     }elseif($File_type == "application/pdf"){
         $ft="pdf";
         $file_uploaded = move_uploaded_file($File_tmp_name,$upload_to.$File_name);
@@ -63,6 +64,13 @@ if (isset($_POST['submit'])) {
     else{
         echo "<h3 style='color:red;'>File type is incorrect</h3> ";
     }
+=======
+         $g=explode("|",$submission[$CA_number]);
+         
+         print_r($g);
+         print(count($g));
+         
+>>>>>>> 7814b26e7dffcba5374e35f843cbf4a08af1c53e
 
 
     }

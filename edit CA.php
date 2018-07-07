@@ -186,10 +186,30 @@ if ($ex_ob) {
 
                                 <div id="logo" style="width:100%;height:230px;background-color:white;">
 
+<<<<<<< HEAD
                                     <a href=""></a>
+=======
+                                            if($filet=="pdf") {
+                                                echo "<a href='$file'>"."<img style='padding-top:5px;padding-left:5px;'src='images/pdf.jpg'>"."</a>";
+                                                
+                                                echo "<br>";
+                                                echo "<a style='padding-left:10px;' href='$file'>".$filen."</a>";
+>>>>>>> 7814b26e7dffcba5374e35f843cbf4a08af1c53e
 
 
+<<<<<<< HEAD
                                     <?php
+=======
+                                            }elseif($filet=="zip"){
+                                                echo "<a href='$file'>"."<img style='padding-top:5px;padding-left:5px;'src='images/zip.png'>"."</a>";
+                                                 echo "<br>";
+                                               echo "<a href='$file'>".$filen."</a>";
+                                            }elseif($filet=="jpg"){
+                                                echo "<a href='$file'>"."<img style='padding-top:5px;padding-left:5px;max-width:50%;max-height:50%;'src='$file'>"."</a>";
+                                                 echo "<br>";
+                                                echo "<a href='$file'>".$filen."</a>";
+                                            }
+>>>>>>> 7814b26e7dffcba5374e35f843cbf4a08af1c53e
 
                                     if (!empty($CA['file'])) {
 
