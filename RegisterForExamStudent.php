@@ -4,7 +4,7 @@ if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="student"){header('Locat
         <h1>Register for exams</h1>
         <p>Fill the following form to register. Do not make mistakes. look up again before click register button.</p>       
           <div class="form_settings" >
-		  <form action="DashboardPage\RegisterForExam\reg.php" >
+		  <form action="Student\DashboardPage\RegisterForExam\reg.php" method="get">
 
 			</br></br>
 			<p><span>Index No.</span><input  type="text" name="indexno" value="" /></p>
