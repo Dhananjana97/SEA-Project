@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jul 04, 2018 at 08:25 AM
+-- Generation Time: Jul 08, 2018 at 12:15 PM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -25,6 +25,29 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `160xxxx_quiz_marks`
+--
+
+DROP TABLE IF EXISTS `160xxxx_quiz_marks`;
+CREATE TABLE IF NOT EXISTS `160xxxx_quiz_marks` (
+  `quiz_name` varchar(250) NOT NULL DEFAULT '',
+  `marks` int(11) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `160xxxx_quiz_marks`
+--
+
+INSERT INTO `160xxxx_quiz_marks` (`quiz_name`, `marks`) VALUES
+('QUIZ 1', 5),
+('QUIZ 1', 5),
+('QUIZ 3', 1),
+('QUIZ 3', 1),
+('QUIZ 1', 5);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `2016oop`
 --
 
@@ -41,6 +64,8 @@ CREATE TABLE IF NOT EXISTS `2016oop` (
   `CA7` varchar(5000) NOT NULL,
   `CA222` varchar(500) NOT NULL,
   `CA2` varchar(500) NOT NULL,
+  `New` varchar(500) NOT NULL,
+  `New1` varchar(500) NOT NULL,
   PRIMARY KEY (`student_name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -48,9 +73,26 @@ CREATE TABLE IF NOT EXISTS `2016oop` (
 -- Dumping data for table `2016oop`
 --
 
-INSERT INTO `2016oop` (`student_name`, `total`, `end`, `mid`, `CA1`, `CA111`, `CA6`, `CA10`, `CA7`, `CA222`, `CA2`) VALUES
-('160256U', '', '', '', '|uploaded files/Students/2016/OOP/CA1/item.txt||2018-04-21 14:30:13|0months 5days 00hours 30minutes 13seconds-late|', '', '', '', '', '', '|uploaded files/Students/2016/OOP/CA2/2nd sem violin.txt||2018-04-21 16:18:46|0months 7days 05hours 53minutes 14seconds-not late|'),
-('Dhanu', '', '', '', '', '', '', '|uploaded files/Students/2016/OOP/CA10/160575V (1).zip||2018-04-21 10:23:25|0months 2days 23hours 0minutes 25seconds-late|', '', '', '');
+INSERT INTO `2016oop` (`student_name`, `total`, `end`, `mid`, `CA1`, `CA111`, `CA6`, `CA10`, `CA7`, `CA222`, `CA2`, `New`, `New1`) VALUES
+('160xxxx', '', '', '', '|uploaded files/Students/2016/OOP/CA1/item.txt||2018-04-21 14:30:13|0months 5days 00hours 30minutes 13seconds-late|', '', '', '', '', '', '|uploaded files/Students/2016/OOP/CA2/2nd sem violin.txt||2018-04-21 16:18:46|0months 7days 05hours 53minutes 14seconds-not late|', '', ''),
+('Dhanu', '', '', '', '', '', '', '|uploaded files/Students/2016/OOP/CA10/160575V (1).zip||2018-04-21 10:23:25|0months 2days 23hours 0minutes 25seconds-late|', '', '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `asfsf`
+--
+
+DROP TABLE IF EXISTS `asfsf`;
+CREATE TABLE IF NOT EXISTS `asfsf` (
+  `question` varchar(1000) DEFAULT NULL,
+  `ans1` varchar(500) DEFAULT NULL,
+  `ans2` varchar(500) DEFAULT NULL,
+  `ans3` varchar(500) DEFAULT NULL,
+  `ans4` varchar(500) DEFAULT NULL,
+  `answer` varchar(500) DEFAULT NULL,
+  UNIQUE KEY `question` (`question`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -74,7 +116,15 @@ CREATE TABLE IF NOT EXISTS `data structure and algorithms quiz collections 1` (
 
 INSERT INTO `data structure and algorithms quiz collections 1` (`question`, `ans1`, `ans2`, `ans3`, `ans4`, `answer`) VALUES
 ('This is sample question two This is sample question two This is sample question two ', 'answer 1', 'answer 2', 'answer 3', 'answer 4', '1'),
-('This is sample question one This is sample question one This is sample question one', 'answer 1', 'answer 2', 'answer 3', 'answer 4', '1');
+('This is sample question one This is sample question one This is sample question one', 'answer 1', 'answer 2', 'answer 3', 'answer 4', '1'),
+('sff', 'sfsf', 'sfsf', 'sff', 'sff', '1'),
+('fsfsf', 'sfs', 'sff', 'sfsf', 'sffs', '2434'),
+('ad', 'adad', 'ad', 'adad', 'adda', '2323'),
+('fsfs', 'fs', 'fsfs', 'ff', 'sff', '244'),
+('fsfs', 'fs', 'fsfs', 'ff', 'sff', '244'),
+('fsfs', 'ad', 'ad', 'dad', 'add', '244'),
+('s', 'sf', 'sff', 'sfsf', 'sff', '3434'),
+('adad', 'adad', 'add', 'adad', 'add', '244');
 
 -- --------------------------------------------------------
 
@@ -98,7 +148,8 @@ CREATE TABLE IF NOT EXISTS `electrical quiz collections 1` (
 
 INSERT INTO `electrical quiz collections 1` (`question`, `ans1`, `ans2`, `ans3`, `ans4`, `answer`) VALUES
 ('question one for electrical quiz', 'ans1', 'ans2', 'ans3', 'ans4', '2'),
-('question one for electrical quiz', 'ans1', 'ans2', 'ans3', 'ans4', '2');
+('question one for electrical quiz', 'ans1', 'ans2', 'ans3', 'ans4', '2'),
+('new', '1', '1', '1', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -154,7 +205,9 @@ INSERT INTO `instructor_2016-oop_ca` (`CA_number`, `assignment`, `file`, `valid_
 ('CA6', 'do this 6', 'Aviation School Free Website Template - Free-CSS.com (1) (1).zip', '2018-04-17T22:28'),
 ('CA222', '222222222', 'uploaded files/Instructor/2016/oop/AOD_Undergrad Prospectus MARCH 2017.pdf', '2018-04-26T22:28'),
 ('CA10', '10101010101', 'cv-library-graduate-no-experience-cv-template (1).docx', '2018-04-26T11:23'),
-('CA7', '77777777777777777777', 'decrypt - workshop (1).doc', '2018-04-25T14:35');
+('CA7', '77777777777777777777', 'decrypt - workshop (1).doc', '2018-04-25T14:35'),
+('New', 'just do this', 'uploaded files/Instructor/2016/oop/160256U.txt', '2018-07-06T09:16'),
+('New1', 'do assignment', 'uploaded files/Instructor/2016/oop/160256U.txt', '2018-07-06T09:33');
 
 -- --------------------------------------------------------
 
@@ -384,6 +437,31 @@ CREATE TABLE IF NOT EXISTS `quiz 3` (
   `answer` varchar(500) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `quiz 3`
+--
+
+INSERT INTO `quiz 3` (`question`, `ans1`, `ans2`, `ans3`, `ans4`, `answer`) VALUES
+('question one for electrical quiz', 'ans1', 'ans2', 'ans3', 'ans4', '2'),
+('This is sample question two This is sample question two This is sample question two ', 'answer 1', 'answer 2', 'answer 3', 'answer 4', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `quiz 4`
+--
+
+DROP TABLE IF EXISTS `quiz 4`;
+CREATE TABLE IF NOT EXISTS `quiz 4` (
+  `question` varchar(1000) DEFAULT NULL,
+  `ans1` varchar(500) DEFAULT NULL,
+  `ans2` varchar(500) DEFAULT NULL,
+  `ans3` varchar(500) DEFAULT NULL,
+  `ans4` varchar(500) DEFAULT NULL,
+  `answer` varchar(500) DEFAULT NULL,
+  UNIQUE KEY `question` (`question`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
 -- --------------------------------------------------------
 
 --
@@ -405,9 +483,9 @@ CREATE TABLE IF NOT EXISTS `quizs` (
 --
 
 INSERT INTO `quizs` (`quizname`, `starttime`, `endtime`, `duration`, `participants`) VALUES
-('QUIZ 1', '2018-02-02 02:12:00', '2018-03-30 02:12:00', 3600, '*, 2016'),
 ('QUIZ 3', '2018-03-24 00:12:00', '2018-03-24 00:22:00', 11213, '*'),
-('QUIZ 2', '2018-03-08 12:21:00', '2018-03-23 12:22:00', 1220, '*');
+('QUIZ 2', '2018-03-08 12:21:00', '2018-03-23 12:22:00', 1220, '*'),
+('QUIZ 1', '2018-08-08 08:00:00', '2018-09-08 08:00:00', 3600, '*');
 
 -- --------------------------------------------------------
 
@@ -418,22 +496,29 @@ INSERT INTO `quizs` (`quizname`, `starttime`, `endtime`, `duration`, `participan
 DROP TABLE IF EXISTS `results`;
 CREATE TABLE IF NOT EXISTS `results` (
   `id` varchar(7) DEFAULT NULL,
-  `OOP` varchar(2) NOT NULL,
-  `Computer_Architecture` varchar(2) NOT NULL,
-  `DSA` varchar(2) NOT NULL,
-  `Electronics` varchar(2) NOT NULL
+  `OOP` varchar(2) DEFAULT NULL,
+  `Computer_Architecture` varchar(2) DEFAULT NULL,
+  `DSA` varchar(2) DEFAULT NULL,
+  `Electronics` varchar(2) DEFAULT NULL,
+  `approved` tinyint(1) NOT NULL DEFAULT '0',
+  UNIQUE KEY `id` (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `results`
 --
 
-INSERT INTO `results` (`id`, `OOP`, `Computer_Architecture`, `DSA`, `Electronics`) VALUES
-('160277E', 'A', 'A+', 'B+', 'A'),
-('160256U', 'B+', 'A', 'A-', 'A'),
-('160231A', 'A', 'A+', 'A', 'A'),
-('150145L', 'A', 'A+', 'A', 'A-'),
-('150751I', 'B', 'A', 'B+', 'A-');
+INSERT INTO `results` (`id`, `OOP`, `Computer_Architecture`, `DSA`, `Electronics`, `approved`) VALUES
+('160277E', 'A', 'A+', 'B+', 'A', 1),
+('160XXXX', 'A-', 'A', 'A-', 'A', 1),
+('160231A', 'A', 'A+', 'A', 'A', 1),
+('150145L', 'A', 'A+', 'A', 'A-', 1),
+('150751I', 'B', 'A', 'B+', 'A-', 1),
+('167299U', 'A', 'A', NULL, NULL, 1),
+('160798U', 'A', NULL, NULL, NULL, 1),
+('176869A', 'A', NULL, NULL, NULL, 1),
+('160889S', 'A-', NULL, NULL, NULL, 1),
+('158918A', 'A+', NULL, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -455,7 +540,8 @@ CREATE TABLE IF NOT EXISTS `student_modules` (
 
 INSERT INTO `student_modules` (`student_name`, `Sem`, `modules`) VALUES
 ('160256U', 3, 'OOP,OS,Electronic'),
-('Dhanu', 2, 'OOP,Algo,Archi');
+('Dhanu', 2, 'OOP,Algo,Archi'),
+('160xxxx', 3, 'OOP,OS,Electronic');
 
 -- --------------------------------------------------------
 
@@ -478,7 +564,7 @@ CREATE TABLE IF NOT EXISTS `user_list` (
 INSERT INTO `user_list` (`user_name`, `password`, `privilege`) VALUES
 ('160748s', '1234', 'student'),
 ('150765k', '1234', 'student'),
-('160256u', '1111', 'student'),
+('160XXXX', '1111', 'student'),
 ('I001', '1111', 'instructor'),
 ('L001', '1111', 'lecturer'),
 ('A001', '1111', 'admin');

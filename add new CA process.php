@@ -59,7 +59,11 @@ ob_start();
         if (file_exists("uploaded files/Instructor/".$batch."/".$module)) {
             echo "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz";
         }else{
+<<<<<<< HEAD
             mkdir($upload_to,0777,true);
+=======
+            mkdir($upload_to);
+>>>>>>> d02b845a6c8dd8244d84b0ad05193a98f961f7d7
         }
        // echo "$File_type";
         
@@ -106,10 +110,25 @@ ob_start();
         
         if (empty($closing_time)) {
           $errors="Enter Deadline";
+<<<<<<< HEAD
         }
         if (empty($File_type) && empty($message)) {
           $errors="Enter Assignment";
         }
+
+        if (empty($assignment_name)) {
+          $errors="Enter Assignment Name";
+        }
+        if (!empty($message) && empty($errors)) {
+          echo "999999999999999999999";
+            $file_uploaded = true;
+=======
+        }
+        if (empty($File_type) && empty($message)) {
+          $errors="Enter Assignment";
+>>>>>>> e6be4260ce1376ba232182d38fbc516fa9dbb4da
+        }
+       
 
         if (empty($assignment_name)) {
           $errors="Enter Assignment Name";
