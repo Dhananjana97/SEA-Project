@@ -2,24 +2,35 @@
 if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="student"){header('Location: '.$home); exit();}
 ?>
         <h1>Register for exams</h1>
-        <p>Fill the following form to register. Do not make mistakes. look up again before click register button.</p>       
+        <p>Note: Fill the following form to register. Do not make mistakes. look up again before click register button.</p>
           <div class="form_settings" >
 		  <form action="Student\DashboardPage\RegisterForExam\reg.php" method="get" onsubmit="return Validate()" name="vform">
 
-			</br></br>
-              <div><p><span>Index No.</span><input  type="text" name="indexno" value="" placeholder="Enter Index Number"/></p>
+
+              <div><p><span>Index No.</span><input  type="text" name="indexno" value=
+                      <?php
+                      if(isset($_SESSION['user'])){
+                          echo strtoupper($_SESSION['user']->id);
+                      }
+                      ?>
+
+
+                      placeholder="Enter Index Number"/></p>
                   <div id="indexno_error" class="val_error"></div></div>
               <div><p><span>Name</span><input  type="text" name="fname" value="" placeholder="Enter Your Full Name"/></p>
                   <div id="fname_error" class="val_error"></div></div>
 			
 			<div><p><span>Department</span></p>
 			<select name="dept">
+                <option value=0>--Not selected--</option>
 				<option value="cse">Computer Science and Engineering</option>
 				<option value="ee">Electrical Engineering</option>
 				<option value="ce">Civil Engineering</option>
             </select>
                 <div id="dept_error" class="val_error"></div></div></br></br>
 			<div>
+                <span><input type="radio" name="sem" value="0" checked="checked"></span>
+                <label>--Not Selected--</label><br>
 			<span><input type="radio" name="sem" value="1"></span>
 			<label>1st Semester</label><br>
 			<span><input type="radio" name="sem" value="2"></span>
@@ -54,19 +65,19 @@ if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="student"){header('Locat
     var fname=document.forms["vform"]["fname"];
     var dept=document.forms["vform"]["dept"];
     var sem=document.forms["vform"]["sem"];
-   // var onotes=document.forms["vform"]["onotes"];
+  var onotes=document.forms["vform"]["onotes"];
 
     var indexno_error=document.getElementById("indexno_error");
     var fname_error=document.getElementById("fname_error");
     var dept_error=document.getElementById("dept_error");
     var sem_error=document.getElementById("sem_error");
-   // var onotes_error=document.getElementById("onotes_error");
+  var onotes_error=document.getElementById("onotes_error");
 
     indexno.addEventListener("blur",indexnoVerify,true);
     fname.addEventListener("blur",fnameVerify,true);
     dept.addEventListener("blur",deptVerify,true);
     sem.addEventListener("blur",semVerify,true);
-   // onotes.addEventListener("blur",onotesVerify,true);
+  onotes.addEventListener("blur",onotesVerify,true);
 
     function Validate() {
         if(indexno.value==""){
@@ -81,18 +92,25 @@ if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="student"){header('Locat
             indexno.focus();
             return false;
         }
-        if(dept.value==""){
+        if(dept.value==0){
             dept.style.border="1px solid red";
             dept_error.textContent="department required";
             dept.focus();
             return false;
         }
-        if(sem.value==""){
+        if(sem.value=="0"){
             sem.style.border="1px solid red";
             sem_error.textContent="semester required";
             sem.focus();
             return false;
         }
+        if(false){
+            indexno.style.border="1px solid red";
+            indexno_error.textContent="Index No: not valied!";
+            indexno.focus();
+            return false;
+        }
+
     }
 function indexnoVerify() {
     if(indexno.value!=""){

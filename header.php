@@ -40,7 +40,8 @@ function logout(){
 				if(isset($_SESSION['user'])){
 					echo 'loggedin: '.strtoupper($_SESSION['user']->id).' &nbsp;<a href="?logout=true"><strong>logout</strong></a>';
 				}
-			?></h4>
+			?>
+            </h4>
 		</div>
       </div>
 	  
