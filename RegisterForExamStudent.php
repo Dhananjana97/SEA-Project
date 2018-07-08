@@ -6,7 +6,7 @@ if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="student"){header('Locat
           <div class="form_settings" >
 		  <form action="Student\DashboardPage\RegisterForExam\reg.php" method="get" onsubmit="return Validate()" name="vform">
 
-<<<<<<< HEAD
+
 
               <div><p><span>Index No.</span><input  type="text" name="indexno" value=
                       <?php
@@ -17,10 +17,10 @@ if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="student"){header('Locat
 
 
                       placeholder="Enter Index Number"/></p>
-=======
+
 			</br></br>
               <div><p><span>Index No.</span><input  type="text" name="indexno" value="" placeholder="Enter Index Number"/></p>
->>>>>>> e6be4260ce1376ba232182d38fbc516fa9dbb4da
+
                   <div id="indexno_error" class="val_error"></div></div>
               <div><p><span>Name</span><input  type="text" name="fname" value="" placeholder="Enter Your Full Name"/></p>
                   <div id="fname_error" class="val_error"></div></div>
@@ -34,11 +34,10 @@ if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="student"){header('Locat
             </select>
                 <div id="dept_error" class="val_error"></div></div></br></br>
 			<div>
-<<<<<<< HEAD
+
                 <span><input type="radio" name="sem" value="0" checked="checked"></span>
                 <label>--Not Selected--</label><br>
-=======
->>>>>>> e6be4260ce1376ba232182d38fbc516fa9dbb4da
+
 			<span><input type="radio" name="sem" value="1"></span>
 			<label>1st Semester</label><br>
 			<span><input type="radio" name="sem" value="2"></span>

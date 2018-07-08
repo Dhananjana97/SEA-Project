@@ -17,8 +17,8 @@
 		
 		
 
-		$query="SELECT * FROM `instructor_".$batch."-".$CA_module."_ca`";
-		print($query);
+		$query="SELECT * FROM `instructor_".$batch."-".$CA_module."_ca`"; 
+	
 		$mydb = openDB();
 		$execute_object=mysqli_query($mydb,$query);
 		mysqli_close($mydb);
@@ -103,7 +103,7 @@
 
 	?>
 
-	<h2 style="color:#ffffff;font-style:all;font-family:sans-serif;margin-left:40px;">Select CA</h2>
+	<h2 style="color:black;font-style:all;font-family:sans-serif;margin-left:40px;">Select CA</h2>
 
  	
  	
@@ -175,7 +175,7 @@
 
 
 
-			</li>";  
+			</li><br>";  
 			
 		}
 

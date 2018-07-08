@@ -135,8 +135,7 @@
 
          $g=explode("|",$submission[$CA_number]);
          
-         print_r($g);
-         print(count($g));
+        
          
 
          
@@ -189,7 +188,8 @@
         <div class="container">
             <!-- Form Started -->
             <div class="container form-top">
-                <h3 style="font-weight:bold;font-size:40px;"><?php echo "$CA_module  $CA_number"; ?></h3>
+              <div style="background-color:white;margin-left:20px;border:2px solid black;background-opacity:0.5;">
+                <h3 style="font-weight:bold;font-size:40px;margin-left:20px"><?php echo "$CA_module  $CA_number"; ?></h3>
                 <br>
                 <div class="row">
                     
@@ -198,11 +198,24 @@
                         <div class="panel panel-danger">
                             <div class="panel-body">
 
+
+
                         
                                 <form id="reused_form"  style="border:2px;" action=<?php echo "'CA Upload Process.php?module=$CA_module&ca_number=$CA_number&submitted_file=$g[1]&task=$task&task_file=$task_file&closing_time=$closing_time'"; ?> method="Post" enctype="multipart/form-data" >
 
+                                  <?php 
 
-                                 <p style="font-weight:bold;font-size:20px;"> <?php echo "Download"; ?><a href="<?php echo "$task_file" ?> ">This File</a>
+                                    if (!empty($task_file)) {
+
+                                       echo '<p style="font-weight:bold;font-size:20px;margin-left:20px;">Download <a href='.$task_file.'"  ">This File</a>';
+                                    }
+                                   
+
+
+                                   ?>
+                                <br>
+
+
                                       <?php echo "$task"; ?>
 
                                 </p>
@@ -210,7 +223,7 @@
                                   
                                    
                                     <div class="form-group">
-                                         <label><i class="fa fa-envelope" aria-hidden="true" name="sub"></i> Submission Status :</label>
+                                         <label style="margin-left:20px;"><i class="fa fa-envelope" aria-hidden="true" name="sub"></i> Submission Status :</label>
 
                                          <?php 
                                             
@@ -220,34 +233,32 @@
                                                     
                                                     if ($submission) {
 
-                                                      echo "```````````";
+                                                      
                                                         
                                                         if (empty($submission[$CA_number])) {
                                                             $submit_stat=false;
-                                                            echo "<span style='font-size:x-large;'>Not Submitted</span>";
+                                                            echo "<span style='font-size:x-large;margin-left:15px;'>Not Submitted</span>";
                                                         }else{
                                                           $submit_stat=true;
-                                                           echo "<span style='font-size:x-large;'>Submitted</span>"; 
+                                                           echo "<span style='font-size:x-large;margin-left:15px;'>Submitted</span>"; 
                                                         }
                                                     }else{
                                                       if (empty($submission[$CA_number])) {
                                                             $submit_stat=false;
-                                                            echo "<span style='font-size:x-large;'>Not Submitted</span>";
+                                                            echo "<span style='font-size:x-large;margin-left:15px;'>Not Submitted</span>";
                                                         }else{
                                                           $submit_stat=true;
-                                                           echo "<span style='font-size:x-large;'>Submitted</span>"; 
+                                                           echo "<span style='font-size:x-large;margin-left:15px;'>Submitted</span>"; 
                                                         }
                                                     }
                                                
 
-
-
-
+10
                                              ?>
 
                                              <br>
 
-                                            <label><i class="fa fa-envelope" aria-hidden="true"></i> Grade :</label>
+                                            <label style="margin-left:20px;"><i class="fa fa-envelope" aria-hidden="true"></i> Grade :</label>
 
                                             <?php 
 
@@ -257,23 +268,24 @@
                                                 
 
                                                 if (empty($g[2])) {
-                                                    echo "<span style='font-size:x-large;'>Not Graded</span>";
+                                                    echo "<span style='font-size:x-large;margin-left:110px;'>Not Graded</span>";
                                                 
                                                 }else{
-                                                    echo "<span style='font-size:x-large;'>$g[2]</span>";                                              
+                                                    echo "<span style='font-size:x-large;margin-left:110px;'>$g[2]</span>";                                              
                                                 }
                                              ?>
                                              <br>
 
-                                              <label><i class="fa fa-envelope" aria-hidden="true"></i> Feedback :</label>
+                                              <label style="margin-left:20px;"><i class="fa fa-envelope" aria-hidden="true"></i> Feedback :</label>
 
                                               <?php 
 
                                                 if (empty($g[5])) {
-                                                    echo "<span style='font-size:x-large;'></span>";
+                                                    echo "<span style='font-size:x-large;margin-left:81px;'></span>";
+                                                    
                                                 
                                                 }else{
-                                                    echo "<span style='font-size:x-large;'>$g[5]</span>";                                              
+                                                    echo "<span style='font-size:x-large;margin-left:81px;'>$g[5]</span>";                                              
                                                 }
 
 
@@ -293,8 +305,7 @@
 
                                      ?>
 
-                                     <p id="q"></p>
-                                     <p id="w"></p>
+                                    
 
                                      <script>
                                       
@@ -402,11 +413,11 @@
 
                                     </script>
 
-                                    <label><i class="fa fa-clock-o" aria-hidden="true"></i> Time Remaining :
-                                      <span id="overdue" style="font-weight:bold;color:red;"></span>
-                                      <span id="remain"></span>
-                                      <span id="early" style="font-weight:bold;color:black;background-color:green;"></span>
-                                      <span id="late" style="font-weight:bold;color:black;background-color:red;"></span>
+                                    <label style="margin-left:20px;"><i class="fa fa-clock-o" aria-hidden="true"></i> Time Remaining :
+                                      <span id="overdue" style="font-weight:bold;color:red;margin-left:8px;"></span>
+                                      <span id="remain" style="margin-left:8px;"></span>
+                                      <span id="early" style="font-weight:bold;color:black;background-color:green;margin-left:8px;"></span>
+                                      <span id="late" style="font-weight:bold;color:black;background-color:red;margin-left:8px;"></span>
 
                                       <?php 
 
@@ -482,15 +493,15 @@
                                     </label>
 
                                     <div class="form-group">
-                                        <label><i class="fa fa-comment" aria-hidden="true"></i> Message</label>
-                                        <textarea rows="3" name="message" class="form-control" placeholder="Type Your Message" style="width:500px;"><?php echo "$g[0]"; ?></textarea>
+                                        <label style="margin-left:20px;"><i class="fa fa-comment" aria-hidden="true"></i> Message:</label>
+                                        <textarea style='margin-left:100px;vertical-align:text-top;border-radius:10px;border:2px solid black;' rows="3" name="message" class="form-control" placeholder="Type Your Message" style="width:500px;"><?php echo "$g[0]"; ?></textarea>
                                     </div>
                                     <div>
-                                        <label><i class="fa fa-upload" aria-hidden="true"></i>Upload Your Files</label>
-                                        <input type="file" name="file" class="form-control" class="form-submit-button" style="width:350px;">
+                                        <label style="margin-left:20px;"><i class="fa fa-upload" aria-hidden="true"></i>Upload Your Files</label>
+                                        <input style="margin-left:33px" type="file" name="file" class="form-control" class="form-submit-button" style="width:350px;">
                                         <br> 
-
-                                        <div id="logo" style="width:400px;height:290px;background-color:white;">
+                                        <br>
+                                        <div id="logo" style="width:400px;height:290px;background-color:white;margin-left:20px;border:2px solid black;">
 
                                         <a href=""></a>
 
@@ -650,7 +661,7 @@
                                     </div>
                                     <br>
                                     <div >
-                                        <button type="submit" name='submit' class="form-submit-button" style="margin-bottom:50px;" >Submit</button>
+                                        <button type="submit" name='submit' class="form-submit-button" style="margin-bottom:30px;background-color:#1d1d1d;border: none;color: white;padding: 10px 3px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;margin: 4px 50px;cursor: pointer;">Submit</button>
                                     </div>
                                     <br>
                                    
@@ -667,6 +678,7 @@
                        
                     </div>
                 </div>
+              </div>
             </div>
             <!-- Form Ended -->
 <?php require_once 'footer.php';?>

@@ -1,8 +1,5 @@
 <?php include 'header.php';
-if (!isset($_SESSION['user'])) {
-    header('Location:' . $home);
-    exit();
-}
+if (!isset($_SESSION['user'])) {logout();}
 if (isset($_GET['title']) && isset($_GET['dir'])) {
     $title = $_GET['title'];
     $dir = $_GET['dir'];
@@ -10,26 +7,6 @@ if (isset($_GET['title']) && isset($_GET['dir'])) {
     die('Please give correct path...');
 }
 ?>
-    <html>
-    <style>
-        .DirList {
-            margin: 0 10px 0 0;
-
-            padding: 12px 40px;
-            border: 1px solid #090909;
-            width: auto;
-        }
-
-        a[class="listing"] {
-            font-weight: regular;
-            text-decoration: none;
-            color: Black;
-            text-transform: capitalize;
-            text-shadow: .2px .2px black;
-            line-height: 1.7;
-        }
-    </style>
-<main>
 <?php
 echo '<h2>' . $title . '</h2>';
 function listFolderFiles($dir)
@@ -52,16 +29,16 @@ function listFolderFiles($dir)
         if (!is_dir($dir . '/' . $ff)) {
             echo '<li><a class = "listing" href="' . $dir . $path . $ff . '">' . $ff;
         } else {
-            echo '<li><a class = "listing">' . $ff;
+            echo '<li><a class = "listing">' . $ff.'</a>';
             listFolderFiles($dir . '/' . $ff, $path1);
         }
-        echo '</li></a>';
+        echo '</li>';
     }
     echo '</ol>';
 }
 
 ?>
-    <div class="DirList">
+    <div class="bordered_frame">
         <!--Downloads directory path goes here-->
         <?php listFolderFiles($dir); ?>
     </div>

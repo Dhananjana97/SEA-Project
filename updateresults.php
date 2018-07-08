@@ -1,5 +1,5 @@
 <?php require 'header.php';
-if(!isset($_SESSION['user'])){header('Location: '.$home); exit();}
+if(!isset($_SESSION['user'])||$_SESSION['user']->type != "lecturer"){logout();}
 ?>
 
 
@@ -94,9 +94,16 @@ Eg:
 		$mydb = openDB();
 		$result = mysqli_query($mydb, $query);
 		mysqli_close($mydb);
-		echo '<div style="width:900px; margin:40px 40px;">';
+		echo '<div class="bordered_frame">';
 		while($module = mysqli_fetch_row($result)[0]){
-			echo '<table class="internal"><tr><td width="800px">'.$module.'</td><td><center><a href="?module_name='.$module.'&update=true">Update results</a></center></td><td><center><a href="?module_name='.$module.'&view=true">View results</a></center></td></tr></table>';
+			echo
+			'<table class="internal">'
+				.'<tr>'
+					.'<td width="700px">'.$module.'</td>'
+					.'<td><center><a class="int_button" href="?module_name='.$module.'&update=true">Update results</a></center></td>'
+					.'<td><center><a class="int_button" href="?module_name='.$module.'&view=true">View results</a></center></td>'
+				.'</tr>'
+			.'</table>';
 		}
 		echo '</div>';
 	}

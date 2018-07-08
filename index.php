@@ -1,27 +1,27 @@
 <?php
 require_once 'main/config.inc.php';
-$returning_page=isset($_COOKIE['returning_page'])?$_COOKIE['returning_page']:NULL;
+$returning_page = (isset($_GET['return'])&&!empty($_GET['return']))?explode("?",$_GET['return'])[0]:"";
 $privilege;
 session_start();
 if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
     $user_name = strtolower($_SESSION['user']->id);
     header('url=' . $_SESSION["user"]->type . '_home.php');
-    exit();
+    exit;
 }
 if (isset($_POST['user_name']) && !empty($_POST['user_name']) && isset($_POST['password']) && !empty($_POST['password'])) {
     $user_name = strtolower($_POST['user_name']);
     $password = $_POST['password'];
-    login($user_name, $password);
+    login($user_name, $password,$returning_page);
 }
 
-function login($user, $pass)
+function login($user, $pass, $returning_page)
 {
     global $privilege;
     $mydb = openDB();
     $user_name = $user;
     $password = $pass;
     $privilege = mysqli_fetch_array(mysqli_query($mydb, "SELECT privilege FROM user_list WHERE user_name = '$user_name' and password = '$password'"));
-
+	mysqli_close($mydb);
     if (!empty($privilege[0])) {
         switch (strtolower($privilege[0])) {
             case 'student':
@@ -37,21 +37,17 @@ function login($user, $pass)
                 $_SESSION['user'] = new Admin($user_name);
                 break;
         }
-        gotouserhome();
+        gotouserhome($returning_page);
     }
-    mysqli_close($mydb);
 }
 
-function gotouserhome()
+function gotouserhome($returning_page)
 {
-    global $privilege, $returning_page;
-    if(!empty($returning_page))
-        header("Location:	".$returning_page);
-    else
-        header("Location:	" . $_SESSION['user']->type . "_home.php");
+    global $privilege;
+	$page = ($returning_page!="")?$returning_page:$_SESSION['user']->type ."_home.php";
+    header("Location:	".$page);
     exit;
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,7 +68,7 @@ function gotouserhome()
 </head>
 
 <body>
-<form action="<?php echo $home; ?>" method="post">
+<form action="" method="post">
     <div class="container">
         <div class="top">
             <h1 id="title" class="hidden"><span id="logo"> <span>Student and Examination Department</span></span></h1>

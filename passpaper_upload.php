@@ -1,9 +1,6 @@
 <?php
 include 'header.php';
-if (!isset($_SESSION['user'])) {
-    header("Location: $home");
-    exit();
-}
+if (!isset($_SESSION['user'])||$_SESSION['user']->type != "lecturer"&&$_SESSION['user']->type != "instructor") {logout();}
 if (isset($_GET['uploadedto']) && !empty($_GET['uploadedto'])) {
     $uploadedto = $_GET['uploadedto'] . "/";
 } else {
@@ -63,6 +60,7 @@ if (isset($_POST["uploadButton"])) {
             border: 2px solid #007799;
             border-radius: 15px;
             transform: translate(-50%, 0%);
+			background-color:#fff;
         }
 
         input {

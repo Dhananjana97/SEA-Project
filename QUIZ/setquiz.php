@@ -106,7 +106,7 @@
             <table id="setquiz">
                 <tr>
                     <td>Quiz Title:&nbsp;&nbsp;&nbsp;</td>
-                    <td><input style="width:740px;margin-right:5px; padding:4px 3px; border:1px solid #999999;"
+                    <td><input style="width:670px;margin-right:5px; padding:4px 3px; border:1px solid #999999;"
                                type="text" name="quizname" id="quizname"></td>
                 </tr>
                 <tr>
@@ -151,7 +151,7 @@
 		$Quizs = mysqli_query($mydb, "SELECT * FROM `quizs`");
 		mysqli_close($mydb);
 		echo '<div>'
-		.'<table id="quiz_list">'
+		.'<table id="quiz_list" style="margin:-20px -50px 20px -50px;">'
             .'<tr>'
                 .'<th>Quiz Name</th>'
                 .'<th>Start Time</th>'
