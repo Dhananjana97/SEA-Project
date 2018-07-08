@@ -1,12 +1,11 @@
 <?php
 require_once 'main/config.inc.php';
-$returning_page=isset($_COOKIE['returning_page'])?$_COOKIE['returning_page']:NULL;
 $privilege;
 session_start();
 if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
     $user_name = strtolower($_SESSION['user']->id);
     header('url=' . $_SESSION["user"]->type . '_home.php');
-    exit();
+    exit;
 }
 if (isset($_POST['user_name']) && !empty($_POST['user_name']) && isset($_POST['password']) && !empty($_POST['password'])) {
     $user_name = strtolower($_POST['user_name']);
@@ -45,9 +44,7 @@ function login($user, $pass)
 function gotouserhome()
 {
     global $privilege, $returning_page;
-    if(!empty($returning_page))
-        header("Location:	".$returning_page);
-    else
+
         header("Location:	" . $_SESSION['user']->type . "_home.php");
     exit;
 }

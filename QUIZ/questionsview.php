@@ -5,12 +5,15 @@
 	}
 	else{
 		$questions = $questionCategory->getQs();
-		echo '<div ><table>';
+		echo '<div><table>';
 		foreach($questions as $key => $question){
-			echo '<tr>
-			<td>'.($key+1).')</td>
-			<td>'.$question[0].'</td>
-			<td><a href="?viewQuestions='.$category.'&&question='.$key.'"><text style="color:red;list-style-type: none;">Remove Question</text></a></td>
+			echo
+			'<tr>'
+				.'<td style="vertical-align:top;">('.($key+1).')</td>'
+				.'<td style="text-indent:0;width:720px">'.$question[0].'</td>'
+				.'<td width="80px"><a href="?viewQuestions='.$category.'&&question='.$key.'">'
+					.'<text style="color:red;list-style-type: none;">Remove</text>'
+				.'</a></td>
 			</tr>';
 			echo '<br>';
 		}

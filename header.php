@@ -5,7 +5,7 @@ session_start();
 if (isset($_SESSION['user'])) {
     $user = $_SESSION['user'];
     $links = $user->links;
-} else header('Location: ' . $home);
+}
 if (isset($_GET['logout']) && $_GET['logout'] == 'true') {
     unset($_COOKIE['return_page']);
     logout();
