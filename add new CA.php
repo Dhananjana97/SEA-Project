@@ -232,7 +232,14 @@
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
             </div>
+=======
+<<<<<<< HEAD
+=======
+            </div>
+>>>>>>> e6be4260ce1376ba232182d38fbc516fa9dbb4da
+>>>>>>> d02b845a6c8dd8244d84b0ad05193a98f961f7d7
         </div>
 
 <?php require_once 'footer.php';?>

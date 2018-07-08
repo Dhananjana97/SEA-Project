@@ -2,7 +2,7 @@
 class Instructor{
 	public $id;
 	public $type;
-	public $links = array('Passpapers'=>'uploadpasspaper.php',  'CAs' => 'Registered%20Modules%20For%20Instructors.php');
+	public $links = array('Passpapers'=>'uploadpasspaper.php');
 	public $registered_modules;
 	function __construct($id){
 		$this->id = $id;

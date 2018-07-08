@@ -206,9 +206,20 @@
                                             <?php echo "$Assignment"; ?></textarea>
                                     </div>
                                      <div class="form-group">
+<<<<<<< HEAD
                                         <label><i class="fa fa-calendar" aria-hidden="true" style="margin-left:20px;"></i>Due Date And Time</label>
                                         <br>
                                         <input id="due date" type="datetime-local" style='margin-left:20px;'name="closing_time" value="<?php echo "$duration"; ?>">
+=======
+<<<<<<< HEAD
+                                        <label><i class="fa fa-calendar" aria-hidden="true"></i>Due Date And Time</label>
+                                        <input id="due date" type="datetime-local" name="closing_time" value="<?php echo "$duration"; ?>">
+=======
+                                        <label><i class="fa fa-calendar" aria-hidden="true" style="margin-left:20px;"></i>Due Date And Time</label>
+                                        <br>
+                                        <input id="due date" type="datetime-local" style='margin-left:20px;'name="closing_time" value="<?php echo "$duration"; ?>">
+>>>>>>> e6be4260ce1376ba232182d38fbc516fa9dbb4da
+>>>>>>> d02b845a6c8dd8244d84b0ad05193a98f961f7d7
                                         
 
                                          <?php 

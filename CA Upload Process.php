@@ -39,7 +39,8 @@ ob_start();
         if (file_exists("uploaded files/Students/".$batch."/".$CA_module."/".$CA_number)) {
             echo "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz";
         }else{
-            mkdir($upload_to);
+            print("uploaded files/Students/".$batch."/".$CA_module."/".$CA_number);
+            mkdir($upload_to,0777,true);
         }
 
         if (file_exists("uploaded files/Students/".$batch."/".$CA_module."/".$CA_number."/".$File_name)) {
@@ -195,6 +196,7 @@ ob_start();
         mysqli_close($conn);
 
         if ($ex) {
+            echo "1111111@@@@@@@@@@@@@@@@@@@@@@@@@@";
             header("Location:CA Upload.php?module={$CA_module}&ca_number={$CA_number}&submitted_file={$submitted_file}&errors={$errors}&task=$task&task_file=$task_file&closing_time=$closing_time");
                                             
         }else{
@@ -203,17 +205,18 @@ ob_start();
         }
 
         }else{
+            echo "2222222222222@@@@@@@@@@@@@@@@@@";
             header("Location:CA Upload.php?module={$CA_module}&ca_number={$CA_number}&submitted_file={$submitted_file}&errors={$errors}&task=$task&task_file=$task_file&closing_time=$closing_time");
         }
 
         
     }
-
+    echo "33333333333@@@@@@@@@@@@@@@@@";
      header("Location:CA Upload.php?module={$CA_module}&ca_number={$CA_number}&submitted_file={$submitted_file}&errors={$errors}&task=$task&task_file=$task_file&closing_time=$closing_time");
 
 
 	require_once 'footer.php';
-    echo "111111111111111111111111111111";
+    echo "1111111111&&&&&&&&&&&&&&&&&&";
   
 
 
