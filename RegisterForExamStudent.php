@@ -6,6 +6,7 @@ if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="student"){header('Locat
           <div class="form_settings" >
 		  <form action="Student\DashboardPage\RegisterForExam\reg.php" method="get" onsubmit="return Validate()" name="vform">
 
+<<<<<<< HEAD
 
               <div><p><span>Index No.</span><input  type="text" name="indexno" value=
                       <?php
@@ -16,6 +17,10 @@ if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="student"){header('Locat
 
 
                       placeholder="Enter Index Number"/></p>
+=======
+			</br></br>
+              <div><p><span>Index No.</span><input  type="text" name="indexno" value="" placeholder="Enter Index Number"/></p>
+>>>>>>> e6be4260ce1376ba232182d38fbc516fa9dbb4da
                   <div id="indexno_error" class="val_error"></div></div>
               <div><p><span>Name</span><input  type="text" name="fname" value="" placeholder="Enter Your Full Name"/></p>
                   <div id="fname_error" class="val_error"></div></div>
@@ -29,8 +34,11 @@ if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="student"){header('Locat
             </select>
                 <div id="dept_error" class="val_error"></div></div></br></br>
 			<div>
+<<<<<<< HEAD
                 <span><input type="radio" name="sem" value="0" checked="checked"></span>
                 <label>--Not Selected--</label><br>
+=======
+>>>>>>> e6be4260ce1376ba232182d38fbc516fa9dbb4da
 			<span><input type="radio" name="sem" value="1"></span>
 			<label>1st Semester</label><br>
 			<span><input type="radio" name="sem" value="2"></span>
@@ -65,19 +73,31 @@ if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="student"){header('Locat
     var fname=document.forms["vform"]["fname"];
     var dept=document.forms["vform"]["dept"];
     var sem=document.forms["vform"]["sem"];
+<<<<<<< HEAD
   var onotes=document.forms["vform"]["onotes"];
+=======
+   // var onotes=document.forms["vform"]["onotes"];
+>>>>>>> e6be4260ce1376ba232182d38fbc516fa9dbb4da
 
     var indexno_error=document.getElementById("indexno_error");
     var fname_error=document.getElementById("fname_error");
     var dept_error=document.getElementById("dept_error");
     var sem_error=document.getElementById("sem_error");
+<<<<<<< HEAD
   var onotes_error=document.getElementById("onotes_error");
+=======
+   // var onotes_error=document.getElementById("onotes_error");
+>>>>>>> e6be4260ce1376ba232182d38fbc516fa9dbb4da
 
     indexno.addEventListener("blur",indexnoVerify,true);
     fname.addEventListener("blur",fnameVerify,true);
     dept.addEventListener("blur",deptVerify,true);
     sem.addEventListener("blur",semVerify,true);
+<<<<<<< HEAD
   onotes.addEventListener("blur",onotesVerify,true);
+=======
+   // onotes.addEventListener("blur",onotesVerify,true);
+>>>>>>> e6be4260ce1376ba232182d38fbc516fa9dbb4da
 
     function Validate() {
         if(indexno.value==""){
@@ -92,18 +112,27 @@ if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="student"){header('Locat
             indexno.focus();
             return false;
         }
+<<<<<<< HEAD
         if(dept.value==0){
+=======
+        if(dept.value==""){
+>>>>>>> e6be4260ce1376ba232182d38fbc516fa9dbb4da
             dept.style.border="1px solid red";
             dept_error.textContent="department required";
             dept.focus();
             return false;
         }
+<<<<<<< HEAD
         if(sem.value=="0"){
+=======
+        if(sem.value==""){
+>>>>>>> e6be4260ce1376ba232182d38fbc516fa9dbb4da
             sem.style.border="1px solid red";
             sem_error.textContent="semester required";
             sem.focus();
             return false;
         }
+<<<<<<< HEAD
         if(false){
             indexno.style.border="1px solid red";
             indexno_error.textContent="Index No: not valied!";
@@ -111,6 +140,8 @@ if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="student"){header('Locat
             return false;
         }
 
+=======
+>>>>>>> e6be4260ce1376ba232182d38fbc516fa9dbb4da
     }
 function indexnoVerify() {
     if(indexno.value!=""){

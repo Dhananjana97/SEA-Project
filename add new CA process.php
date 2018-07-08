@@ -55,6 +55,12 @@ ob_start();
         $File_size=$_FILES['file']['size'];
 
         $upload_to="uploaded files/Instructor/".$batch."/".$module."/";
+
+        if (file_exists("uploaded files/Instructor/".$batch."/".$module)) {
+            echo "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz";
+        }else{
+            mkdir($upload_to);
+        }
        // echo "$File_type";
         
        // echo "$File_size";
@@ -100,10 +106,25 @@ ob_start();
         
         if (empty($closing_time)) {
           $errors="Enter Deadline";
+<<<<<<< HEAD
         }
         if (empty($File_type) && empty($message)) {
           $errors="Enter Assignment";
         }
+
+        if (empty($assignment_name)) {
+          $errors="Enter Assignment Name";
+        }
+        if (!empty($message) && empty($errors)) {
+          echo "999999999999999999999";
+            $file_uploaded = true;
+=======
+        }
+        if (empty($File_type) && empty($message)) {
+          $errors="Enter Assignment";
+>>>>>>> e6be4260ce1376ba232182d38fbc516fa9dbb4da
+        }
+       
 
         if (empty($assignment_name)) {
           $errors="Enter Assignment Name";

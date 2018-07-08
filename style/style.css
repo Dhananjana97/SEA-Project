@@ -70,13 +70,21 @@ ul li
 { list-style-type: none;
   margin: 0 0 6px 0; 
   padding: 0 0 4px 5px;
+  line-height: 1.5em;
+}
+
+.answers ul
+{ list-style-type: none;
+  padding: 0 0 4px 23px;
+  line-height: 1.5em;
+}
+ol
+{ margin: 8px 0 22px 20px;
+padding: 0 0 4px 12px;
   line-height: 1.5em;}
 
-ol
-{ margin: 8px 0 22px 20px;}
-
 ol li
-{ margin: 0 0 11px 0;}
+{ margin: 0 0 11px 10px;}
 
 .left
 { float: left;
@@ -93,7 +101,10 @@ ol li
   text-align: center;
   margin: 20px auto;}
 
-
+.notice{
+	color:red;
+	padding:2px;
+}
 
   
 #main{
@@ -384,7 +395,8 @@ position:fixed;
   margin: 0 0 20px 0;}
   
 table
-{ margin: 10px 0 30px 0;}
+{ margin: 0 0 30px 0;
+  table-layout: fixed;}
 
 table tr th, table tr td
 { background: #3B3B3B;
