@@ -103,7 +103,7 @@ $id = strtolower($user->id);
 
         if (isset($_GET['approverequest']) && !empty($_GET['approverequest'])) {
             approveRequest($_GET['approverequest']);
-            deleteRequest($_GET['approverequest']);
+            
         }
 
             
