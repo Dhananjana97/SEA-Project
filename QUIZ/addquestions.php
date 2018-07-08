@@ -25,21 +25,23 @@ function validate_form(){
 </script>
 <style>
 .input_field{
-	width:800px;
+	width:690px;
 	padding:4px 3px;
 	border:0.5px solid #999999;
 }
 </style>
 <?php
-	if(isset($_POST['question'])&&!empty($_POST['question'])&&isset($_POST['ans1'])&&!empty($_POST['ans1'])&&isset($_POST['ans2'])&&!empty($_POST['ans2'])&&isset($_POST['ans3'])&&!empty($_POST['ans3'])&&isset($_POST['ans4'])&&!empty($_POST['ans4'])&&isset($_POST['answer'])&&!empty($_POST['answer'])){
-		$question = $_POST['question'];
-		$answers = array($_POST['ans1'], $_POST['ans2'], $_POST['ans3'], $_POST['ans4']);
-		$answer = $_POST['answer'];
-		$questionCategory -> addQ($question, $answers, $answer);
+	if(isset($_POST['question'])&&!empty($_POST['question'])&&isset($_POST['ans1'])&&!empty($_POST['ans1'])
+		&&isset($_POST['ans2'])&&!empty($_POST['ans2'])&&isset($_POST['ans3'])&&!empty($_POST['ans3'])
+		&&isset($_POST['ans4'])&&!empty($_POST['ans4'])&&isset($_POST['answer'])&&!empty($_POST['answer'])){
+			$question = $_POST['question'];
+			$answers = array($_POST['ans1'], $_POST['ans2'], $_POST['ans3'], $_POST['ans4']);
+			$answer = $_POST['answer'];
+			$questionCategory -> addQ($question, $answers, $answer);
 	}
 	else{
 	?>
-		<div style="line-height:2; width:910px"><br><center><h3>Category name: <?php echo $category;?></h3></center>
+		<div style="line-height:2; width:800px"><br><center><h3>Category name: <?php echo $category;?></h3></center>
 		<form action = "" method="POST" id="add_question">
 		Question:&nbsp;&nbsp;&nbsp;
 		<input class ="input_field" type="text" name = "question" id="question"><br>

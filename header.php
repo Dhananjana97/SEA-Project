@@ -5,7 +5,7 @@ session_start();
 if (isset($_SESSION['user'])) {
     $user = $_SESSION['user'];
     $links = $user->links;
-} else header('Location: ' . $home);
+}
 if (isset($_GET['logout']) && $_GET['logout'] == 'true') {
     unset($_COOKIE['return_page']);
     logout();
@@ -40,7 +40,7 @@ function logout()
             <div id="logo_text">
                 <!-- class="logo_colour", allows you to change the colour of the text -->
                 <h1><a href="index.php">STUDENT AND EXAMINATION DEPARTMENT<span class="logo_colour"></span></a></h1>
-                <h2 style="text-indent:10px;">Have a nice day, <?php echo strtoupper($_SESSION['user']->id); ?>...</h2>
+                <h2 style="text-indent:10px;"><?php if(isset($_SESSION['user']->id))echo "Have a nice day, ".strtoupper($_SESSION['user']->id); ?>...</h2>
             </div>
             <div id="accdet">
                 <h4><?php

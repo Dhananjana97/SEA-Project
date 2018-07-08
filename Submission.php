@@ -63,6 +63,7 @@ if (isset($_POST["uploadButton"])) {
             border: 2px solid #007799;
             border-radius: 15px;
             transform: translate(-50%, 0%);
+			background-color:#fff;
         }
 
         input {

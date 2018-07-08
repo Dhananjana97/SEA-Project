@@ -48,7 +48,18 @@ h5, h6
   font: normal 95% arial;
   letter-spacing: normal;
   padding: 0 0 15px 0;}
-
+a[class="listing"]{
+	font-weight: regular;
+        text-decoration: none;
+        color: Black;
+        text-transform: capitalize;
+        text-shadow: .2px .2px black;
+        line-height: 1.7;
+}
+a[class="int_button"]{
+	text-decoration: none;
+        color: Blue;
+}
 a, a:hover
 { outline: none;
   text-decoration:none;
@@ -249,14 +260,14 @@ height:auto;
 
 #content
 { text-align: left;
-  width: 980px;
-  padding: 0 5px 40px 0;
-  height:auto;
-  left:0;
-  top:200px;
-  margin: -5px 10px 0 -50px;
-  position:absolute;
-  background-color: #eee;
+	width: 980px;
+	padding: 0 5px 40px 0;
+	height:auto;
+	left:0;
+	top:200px;
+	margin: -5px 10px 0 -50px;
+	position:absolute;
+	background-color: #eee;
 	margin-right:7.5px;
 	left: 320px;
 	font-size: 18px; /* Increased text to enable scrolling */
@@ -408,3 +419,49 @@ table tr td
 { background: #E5E5DB;
   color: #47433F;
   border-top: 1px solid #FFF;}
+ 
+table,table tr th , table tr td [class="results_table"] {
+	background: #333333;
+	color: #FFF;
+	min-width:90px;
+	padding: 7px 5px;
+	
+	text-align: center;
+}
+
+table td [class="results_table"] {
+	min-width: 80px;
+	text-indent: 15px;
+	
+}
+.button{
+	color: blue;
+	float: right;
+	margin-right: 70px;
+	border: 2px solid;
+	font-size: large;
+	text-align: center;
+	width: 160px;
+	height: 30px;
+}
+
+.bordered_frame {
+        margin: 0 10px 0 0;
+        min-height: 80vh;
+        padding: 32px 40px;
+        border: 2px solid #090909;
+        width: auto;
+		background-color:#fff;
+		border-radius: 10px;
+}
+.announcement{
+	position: relative;
+	width: auto;
+	min-height: 500px;
+	padding: 12px 10px;
+	margin: 8px 10px 0 0;
+	box-sizing: border-box;
+	border: 2px solid #007799;
+	border-radius: 4px;
+	background-color:#fff;
+}

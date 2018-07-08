@@ -5,8 +5,6 @@ if (!isset($_SESSION['user']) || $_SESSION['user']->type != "student") {
     exit();
 }
 ?>
-
-    <html>
 <style>
     table, th, td {
         border: 5px solid black;
@@ -28,7 +26,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user']->type != "student") {
         float: left;
     }
 </style>
-<main>
+<div class="bordered_frame">
     <?php
     if (isset($_SESSION['user'])) {
         $user = $_SESSION['user'];
@@ -87,5 +85,5 @@ if (!isset($_SESSION['user']) || $_SESSION['user']->type != "student") {
     }
     ?>
 
-</main>
+</div>
 <?php require_once 'footer.php'; ?>

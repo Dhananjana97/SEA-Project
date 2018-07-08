@@ -5,26 +5,7 @@ if (!isset($_SESSION['user'])) {
 }
 ?>
 <html>
-<style>
-    .DirList {
-        margin: 0 10px 0 0;
-        min-height: 80vh;
-        padding: 12px 40px;
-        border: 1px solid #090909;
-        width: auto;
-    }
-
-    a[class="listing"] {
-        font-weight: regular;
-        text-decoration: none;
-        color: Black;
-        text-transform: capitalize;
-        text-shadow: .2px .2px black;
-        line-height: 1.7;
-    }
-</style>
-<main>
-    <?php
+<?php
     echo '<h2>' . $title . '</h2>';
     function listFolders($dir)
     {
@@ -49,7 +30,7 @@ if (!isset($_SESSION['user'])) {
     }
 
     ?>
-    <div class="DirList">
+    <div class="bordered_frame">
         <!--Downloads directory path goes here-->
         <?php listFolders("Passpapers"); ?>
     </div>
