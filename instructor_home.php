@@ -1,9 +1,6 @@
 <?php
 include 'header.php';
-if (!isset($_SESSION['user']) || $_SESSION['user']->type != "instructor") {
-    header('Location: ' . $home);
-    exit();
-}
+if (!isset($_SESSION['user']) || $_SESSION['user']->type != "instructor") {logout();}
 ?>
 
 

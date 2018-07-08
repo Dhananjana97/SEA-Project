@@ -1,8 +1,5 @@
 <?php include 'header.php';
-if (!isset($_SESSION['user'])) {
-    header('Location:' . $home);
-    exit();
-}
+if (!isset($_SESSION['user'])) {logout();}
 if (isset($_GET['title']) && isset($_GET['dir'])) {
     $title = $_GET['title'];
     $dir = $_GET['dir'];
@@ -32,10 +29,10 @@ function listFolderFiles($dir)
         if (!is_dir($dir . '/' . $ff)) {
             echo '<li><a class = "listing" href="' . $dir . $path . $ff . '">' . $ff;
         } else {
-            echo '<li><a class = "listing">' . $ff;
+            echo '<li><a class = "listing">' . $ff.'</a>';
             listFolderFiles($dir . '/' . $ff, $path1);
         }
-        echo '</li></a>';
+        echo '</li>';
     }
     echo '</ol>';
 }

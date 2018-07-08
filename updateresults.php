@@ -1,5 +1,5 @@
 <?php require 'header.php';
-if(!isset($_SESSION['user'])){header('Location: '.$home); exit();}
+if(!isset($_SESSION['user'])||$_SESSION['user']->type != "lecturer"){logout();}
 ?>
 
 

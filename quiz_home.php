@@ -1,9 +1,6 @@
 <?php
 require_once 'header.php';
-if (!isset($_SESSION['user'])) {
-    header('Location:' . $home);
-    exit();
-}
+if (!isset($_SESSION['user'])) {logout();}
 $user = $_SESSION['user'];
 $id = strtolower($user->id);
 ?>

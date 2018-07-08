@@ -1,9 +1,6 @@
 <?php require_once 'header.php';
 require_once './main/config.inc.php';
-if (!isset($_SESSION['user']) || $_SESSION['user']->type != "admin") {
-    header('Location: ' . $home);
-    exit();
-}
+if (!isset($_SESSION['user']) || $_SESSION['user']->type != "admin") {logout();}
 ?>
 <div class="bordered_frame" style="padding-bottom:55px;">
 	<?php
