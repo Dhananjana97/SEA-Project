@@ -4,12 +4,28 @@
 	if(isset($_GET['module']))$CA_module=$_GET['module']; else die("you should select module");	
 
  ?>
+ <style type="text/css">
+    
+#b{
+    background-color:#1d1d1d; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+
+</style>
 
 
         <div class="container">
             <!-- Form Started -->
             <div class="container form-top">
-                <h3><?php echo "$CA_module"; ?></h3>
+                <div style="background-color:white;margin-left:20px;border:2px solid black;background-image:url('images/CA.jpg');background-opacity:0.5;">
+                <h3 style="margin-left:20px;font-weight:bold;"><?php echo "$CA_module"; ?></h3>
                 
                 <div class="row">
                     
@@ -35,23 +51,26 @@
                                     
 
                                     <div class="form-group">
-                                        <label><i class="fa fa-folder" aria-hidden="true"></i>Assignment Name</label>
+                                        <label><i class="fa fa-folder" aria-hidden="true" style="margin-left:20px;"></i>Assignment Name</label>
                                         <br>
-                                        <input type="text" name="Assignment_Name">
+                                        <input style="margin-left:40px;" type="text" name="Assignment_Name">
                                     <div class="form-group">
-                                        <label><i class="fa fa-comment" aria-hidden="true"></i> Assignment</label>
-                                        <textarea rows="3" name="message" class="form-control" placeholder="Type Your Message"></textarea>
+                                        <label><i class="fa fa-comment" aria-hidden="true" style="font-size:30px;margin-left:20px;"></i> Assignment</label>
+                                        <br>
+                                        <textarea  style="margin-left:40px;" rows="3" name="message" class="form-control" placeholder="Type Your Message"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label><i class="fa fa-calendar" aria-hidden="true"></i>Due Date And Time</label>
-                                        <input type="datetime-local" name="closing_time">
+                                        <label><i class="fa fa-calendar" aria-hidden="true" style="margin-left:20px;"></i>Due Date And Time</label>
+                                        <br>
+                                        <input style="margin-left:40px;" type="datetime-local" name="closing_time">
                                     </div> 
                                     <div>
-                                        <label><i class="fa fa-upload" aria-hidden="true"></i>Upload Your Files</label>
-                                        <input type="file" name="file" class="form-control" class="form-submit-button">
+                                        <label><i class="fa fa-upload" aria-hidden="true" style="margin-left:20px;"></i>Upload Your Files</label>
+                                        <br>
+                                        <input style="margin-left:40px;" type="file" name="file" class="form-control" class="form-submit-button">
                                         <br> 
 
-                                        <div id="logo" style="width:100%;height:230px;background-color:white;">
+                                        <div id="logo" style="width:80%;height:290px;background-color:white;margin-left:20px;">
 
                                         <a href=""></a>
 
@@ -195,7 +214,7 @@
                                     </div>
                                     <br>
                                     <div >
-                                        <button type="submit" name='submit' class="form-submit-button" style="margin-bottom:50px;" >Submit</button>
+                                        <button id='b' type="submit" name='submit' class="form-submit-button" style="margin-bottom:50px;" >Submit</button>
                                     </div>
                                     <br>
                                    
@@ -212,6 +231,7 @@
                        
                     </div>
                 </div>
+            </div>
             </div>
         </div>
 

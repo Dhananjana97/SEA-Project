@@ -203,7 +203,7 @@
 						<td style='display:none;'><textarea name='$student_name-up_file' style='display:none'>$uploaded_file</textarea></td>
 						<td name='f'><a href='$uploaded_file'>$file_n</a></td>
 						<td name='message'>$message</td>
-						<td><textarea rows='1' name='$student_name-marks' style='background-color:#e4c99e;background-size:100%;border:hidden;width:100%;text-align:center;' placeholder='_________________' value='$marks'>$marks</textarea>
+						<td><textarea rows='1' name='$student_name-marks' style='background-color:#e4c99e;background-size:100%;border:hidden;width:100%;text-align:center;' placeholder='_________________ 'value='$marks'>$marks</textarea>
 						</td>
 						<td style='display:none;'><textarea name='$student_name-submit_time' style='display:none'>$submitted_time</textarea></td>
 						<td style='display:none;'><textarea name='$student_name-submission_t' style='display:none'>$submission_t</textarea></td>

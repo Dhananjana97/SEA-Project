@@ -55,6 +55,12 @@ ob_start();
         $File_size=$_FILES['file']['size'];
 
         $upload_to="uploaded files/Instructor/".$batch."/".$module."/";
+
+        if (file_exists("uploaded files/Instructor/".$batch."/".$module)) {
+            echo "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz";
+        }else{
+            mkdir($upload_to);
+        }
        // echo "$File_type";
         
        // echo "$File_size";

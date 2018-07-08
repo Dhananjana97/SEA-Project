@@ -72,6 +72,22 @@
     
 ?>
 
+<style type="text/css">
+    
+#b{
+    background-color:#1d1d1d; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+
+</style>
+
 <?php 
 
     if(isset($_GET['module'])){
@@ -116,6 +132,8 @@
 
 
  ?>
+
+
 
  <?php 
 
@@ -167,11 +185,12 @@
         <div class="container">
             <!-- Form Started -->
             <div class="container form-top">
-                <h3><?php echo "$module $CA_number"; ?></h3>
+                <div style="background-color:white;margin-left:20px;border:2px solid black;background-image:url('images/CA.jpg');background-opacity:0.5;">
+                <h3 style="margin-left:20px;font-weight:bold;"><?php echo "$module $CA_number"; ?></h3>
                 
                 <div class="row">
                     
-
+<style type="text/css"></style>
                     <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12"> 
                         <div class="panel panel-danger">
                             <div class="panel-body">
@@ -181,12 +200,15 @@
                                    
                                    
                                     <div class="form-group">
-                                        <label><i class="fa fa-comment" aria-hidden="true" style="font-size:30px;"></i>Assignment</label>
-                                        <textarea rows="3" name="message" class="form-control" placeholder="Type Your Message"><?php echo "$Assignment"; ?></textarea>
+                                        <label><i class="fa fa-comment" aria-hidden="true" style="font-size:30px;margin-left:20px;"></i>Assignment</label>
+                                        <br>
+                                        <textarea rows="3" name="message" style='margin-left:20px;'class="form-control" placeholder="Type Your Message">
+                                            <?php echo "$Assignment"; ?></textarea>
                                     </div>
                                      <div class="form-group">
-                                        <label><i class="fa fa-calendar" aria-hidden="true"></i>Due Date And Time</label>
-                                        <input id="due date" type="datetime-local" name="closing_time" value="<?php echo "$duration"; ?>">
+                                        <label><i class="fa fa-calendar" aria-hidden="true" style="margin-left:20px;"></i>Due Date And Time</label>
+                                        <br>
+                                        <input id="due date" type="datetime-local" style='margin-left:20px;'name="closing_time" value="<?php echo "$duration"; ?>">
                                         
 
                                          <?php 
@@ -204,11 +226,12 @@
                                          ?>
                                     </div> 
                                     <div>
-                                        <label><i class="fa fa-upload" aria-hidden="true"></i>Upload Your Files</label>
-                                        <input type="file" name="file" class="form-control" class="form-submit-button">
+                                        <label><i class="fa fa-upload" aria-hidden="true" style="margin-left:20px;"></i>Upload Your Files</label>
+                                        <br>
+                                        <input type="file" name="file" style='margin-left:20px;'class="form-control" class="form-submit-button"style='padding:0px;'>
                                         <br> 
-
-                                        <div id="logo" style="width:100%;height:230px;background-color:white;">
+                                        <br>
+                                        <div id="logo"  style="margin-left:20px;width:60%;height:290px;background-color:white;">
 
                                         <a href=""></a>
 
@@ -229,7 +252,7 @@
                                                 echo "<a style='padding-left:10px;' href='$file'>".$filen."</a>";
 
                                             }elseif($filet=="docx" or $filet=="doc"){
-                                                echo "<a href='$file'>"."<img style='padding-top:5px;padding-left:5px;'src='img/doc_logo.png'>"."</a>";
+                                                echo "<a href='$file'>"."<img style='padding-top:5px;padding-left:5px;'src='images/doc.png'>"."</a>";
                                                  echo "<br>";
                                                 echo "<a href='$file'>".$filen."</a>";
 
@@ -350,7 +373,8 @@
                                     </div>
                                     <br>
                                     <div >
-                                        <button type="submit" name='submit' class="form-submit-button" style="margin-bottom:30px;">Submit</button>
+                                        <button type="submit" name='submit' class="form-submit-button" style="margin-bottom:30px;background-color:#1d1d1d;border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;margin: 4px 2px;cursor: pointer;">Submit</button>
+                                    </div>
                                     </div>
                                     <br>
                                    
