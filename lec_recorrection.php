@@ -74,13 +74,16 @@ $id = strtolower($user->id);
     {
         $mydb = openDB();
         global $dbname;
+
+        $query0 = "DELETE FROM recorrection_requests WHERE index_no = '$name';";
         
         $query1 ="INSERT INTO approved_recorrections(index_no,module_code,reason) VALUES (\"".$_GET["approverequest"]."\",\"".$_GET["mcode"]."\",\"".$_GET["reason"]."\")";
 
         $result1 = mysqli_query($mydb, $query1);
+        $result2 = mysqli_query($mydb, $query0);
         
         mysqli_close($mydb);
-        if ($result1) {
+        if ($result1 && $result2) {
             echo '<br><center>Approval of ' . $name . ' is success</center>';
         }
     }
