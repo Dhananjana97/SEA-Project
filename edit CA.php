@@ -198,28 +198,17 @@
                         
                                 <form id="reused_form" action=<?php echo "'edit CA process.php?module=$module&CA_number={$CA_number}&submitted_file={$submitted_file}'"; ?>          method="Post" enctype="multipart/form-data">
                                    
-                                   
+                                   <br>
                                     <div class="form-group">
-                                        <label><i class="fa fa-comment" aria-hidden="true" style="font-size:30px;margin-left:20px;"></i>Assignment</label>
-                                        <br>
-                                        <textarea rows="3" name="message" style='margin-left:20px;'class="form-control" placeholder="Type Your Message">
+                                        <label style="font-size:20px;margin-left:50px;color:white;"><i class="fa fa-comment" aria-hidden="true" ></i>Assignment</label>
+                                        <textarea rows="3" name="message" style='margin-left:91px;vertical-align:text-top;'class="form-control" placeholder="Type Your Message">
                                             <?php echo "$Assignment"; ?></textarea>
                                     </div>
                                      <div class="form-group">
-<<<<<<< HEAD
-                                        <label><i class="fa fa-calendar" aria-hidden="true" style="margin-left:20px;"></i>Due Date And Time</label>
                                         <br>
+                                        <label  style="font-size:20px;margin-left:50px;color:white;"><i class="fa fa-calendar" aria-hidden="true" ></i>Due Date And Time</label>
                                         <input id="due date" type="datetime-local" style='margin-left:20px;'name="closing_time" value="<?php echo "$duration"; ?>">
-=======
-<<<<<<< HEAD
-                                        <label><i class="fa fa-calendar" aria-hidden="true"></i>Due Date And Time</label>
-                                        <input id="due date" type="datetime-local" name="closing_time" value="<?php echo "$duration"; ?>">
-=======
-                                        <label><i class="fa fa-calendar" aria-hidden="true" style="margin-left:20px;"></i>Due Date And Time</label>
-                                        <br>
-                                        <input id="due date" type="datetime-local" style='margin-left:20px;'name="closing_time" value="<?php echo "$duration"; ?>">
->>>>>>> e6be4260ce1376ba232182d38fbc516fa9dbb4da
->>>>>>> d02b845a6c8dd8244d84b0ad05193a98f961f7d7
+
                                         
 
                                          <?php 
@@ -237,12 +226,13 @@
                                          ?>
                                     </div> 
                                     <div>
-                                        <label><i class="fa fa-upload" aria-hidden="true" style="margin-left:20px;"></i>Upload Your Files</label>
                                         <br>
-                                        <input type="file" name="file" style='margin-left:20px;'class="form-control" class="form-submit-button"style='padding:0px;'>
+                                        <label style="font-size:20px;margin-left:50px;color:white;"><i class="fa fa-upload" aria-hidden="true" ></i>Upload Your Files</label>
+                                        
+                                        <input type="file" name="file" style="font-size:20px;margin-left:37px;color:white;"class="form-control" class="form-submit-button"style='padding:0px;'>
                                         <br> 
                                         <br>
-                                        <div id="logo"  style="margin-left:20px;width:60%;height:290px;background-color:white;">
+                                        <div id="logo"  style="margin-left:50px;width:60%;height:290px;background-color:white;">
 
                                         <a href=""></a>
 
@@ -384,7 +374,7 @@
                                     </div>
                                     <br>
                                     <div >
-                                        <button type="submit" name='submit' class="form-submit-button" style="margin-bottom:30px;background-color:#1d1d1d;border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;margin: 4px 2px;cursor: pointer;">Submit</button>
+                                        <button type="submit" name='submit' class="form-submit-button" style="margin-bottom:30px;background-color:#1d1d1d;border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;margin: 4px 50px;cursor: pointer;">Submit</button>
                                     </div>
                                     </div>
                                     <br>

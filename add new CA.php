@@ -25,7 +25,7 @@
             <!-- Form Started -->
             <div class="container form-top">
                 <div style="background-color:white;margin-left:20px;border:2px solid black;background-image:url('images/CA.jpg');background-opacity:0.5;">
-                <h3 style="margin-left:20px;font-weight:bold;"><?php echo "$CA_module"; ?></h3>
+                <h3 style="margin-left:50px;font-weight:bold;margin-top:40px"><?php echo "$CA_module"; ?></h3>
                 
                 <div class="row">
                     
@@ -48,29 +48,38 @@
                                     ?>
                                    
                                    
-                                    
+                                    <br>
 
                                     <div class="form-group">
-                                        <label><i class="fa fa-folder" aria-hidden="true" style="margin-left:20px;"></i>Assignment Name</label>
+                                        <label style="font-size:20px;margin-left:50px;color:white;"><i class="fa fa-folder" aria-hidden="true" style="margin-left:20px;"></i>Assignment Name</label>
+                                        
+                                        <input style='margin-left:32px;vertical-align:text-top;' type="text" name="Assignment_Name">
+
                                         <br>
-                                        <input style="margin-left:40px;" type="text" name="Assignment_Name">
+                                        <br>
                                     <div class="form-group">
-                                        <label><i class="fa fa-comment" aria-hidden="true" style="font-size:30px;margin-left:20px;"></i> Assignment</label>
+                                        <label style="font-size:20px;margin-left:50px;color:white;"><i class="fa fa-comment" aria-hidden="true" ></i> Assignment</label>
+                                        
+                                        <textarea  style='margin-left:91px;vertical-align:text-top;' rows="3" name="message" class="form-control" placeholder="Type Your Message"></textarea>
+
                                         <br>
-                                        <textarea  style="margin-left:40px;" rows="3" name="message" class="form-control" placeholder="Type Your Message"></textarea>
+                                        <br>
                                     </div>
                                     <div class="form-group">
-                                        <label><i class="fa fa-calendar" aria-hidden="true" style="margin-left:20px;"></i>Due Date And Time</label>
+                                        <label style="font-size:20px;margin-left:50px;color:white;"><i class="fa fa-calendar" aria-hidden="true"></i>Due Date And Time</label>
+                                    
+                                        <input style='margin-left:20px;vertical-align:text-top;' type="datetime-local" name="closing_time">
                                         <br>
-                                        <input style="margin-left:40px;" type="datetime-local" name="closing_time">
+                                        <br>
                                     </div> 
                                     <div>
-                                        <label><i class="fa fa-upload" aria-hidden="true" style="margin-left:20px;"></i>Upload Your Files</label>
+                                        <label style="font-size:20px;margin-left:50px;color:white;"><i class="fa fa-upload" aria-hidden="true" ></i>Upload Your Files</label>
+                                        
+                                        <input style='margin-left:38px;vertical-align:text-top;' type="file" name="file" class="form-control" class="form-submit-button">
                                         <br>
-                                        <input style="margin-left:40px;" type="file" name="file" class="form-control" class="form-submit-button">
-                                        <br> 
+                                        <br>
 
-                                        <div id="logo" style="width:80%;height:290px;background-color:white;margin-left:20px;">
+                                        <div id="logo" style="width:80%;height:290px;background-color:white;margin-left:50px;">
 
                                         <a href=""></a>
 
@@ -214,7 +223,7 @@
                                     </div>
                                     <br>
                                     <div >
-                                        <button id='b' type="submit" name='submit' class="form-submit-button" style="margin-bottom:50px;" >Submit</button>
+                                        <button id='b' type="submit" name='submit' class="form-submit-button" style="margin-bottom:50px;margin-left: 50px;" >Submit</button>
                                     </div>
                                     <br>
                                    
@@ -232,14 +241,9 @@
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
+
             </div>
-=======
-<<<<<<< HEAD
-=======
-            </div>
->>>>>>> e6be4260ce1376ba232182d38fbc516fa9dbb4da
->>>>>>> d02b845a6c8dd8244d84b0ad05193a98f961f7d7
+
         </div>
 
 <?php require_once 'footer.php';?>

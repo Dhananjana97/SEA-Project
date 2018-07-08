@@ -109,6 +109,38 @@ function logout()
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
 </style>
 
+         <div id="site_content">
+        <div id="sidebar_container" >
+
+         <div class="sidebar">
+                <div class="sidebar_top"></div>
+                <div class="sidebar_item">
+
+                    <!-- insert your sidebar items here -->
+
+                    <div id="dashboard" >
+                        <?php
+                        if (isset($links)) {
+                            echo '<h3>' . ucfirst($user->type) . ' Dashboard' . '</h3><ul>';
+                            echo '<li><a style ="font-size: 16px" href="' . $_SESSION["user"]->type . '_home.php' . '">Welcome Page</a></li>';
+                            foreach ($links as $title => $link) {
+                                echo '<li><a style ="font-size: 16px" href="' . $link . '">' . $title . '</a></li>';
+                            }
+                            echo '</ul>';
+                        } else {
+                            $logname = 'Login for Dashboard';
+                            echo '<ul><li><a class="nav-link" href="' . $login . '"><strong>' . $logname . '</strong></a></li></ul>';
+                        }
+
+                        ?>
+                    </div>
+
+                </div>
+                <div class="sidebar_base"></div>
+            </div>
+
+            <br>
+
 
           <div class="sidebar">
 		<div class="sidebar_top"></div>
@@ -148,34 +180,8 @@ function logout()
       
 
 
-    <div id="site_content">
-        <div id="sidebar_container">
-            <div class="sidebar">
-                <div class="sidebar_top"></div>
-                <div class="sidebar_item">
-
-                    <!-- insert your sidebar items here -->
-
-                    <div id="dashboard">
-                        <?php
-                        if (isset($links)) {
-                            echo '<h3>' . ucfirst($user->type) . ' Dashboard' . '</h3><ul>';
-                            echo '<li><a style ="font-size: 16px" href="' . $_SESSION["user"]->type . '_home.php' . '">Welcome Page</a></li>';
-                            foreach ($links as $title => $link) {
-                                echo '<li><a style ="font-size: 16px" href="' . $link . '">' . $title . '</a></li>';
-                            }
-                            echo '</ul>';
-                        } else {
-                            $logname = 'Login for Dashboard';
-                            echo '<ul><li><a class="nav-link" href="' . $login . '"><strong>' . $logname . '</strong></a></li></ul>';
-                        }
-
-                        ?>
-                    </div>
-
-                </div>
-                <div class="sidebar_base"></div>
-            </div>
+   
+           
 
             <div class="sidebar">
                 <div class="sidebar_top"></div>
