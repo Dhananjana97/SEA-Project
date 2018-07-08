@@ -101,6 +101,5 @@ Eg:
 		echo '</div>';
 	}
 ?>
-<script type="text/javascript" src="./main/scripts/jquery.js"></script>
 <script type="text/javascript" src="./main/scripts/formandinput.js"></script>
 <?php require_once 'footer.php';?>

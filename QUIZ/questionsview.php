@@ -1,4 +1,4 @@
-<div style="text-indent: 1.5em;">
+<div style="text-indent: 1.5em">
 <?php 
 	if(isset($_GET['question'])&&!empty($_GET['question'])){
 		$questions = $questionCategory->removeQ($_GET['question']);

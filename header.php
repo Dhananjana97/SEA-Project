@@ -1,11 +1,13 @@
 <?php
 require_once 'main/config.inc.php';
+setcookie('returning_page', $_SERVER['REQUEST_URI']);
 session_start();
 if (isset($_SESSION['user'])) {
     $user = $_SESSION['user'];
     $links = $user->links;
 } else header('Location: ' . $home);
 if (isset($_GET['logout']) && $_GET['logout'] == 'true') {
+    unset($_COOKIE['return_page']);
     logout();
 }
 
@@ -30,7 +32,8 @@ function logout()
 </head>
 
 <body>
-<script type="text/javascript" src="main/scripts/jquery-3.3.1.min.js"></script>
+
+<script type="text/javascript" src="./main/scripts/jquery.js"></script>
 <div id="main">
     <div id="header">
         <div id="logo">

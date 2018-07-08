@@ -1,4 +1,5 @@
 <?php
+ob_start();
 
 	require_once 'header.php';
 	if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="instructor"){header('Location: '.$home); exit();}
@@ -6,7 +7,7 @@
 
     echo "<h1 style='margin-top:40px;'></h1>";
     
-    $errors;
+    $errors='';
     $file_uploaded=false;
     $ft;
     if (isset($_POST['submit'])) {
@@ -19,6 +20,7 @@
         $closing_time=$_POST['closing_time'];
 
         if(isset($_GET['module']))$CA_module=$_GET['module']; else die("you should select module");
+        $module1=$_GET['module'];
         $submitted_file=$_GET['submitted_file'];
         $ar=explode("-",$module1);
         print_r($ar);
@@ -26,29 +28,30 @@
         $module=$ar[1];
        
 
-      //  date_default_timezone_set('Asia/Colombo');
-        // echo "<br>";
-       // $now=new DateTime();
-        //$date=new DateTime($closing_time);
+        date_default_timezone_set('Asia/Colombo');
+         echo "<br>";
+        $now=new DateTime();
+        $date=new DateTime($closing_time);
 
-       // echo "<br>";
-      //  print($d);
-        //print(new DateTime());
-      //  echo $d->format('Y-m-d h:i:sa');
-       // echo "<br>";
-       // print(time());
-       // print($d-$date_a);
+        echo "<br>";
+       // print($d);
+       // print(new DateTime());
+       //echo $d->format('Y-m-d h:i:sa');
+        //echo "<br>";
+        //print(time());
+        //print($d-$date_a);
 
-      //  if($now>$date){
-        //    echo "passed";
-       // }else{
-         //   echo "not";
-        //}
+       if($now>$date){
+            echo "passed";
+            $errors="Invalid Deadline";
+        }else{
+            echo "not";
+        }
 
 
 
 
-       
+       print_r($_FILES);
 
         $File_name=$_FILES['file']['name'];
         $File_type=$_FILES['file']['type'];
@@ -62,11 +65,12 @@
 
         if ($File_size > "5048576") {
 
-            $errors['file_size']="File Size is too large";
+            $errors="File Size is too large";
 
           //  echo "File Size is too large";
             
         }else{
+          echo "11111111111111111";
         
         if ($File_type =="application/vnd.openxmlformats-officedocument.wordprocessingml.document" or $File_type=="application/msword") {
             $ft="doc";
@@ -78,6 +82,7 @@
             // $submit_st="Submiited";
         
         }elseif($File_type == "application/pdf"){
+          echo "222222222222";
             $ft="pdf";
             $file_uploaded = move_uploaded_file($File_tmp_name,$upload_to.$File_name);
             // $submit_st="Submiited";
@@ -86,12 +91,23 @@
             $ft="jpg";
             $file_uploaded = move_uploaded_file($File_tmp_name,$upload_to.$File_name);
             // $submit_st="Submiited";
-        }elseif (!empty($message)) {
-            $file_uploaded = true;
+        }elseif($File_type=="text/plain" ){
+            $ft="txt";
+            $file_uploaded = move_uploaded_file($File_tmp_name,$upload_to.$File_name);
+            // $submit_st="Submiited";
         }
         else{
-            $errors['file_type']="<h3 style='color:red;'>File type is incorrect</h3>"; 
+
+            if (!empty($File_type)) {
+              $errors="File type is incorrect"; 
+            }
+            
+            
            // echo "<h3 style='color:red;'>File type is incorrect</h3> ";
+        }
+
+        if (!empty($message) && empty($errors)) {
+            $file_uploaded = true;
         }
 
 
@@ -116,7 +132,11 @@
 
 
     if ($file_uploaded) {
+      echo "333333333333333333";
+      if (empty($errors)) {
+        echo "44444444444444444444444";
       	if (empty($File_name)) {
+          echo "5555555555555555555";
 
             echo "oooooooooooooooooooooo";
 
@@ -139,9 +159,10 @@
 
       
 
-        
+        $conn=openDB();
 
         $ex=mysqli_query($conn,$query2);
+        mysqli_close($conn);
 
         if ($ex) {
             echo "kkkkkkkkkkkkk";
@@ -152,7 +173,11 @@
             echo "Query not executed Successfully";
         }
 
+      }
+
     }
+
+    print($errors);
 
      header("Location:edit CA.php?module={$module1}&ca_number={$assignment_name}&errors={$errors}");
 

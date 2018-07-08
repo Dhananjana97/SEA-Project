@@ -1,4 +1,5 @@
 <?php
+ob_start();
 	require_once 'header.php';
 	if(!isset($_SESSION['user'])|| $_SESSION['user']->type!="instructor"){header('Location: '.$home); exit();}
 
@@ -38,6 +39,7 @@
 
         if($now>$date){
             echo "passed";
+            $errors="Invalid Deadline";
         }else{
             echo "not";
         }
@@ -53,6 +55,12 @@
         $File_size=$_FILES['file']['size'];
 
         $upload_to="uploaded files/Instructor/".$batch."/".$module."/";
+
+        if (file_exists("uploaded files/Instructor/".$batch."/".$module)) {
+            echo "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz";
+        }else{
+            mkdir($upload_to);
+        }
        // echo "$File_type";
         
        // echo "$File_size";
@@ -83,21 +91,42 @@
             $ft="jpg";
             $file_uploaded = move_uploaded_file($File_tmp_name,$upload_to.$File_name);
             // $submit_st="Submiited";
-        }elseif (!empty($message)) {
+        }elseif($File_type=="text/plain" ){
+            $ft="txt";
+            $file_uploaded = move_uploaded_file($File_tmp_name,$upload_to.$File_name);
+            // $submit_st="Submiited";
+        }else{
+
+            if (!empty($File_type)) {
+              $errors="File type is incorrect"; 
+            }
+        }
+
+
+        
+        if (empty($closing_time)) {
+          $errors="Enter Deadline";
+        }
+        if (empty($File_type) && empty($message)) {
+          $errors="Enter Assignment";
+        }
+
+        if (empty($assignment_name)) {
+          $errors="Enter Assignment Name";
+        }
+        if (!empty($message) && empty($errors)) {
+          echo "999999999999999999999";
             $file_uploaded = true;
         }
-        else{
-            $errors['file_type']="<h3 style='color:red;'>File type is incorrect</h3>"; 
-           // echo "<h3 style='color:red;'>File type is incorrect</h3> ";
-        }
+       
 
 
         }
+
+
        
     }
 
-    
-        
     
 ?>
 
@@ -107,12 +136,10 @@
    // $CA_number=$_GET['ca_number'];
    // $submitted_file=$_GET['submitted_file'];
 
-    
-
-
-
-
     if ($file_uploaded) {
+      if (empty($errors)) {
+        # code...
+      
 
       if (empty($File_name)) {
 
@@ -128,41 +155,44 @@
             $query2="INSERT INTO `instructor_{$module1}_ca`(`CA_number`, `assignment`, `file`, `valid_duration`) VALUES ('{$assignment_name}','{$message}','{$upload_to}{$File_name}','{$closing_time}')";
         }
 
-      }
-
-        
-
       
 
-        
-
+		    $conn = openDB();
         $ex=mysqli_query($conn,$query2);
-
+		    mysqli_close($conn);
         if ($ex) {
             echo "kkkkkkkkkkkkk";
             $query3= "ALTER TABLE `{$batch}{$module}`  ADD `{$assignment_name}` VARCHAR(500) NOT NULL";
             echo "ALTER TABLE `{$module1}`  ADD `{$assignment_name}` VARCHAR(500) NOT NULL  AFTER `mid`";
 
+			       $conn = openDB();
             $ex2=mysqli_query($conn,$query3);
+
+            mysqli_close($conn);
+
+           
+			
             if ($ex2) {
               $CA_submitted=true;
-              header("Location:edit CA.php?module={$module1}&ca_number={$assignment_name}&errors={$errors}");
+              $errors="pppppppppppppppppppppppppppp";
+              header("Location:edit CA.php?module=$module1&ca_number=$assignment_name");
+              die();
+
             }else{
-              echo "coloumn not added";
+
+              $errors="Coloumn not added";
             }
 
             
                                             
         }else{
-            $errors['database_added']="Not Uploaded Successfully";
+            $errors="Not Uploaded Successfully";
             echo "Query not executed Successfully";
         }
-
-    
-
+      }
+    }
+    header("Location:add new CA.php?module=$module1&ca_number=$assignment_name&errors={$errors}");
     require_once 'footer.php';
-
-
  ?>
 
  <?php 
@@ -179,11 +209,6 @@
         $errors['select_CA']="CA not selected Successfully";
         //echo "Query not excecuted Successfully";
     }
-
-    
-
-  
-
 
     header("Location:CA Upload.php?module={$CA_module}&ca_number={$CA_number}&submitted_file={$submitted_file}&file_uploaded");
 

@@ -1,5 +1,6 @@
 <?php
 require_once 'main/config.inc.php';
+$returning_page=isset($_COOKIE['returning_page'])?$_COOKIE['returning_page']:NULL;
 $privilege;
 session_start();
 if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
@@ -43,8 +44,11 @@ function login($user, $pass)
 
 function gotouserhome()
 {
-    global $privilege;
-    header("Location:	" . $_SESSION['user']->type . "_home.php");
+    global $privilege, $returning_page;
+    if(!empty($returning_page))
+        header("Location:	".$returning_page);
+    else
+        header("Location:	" . $_SESSION['user']->type . "_home.php");
     exit;
 }
 
