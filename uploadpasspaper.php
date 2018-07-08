@@ -1,8 +1,5 @@
 <?php include 'header.php';
-if (!isset($_SESSION['user'])) {
-    header('Location:' . $home);
-    exit();
-}
+if (!isset($_SESSION['user'])||$_SESSION['user']->type != "instructor"&&$_SESSION['user']->type != "lecturer") {logout();}
 ?>
 <?php
 echo '<h2>' . $title . '</h2>';
@@ -24,7 +21,7 @@ function listFolders($dir)
     foreach ($ffs as $ff) {
         $path1 = $path . $ff . '/';
         if (is_dir($dir . '/' . $ff))
-            echo '<li><a class = "listing">' . $ff . '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="text-decoration:none; color:blue;" href="submission?uploadedto=' . $SitePath . "/" . $dir . '/' . $ff . '">Upload Files</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="text-decoration:none; color:blue;" href="uploadpasspaper?dir=' . $dir . "/" . $ff . '">Go</a>';
+            echo '<li><a class = "listing">' . $ff . '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="text-decoration:none; color:blue;" href="passpaper_upload?uploadedto=' . $SitePath . "/" . $dir . '/' . $ff . '">Upload Files</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="text-decoration:none; color:blue;" href="uploadpasspaper?dir=' . $dir . "/" . $ff . '">Go</a>';
         else
             echo '<li><a class = "listing">' . $ff;
         echo '</li></a>';

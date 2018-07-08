@@ -1,9 +1,6 @@
 <?php
 include 'header.php';
-if (!isset($_SESSION['user'])) {
-    header("Location: $home");
-    exit();
-}
+if (!isset($_SESSION['user'])||$_SESSION['user']->type != "lecturer"&&$_SESSION['user']->type != "instructor") {logout();}
 if (isset($_GET['uploadedto']) && !empty($_GET['uploadedto'])) {
     $uploadedto = $_GET['uploadedto'] . "/";
 } else {

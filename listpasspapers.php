@@ -1,8 +1,5 @@
 <?php include 'header.php';
-if (!isset($_SESSION['user'])) {
-    header('Location:' . $home);
-    exit();
-}
+if (!isset($_SESSION['user'])) {logout();}
 ?>
 <html>
 <?php
@@ -23,8 +20,11 @@ if (!isset($_SESSION['user'])) {
         echo '<ol style="font-size:x-large">';
         foreach ($ffs as $ff) {
             $path1 = $path . $ff . '/';
-            echo '<li><a class = "listing">' . $ff . '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="text-decoration:none; color:blue;" href="listdirectory?title=' . $ff . '&&dir=' . $dir . '/' . $ff . '">Go</a>';
-            echo '</li></a>';
+            echo 
+			'<li>'
+			.'<span style="color:#000" class = "listing">' . $ff . '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>'
+			.'<a style="text-decoration:none; color:blue;" href="listdirectory?title=' . $ff . '&&dir=' . $dir . '/' . $ff . '">Go</a>';
+            echo '</li>';
         }
         echo '</ol>';
     }

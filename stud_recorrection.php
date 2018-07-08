@@ -19,7 +19,11 @@ if (!isset($_SESSION['user']) || $_SESSION['user']->type != "student") {
 			<div><p><span>Department</span></p>
 			<select name="dept">
 				<option value="cse">Computer Science and Engineering</option>
+<<<<<<< HEAD
 				<option value="ee">Electrical Engineering</option>
+=======
+				
+>>>>>>> 92a4c9d92f650359ff60704f91c62f0c9727411b
 				<option value="ce">Civil Engineering</option>
                 <option value="en">Electronic Engineering</option>
             </select>   

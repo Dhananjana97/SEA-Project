@@ -1,6 +1,6 @@
 <?php
 require_once 'main/config.inc.php';
-setcookie('returning_page', $_SERVER['REQUEST_URI']);
+$this_page = implode("/",array_slice(explode("/",$_SERVER['REQUEST_URI']),2));
 session_start();
 if (isset($_SESSION['user'])) {
     $user = $_SESSION['user'];
@@ -13,9 +13,10 @@ if (isset($_GET['logout']) && $_GET['logout'] == 'true') {
 
 function logout()
 {
-    global $home;
+    global $home,$this_page;
     unset($_SESSION['user']);
-    header("Location: $home");
+	header("Location: $home?return=$this_page");
+	exit;
 }
 
 ?>
@@ -36,6 +37,7 @@ function logout()
 <script type="text/javascript" src="./main/scripts/jquery.js"></script>
 <div id="main">
     <div id="header">
+<<<<<<< HEAD
 
 		
       <div id="logo">
@@ -113,12 +115,51 @@ function logout()
         <div id="sidebar_container" >
 
          <div class="sidebar">
+=======
+        <div id="logo">
+            <div id="logo_text">
+                <!-- class="logo_colour", allows you to change the colour of the text -->
+                <h1><a href="index.php">STUDENT AND EXAMINATION DEPARTMENT<span class="logo_colour"></span></a></h1>
+                <h2 style="text-indent:10px;"><?php if(isset($_SESSION['user']->id))echo "Have a nice day, ".strtoupper($_SESSION['user']->id); ?>...</h2>
+            </div>
+            <div id="accdet">
+                <h4><?php
+                    if (isset($_SESSION['user'])) {
+                        echo 'loggedin: ' . strtoupper($_SESSION['user']->id) . ' &nbsp;<a href="?logout=true"><strong>logout</strong></a>';
+                    }
+                    ?></h4>
+            </div>
+
+        </div>
+
+        <div id="menubar">
+            <ul id="menu">
+                <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+                <li class="selected">
+                    <a href="<?php if (isset($_SESSION['user'])) echo $_SESSION['user']->type . "_home.php"; else echo $home; ?>">Home</a>
+                </li>
+                <li><a href="<?php echo $gallery; ?>">Gallery</a></li>
+                <li><a href="<?php echo $aboutus; ?>">About</a></li>
+                <li><a href="<?php echo $contactus; ?>">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div id="site_content">
+        <div id="sidebar_container">
+            <div class="sidebar">
+>>>>>>> 92a4c9d92f650359ff60704f91c62f0c9727411b
                 <div class="sidebar_top"></div>
                 <div class="sidebar_item">
 
                     <!-- insert your sidebar items here -->
 
+<<<<<<< HEAD
                     <div id="dashboard" >
+=======
+                    <div id="dashboard">
+>>>>>>> 92a4c9d92f650359ff60704f91c62f0c9727411b
                         <?php
                         if (isset($links)) {
                             echo '<h3>' . ucfirst($user->type) . ' Dashboard' . '</h3><ul>';
@@ -131,6 +172,7 @@ function logout()
                             $logname = 'Login for Dashboard';
                             echo '<ul><li><a class="nav-link" href="' . $login . '"><strong>' . $logname . '</strong></a></li></ul>';
                         }
+<<<<<<< HEAD
 
                         ?>
                     </div>
@@ -178,6 +220,8 @@ function logout()
         </div>
 		
       
+=======
+>>>>>>> 92a4c9d92f650359ff60704f91c62f0c9727411b
 
 
    

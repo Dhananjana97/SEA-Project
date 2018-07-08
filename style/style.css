@@ -419,7 +419,6 @@ table tr td
 { background: #E5E5DB;
   color: #47433F;
   border-top: 1px solid #FFF;}
-<<<<<<< HEAD
  
 table,table tr th , table tr td [class="results_table"] {
 	background: #333333;
@@ -465,11 +464,4 @@ table td [class="results_table"] {
 	border: 2px solid #007799;
 	border-radius: 4px;
 	background-color:#fff;
-=======
-
-.val_error{
-  color:#FF1F1F;
-  margin-left: 30px;
-
->>>>>>> e335e175997d60cc823a5857af8384a4416f180a
 }
