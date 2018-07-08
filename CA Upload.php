@@ -219,8 +219,18 @@
                                                     
                                                     
                                                     if ($submission) {
+
+                                                      echo "```````````";
                                                         
                                                         if (empty($submission[$CA_number])) {
+                                                            $submit_stat=false;
+                                                            echo "<span style='font-size:x-large;'>Not Submitted</span>";
+                                                        }else{
+                                                          $submit_stat=true;
+                                                           echo "<span style='font-size:x-large;'>Submitted</span>"; 
+                                                        }
+                                                    }else{
+                                                      if (empty($submission[$CA_number])) {
                                                             $submit_stat=false;
                                                             echo "<span style='font-size:x-large;'>Not Submitted</span>";
                                                         }else{

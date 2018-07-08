@@ -18,6 +18,7 @@
 		
 
 		$query="SELECT * FROM `instructor_".$batch."-".$CA_module."_ca`";
+		print($query);
 		$mydb = openDB();
 		$execute_object=mysqli_query($mydb,$query);
 		mysqli_close($mydb);
@@ -64,15 +65,17 @@
 				$a2=array();
 				
 				//print_r($record);
-
-			foreach ($record as $x=>$x_value) {
+			if (!empty($record)) {
+				foreach ($record as $x=>$x_value) {
 
 				array_push($a2,$x_value);
 				//echo "<br>";
 				//print_r(array_slice($a2,4));
 
 
+				}
 			}
+			
 
 
 		}else{

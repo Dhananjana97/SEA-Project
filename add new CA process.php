@@ -59,7 +59,7 @@ ob_start();
         if (file_exists("uploaded files/Instructor/".$batch."/".$module)) {
             echo "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz";
         }else{
-            mkdir($upload_to);
+            mkdir($upload_to,0777,true);
         }
        // echo "$File_type";
         
