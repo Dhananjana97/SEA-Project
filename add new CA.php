@@ -20,6 +20,17 @@
 
 
                                   <form id="reused_form"  action=<?php echo "'add new CA process.php?module=$CA_module'"; ?> method="Post" enctype="multipart/form-data">
+
+                                    <?php  
+
+
+                                     if (!empty($_GET['errors'])) {
+                                            echo "<span style='font-size:xxx-large;color:red;position:center;font-weight:bold;'>".$_GET['errors']."</span>";
+                                        }
+
+
+                                    ?>
+                                   
                                    
                                     
 
@@ -202,6 +213,8 @@
                     </div>
                 </div>
             </div>
-          <?php require_once 'footer.php';?>
+        </div>
+
+<?php require_once 'footer.php';?>
   
 

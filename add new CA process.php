@@ -39,7 +39,7 @@ ob_start();
 
         if($now>$date){
             echo "passed";
-            
+            $errors="Invalid Deadline";
         }else{
             echo "not";
         }
@@ -85,16 +85,39 @@ ob_start();
             $ft="jpg";
             $file_uploaded = move_uploaded_file($File_tmp_name,$upload_to.$File_name);
             // $submit_st="Submiited";
-        }elseif (!empty($message)) {
+        }elseif($File_type=="text/plain" ){
+            $ft="txt";
+            $file_uploaded = move_uploaded_file($File_tmp_name,$upload_to.$File_name);
+            // $submit_st="Submiited";
+        }else{
+
+            if (!empty($File_type)) {
+              $errors="File type is incorrect"; 
+            }
+        }
+
+
+        
+        if (empty($closing_time)) {
+          $errors="Enter Deadline";
+        }
+        if (empty($File_type) && empty($message)) {
+          $errors="Enter Assignment";
+        }
+
+        if (empty($assignment_name)) {
+          $errors="Enter Assignment Name";
+        }
+        if (!empty($message) && empty($errors)) {
+          echo "999999999999999999999";
             $file_uploaded = true;
         }
-        else{
-            $errors['file_type']="<h3 style='color:red;'>File type is incorrect</h3>"; 
-           // echo "<h3 style='color:red;'>File type is incorrect</h3> ";
-        }
+       
 
 
         }
+
+
        
     }
 
@@ -108,6 +131,9 @@ ob_start();
    // $submitted_file=$_GET['submitted_file'];
 
     if ($file_uploaded) {
+      if (empty($errors)) {
+        # code...
+      
 
       if (empty($File_name)) {
 
@@ -123,7 +149,7 @@ ob_start();
             $query2="INSERT INTO `instructor_{$module1}_ca`(`CA_number`, `assignment`, `file`, `valid_duration`) VALUES ('{$assignment_name}','{$message}','{$upload_to}{$File_name}','{$closing_time}')";
         }
 
-      }
+      
 
 		    $conn = openDB();
         $ex=mysqli_query($conn,$query2);
@@ -132,6 +158,7 @@ ob_start();
             echo "kkkkkkkkkkkkk";
             $query3= "ALTER TABLE `{$batch}{$module}`  ADD `{$assignment_name}` VARCHAR(500) NOT NULL";
             echo "ALTER TABLE `{$module1}`  ADD `{$assignment_name}` VARCHAR(500) NOT NULL  AFTER `mid`";
+
 			       $conn = openDB();
             $ex2=mysqli_query($conn,$query3);
 
@@ -141,18 +168,24 @@ ob_start();
 			
             if ($ex2) {
               $CA_submitted=true;
+              $errors="pppppppppppppppppppppppppppp";
               header("Location:edit CA.php?module=$module1&ca_number=$assignment_name");
+              die();
+
             }else{
 
-              echo "coloumn not added";
+              $errors="Coloumn not added";
             }
 
             
                                             
         }else{
-            $errors['database_added']="Not Uploaded Successfully";
+            $errors="Not Uploaded Successfully";
             echo "Query not executed Successfully";
         }
+      }
+    }
+    header("Location:add new CA.php?module=$module1&ca_number=$assignment_name&errors={$errors}");
     require_once 'footer.php';
  ?>
 
