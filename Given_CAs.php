@@ -110,7 +110,7 @@
 
 	 
  
-
+<div class="bordered_frame">
 
 <ul class="a" style="margin-left:20px;">
 	<?php 
@@ -184,5 +184,7 @@
 	
 	
 	</ul>
+
+	</div>
 
 <?php require_once 'footer.php';?>

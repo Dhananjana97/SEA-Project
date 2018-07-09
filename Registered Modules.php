@@ -32,6 +32,7 @@
 
 
 	 ?>
+	 <div class="bordered_frame">
 
 <ul class="b">
 	<?php 
@@ -49,6 +50,7 @@
 
 
 </ul>
+</div>
 
 
 <?php require_once 'footer.php';?>
